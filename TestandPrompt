@@ -1,0 +1,90 @@
+Tests:
+{"story_id":406,"example_id":1126,"premises":"All people who regularly drink coffee are dependent on caffeine. People regularly drink coffee, or they don't want to be addicted to caffeine, or both. No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug. Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug. Rina is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.","conclusion":"Rina doesn't want to be addicted to caffeine or is unaware that caffeine is a drug.","gold_label":"True"}
+{"story_id":406,"example_id":1127,"premises":"All people who regularly drink coffee are dependent on caffeine. People regularly drink coffee, or they don't want to be addicted to caffeine, or both. No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug. Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug. Rina is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.","conclusion":"Rina eith doesn't want to be addicted to caffeine or is unaware that caffeine is a drug.","gold_label":"True"}
+{"story_id":406,"example_id":1128,"premises":"All people who regularly drink coffee are dependent on caffeine. People regularly drink coffee, or they don't want to be addicted to caffeine, or both. No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug. Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug. Rina is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.","conclusion":"Rina either regularly drinks coffee or is unaware that caffeine is a drug.","gold_label":"False"}
+{"story_id":406,"example_id":1129,"premises":"All people who regularly drink coffee are dependent on caffeine. People regularly drink coffee, or they don't want to be addicted to caffeine, or both. No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug. Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug. Rina is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.","conclusion":"If Rina either doesn't want to be addicted to caffeine and is unaware that caffeine is a drug, or neither doesn't want to be addicted to caffeine nor is unaware that caffeine is a drug, then Rina doesn't want to be addicted to caffeine and regularly drinks coffee.","gold_label":"True"}
+
+{"story_id":8,"example_id":20,"premises":"Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music. Any choral conductor is a musician. Some musicians love music. Miroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.","conclusion":"Miroslav Venhoda loved music.","gold_label":"Uncertain"}
+{"story_id":8,"example_id":21,"premises":"Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music. Any choral conductor is a musician. Some musicians love music. Miroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.","conclusion":"A Czech published a book in 1946.","gold_label":"True"}
+{"story_id":8,"example_id":22,"premises":"Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music. Any choral conductor is a musician. Some musicians love music. Miroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.","conclusion":"No choral conductor specialized in the performance of Renaissance.","gold_label":"False"}
+
+{"story_id":463,"example_id":1336,"premises":"All eels are fish. No fish are plants. Everything displayed in the collection is either a plant or an animal. All multicellular animals are not bacteria. All animals displayed in the collection are multicellular. A sea eel is displayed in the collection. The sea eel is an eel or an animal or not a plant.","conclusion":"The sea eel is an eel.","gold_label":"Uncertain"}
+{"story_id":463,"example_id":1337,"premises":"All eels are fish. No fish are plants. Everything displayed in the collection is either a plant or an animal. All multicellular animals are not bacteria. All animals displayed in the collection are multicellular. A sea eel is displayed in the collection. The sea eel is an eel or an animal or not a plant.","conclusion":"The sea eel is bacteria.","gold_label":"False"}
+{"story_id":463,"example_id":1338,"premises":"All eels are fish. No fish are plants. Everything displayed in the collection is either a plant or an animal. All multicellular animals are not bacteria. All animals displayed in the collection are multicellular. A sea eel is displayed in the collection. The sea eel is an eel or an animal or not a plant.","conclusion":"The sea eel is multicellular or is bacteria.","gold_label":"True"}
+
+{"story_id":133,"example_id":392,"premises":"The Blake McFall Company Building is a building added to the National Register of Historic Places in 1990. The Emmet Building is a five-story building in Portland, Oregon. The Emmet Building was built in 1915. The Emmet Building is another name for the Blake McFall Company Building. John works at the Emmet Building.","conclusion":"A five-story building is built in 1915.","gold_label":"True"}
+{"story_id":133,"example_id":393,"premises":"The Blake McFall Company Building is a building added to the National Register of Historic Places in 1990. The Emmet Building is a five-story building in Portland, Oregon. The Emmet Building was built in 1915. The Emmet Building is another name for the Blake McFall Company Building. John works at the Emmet Building.","conclusion":"The Blake McFall Company Building is located in Portland, Oregon.","gold_label":"True"}
+{"story_id":133,"example_id":394,"premises":"The Blake McFall Company Building is a building added to the National Register of Historic Places in 1990. The Emmet Building is a five-story building in Portland, Oregon. The Emmet Building was built in 1915. The Emmet Building is another name for the Blake McFall Company Building. John works at the Emmet Building.","conclusion":"John started his current job in 1990.","gold_label":"Uncertain"}
+
+{"story_id":226,"example_id":636,"premises":"William Dickinson was a British politician who sat in the House of Commons William Dickinson attended Westminster school for high school and then the University of Edinburgh. The University of Edinburgh is a university located in the United Kingdom. William Dickinson supported the Portland Whigs. People who supported the Portland Whigs did not get a seat in the Parliament.","conclusion":"William Dickinson did not get a seat in Parliament.","gold_label":"True"}
+{"story_id":226,"example_id":637,"premises":"William Dickinson was a British politician who sat in the House of Commons William Dickinson attended Westminster school for high school and then the University of Edinburgh. The University of Edinburgh is a university located in the United Kingdom. William Dickinson supported the Portland Whigs. People who supported the Portland Whigs did not get a seat in the Parliament.","conclusion":"William Dickinson went to schools located in the United Kingdom for both high school and university.","gold_label":"Uncertain"}
+{"story_id":226,"example_id":638,"premises":"William Dickinson was a British politician who sat in the House of Commons William Dickinson attended Westminster school for high school and then the University of Edinburgh. The University of Edinburgh is a university located in the United Kingdom. William Dickinson supported the Portland Whigs. People who supported the Portland Whigs did not get a seat in the Parliament.","conclusion":"William Dickinson attended university in the United Kingdom.","gold_label":"True"}
+{"story_id":226,"example_id":639,"premises":"William Dickinson was a British politician who sat in the House of Commons William Dickinson attended Westminster school for high school and then the University of Edinburgh. The University of Edinburgh is a university located in the United Kingdom. William Dickinson supported the Portland Whigs. People who supported the Portland Whigs did not get a seat in the Parliament.","conclusion":"William Dickinson sat in the House of Commons.","gold_label":"True"}
+
+{"story_id":247,"example_id":690,"premises":"LanguageA is a universal language If a universal language exists, then for every two people if they both know the same universal language they can communicate. Katya cannot communicate with Danil. Katya knows LanguageA.","conclusion":"Danil knows LanguageA.","gold_label":"False"}
+
+{"story_id":422,"example_id":1192,"premises":"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. Some of the customers in James' family go to the cinema every week. Customers in James' family subscribe to AMC A-List or HBO service. Customers in James' family who prefer TV series will not watch TV series in cinemas. All customers in James' family who subscribe to HBO services prefer TV series to movies. Lily is in James' family; she watches TV series in cinemas.","conclusion":"Lily goes to cinemas every week.","gold_label":"Uncertain"}
+{"story_id":422,"example_id":1193,"premises":"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. Some of the customers in James' family go to the cinema every week. Customers in James' family subscribe to AMC A-List or HBO service. Customers in James' family who prefer TV series will not watch TV series in cinemas. All customers in James' family who subscribe to HBO services prefer TV series to movies. Lily is in James' family; she watches TV series in cinemas.","conclusion":"Lily does not go to cinemas every week.","gold_label":"Uncertain"}
+
+
+
+OK prompt (FOL per sentence):
+
+SYSTEM:
+You are a precise semantic parser for the FOLIO dataset.
+You translate English sentences into First-Order Logic (FOL).
+You MUST return valid JSON only (no markdown, no explanations, no extra keys).
+
+Notation rules (use exactly this):
+- Quantifiers: "forall x" and "exists x"
+- Connectives: "not", "and", "or", "->", "<->"
+- Parentheses for grouping.
+- Predicates/functions: Capitalized, e.g., Student(x), DrinksCoffee(x), InFamily(x,James)
+- Constants: lower_snake_case, e.g., rina, lily, james
+- Variables: single letters x,y,z
+
+Hard constraints:
+- Output MUST be valid JSON. Double quotes only. No trailing commas.
+- For each example: premises_fol length MUST equal premises length.
+- Do NOT add facts. Only translate what is stated.
+- Keep entity naming consistent WITHIN each example (same person/place = same constant).
+- If a sentence is ambiguous, choose the most literal reading and proceed (do not refuse).
+- If input contains typos, still translate the intended meaning as literally as possible.
+
+Output format (MUST match exactly):
+{
+  "examples": [
+    {
+      "story_id": 0,
+      "example_id": 0,
+      "premises_fol": ["..."],
+      "conclusion_fol": "..."
+    }
+  ]
+}
+
+Before responding, self-check:
+1) JSON.parse() would succeed
+2) Every example has exactly the 4 keys
+3) All parentheses are balanced
+4) premises_fol arrays have correct lengths
+
+USER:
+Translate the following INPUT.
+
+INPUT:
+[
+  {
+    "story_id": 406,
+    "example_id": 1126,
+    "premises": [
+      "All people who regularly drink coffee are dependent on caffeine.",
+      "People regularly drink coffee, or they don't want to be addicted to caffeine, or both."
+    ],
+    "conclusion": "Rina doesn't want to be addicted to caffeine or is unaware that caffeine is a drug."
+  }
+  // replace with our 20 items
+]
+
+
+
