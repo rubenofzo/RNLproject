@@ -1,0 +1,162 @@
+import os
+os.environ["PROVER9"] = "/home/rubyorsmth/Documents/programmingFiles/RNLproject/prover9/bin/prover9"
+import subprocess
+import nltk
+import re
+str2exp = nltk.sem.Expression.fromstring
+verbose = False
+class Prover9:
+    def __init__(self):
+        subprocess.run("wget -nv -O ../prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)    
+        subprocess.run("unzip -oq ../prover9.zip -d ../", shell=True)    
+        self.prover9 = nltk.Prover9()
+        self.prover9.config_prover9("/content/prover9/bin")
+
+    # call to prove case i from df, so df[i]
+    def proveSingleProblem(self,i,df,wrongCounter,badFormatCounter):
+        try:
+            wrongCounter += self.idToProve(i,df)
+        except Exception as e: 
+            if verbose:
+                _premise,_conclusion,_label = datasetTriple(i,df)
+                print("wrong format: ",i)
+                print(e)
+                print(_premise)
+                print(_conclusion)
+                print()
+            badFormatCounter += 1
+        return wrongCounter,badFormatCounter
+    
+    # return 1 if lable was correct
+    def idToProve(self,id,_df,help=False):
+        _premise,_conclusion,_label = datasetTriple(id,_df)
+        prover9Answer = self.theoremProve(_premise, _conclusion)
+        if (labelToBool(_label) != prover9Answer):
+            if help:
+                print(id)
+                print("old premise & conc")
+                print(_premise[0])
+                print(_conclusion)
+                self.theoremProve(_premise, _conclusion,help=True)
+                print(":(",_label," is not ", prover9Answer)
+                print()
+            return 1
+        return 0
+    
+    def theoremProve(self,premises, conclusion, help = False):
+        if type(premises) == str: 
+            premises = premises.split('\n')
+        _premises = [ folioToProver9(s) for s in premises ]
+        _conclusion = folioToProver9(conclusion)
+        if help:
+            print("premise",_premises[0])
+            print("conclusion: ",_conclusion)
+        return self.prover9.prove(str2exp(_conclusion), [ str2exp(p) for p in _premises ])
+
+## Functions to convert FOLIO logical syntax to Prover9 syntax.
+def folioToProver9(s):
+    #ensure bracket count
+    def trimUnmatchedBrackets(s: str) -> str:
+        balance = s.count('(') - s.count(')')
+        if balance < 0:
+            return re.sub(r'\){1,%d}$' % (-balance), '', s)
+        return s
+    s = trimUnmatchedBrackets(s)
+
+    # Normalize whitespace
+    s = re.sub(r"\s+", " ", s).strip()
+
+    ## logic symbol swaps
+    replacements = {
+        "⊕": "|",
+        "¬": "-",
+        "∧": "&", 
+        "∨": "|",
+        "→": "->",
+        "—>":"->",
+        "←": "<-",
+        "↔": "<->",
+    }
+
+    s = expand_xor(s)
+    s = re.sub(r"∀\s*([a-zA-Z]\w*)", r"all \1", s)
+    s = re.sub(r"∃\s*([a-zA-Z]\w*)", r"exists \1", s)
+    for k, v in replacements.items():
+        s = s.replace(k, v)
+
+    # double brackets
+    s = re.sub(r"\(\s*\(", "((", s)
+    s = re.sub(r"\)\s*\)", "))", s)
+
+    return s
+
+# function to turn XOR into logical equivalent
+def expand_xor(expr):
+    """
+    Expand XOR (⊕) to its equivalent form using AND and OR.
+    XOR: p ⊕ q = (p & -q) | (-p & q)
+    """
+    def negate(term):
+        """negate expression"""
+        term = term.strip()
+        # If already negated with -, remove it
+        if term.startswith('-'):
+            # Remove the negation
+            inner = term[1:].strip()
+            # If it was -(expr), return expr without outer parens if safe
+            if inner.startswith('(') and inner.endswith(')'):
+                return inner[1:-1]
+            return inner
+        # If starts with ¬, remove it
+        if term.startswith('¬'):
+            inner = term[1:].strip()
+            if inner.startswith('(') and inner.endswith(')'):
+                return inner[1:-1]
+            return inner
+        # Otherwise add negation
+        # Wrap in parens if it contains operators (but not function calls)
+        if any(op in term for op in ['&', '|', '->', '∧', '∨', '→', '⊕']):
+            return f'-({term})'
+        return f'-{term}'
+    def replace_xor(match):
+        left = match.group(1).strip()
+        right = match.group(2).strip()
+        
+        # Build: (left & -right) | (-left & right)
+        not_left = negate(left)
+        not_right = negate(right)
+        
+        return f'(({left} & {not_right}) | ({not_left} & {right}))'
+    
+    # This pattern matches an operand which can be:
+    # [-¬]? (negation) followed by either:
+    # - \w+\([^)]*(?:\([^)]*\)[^)]*)*\) (function with args, allowing nested parens)
+    # - \([^()]*(?:\([^()]*\)[^()]*)*\) (parenthesized expression)
+    # - \w+ (simple variable)
+    operand_pattern = r'(?:[-¬]?\s*(?:\w+\([^)]*(?:\([^)]*\)[^)]*)*\)|\([^()]*(?:\([^()]*\)[^()]*)*\)|\w+))'
+    xor_pattern = rf'({operand_pattern})\s*⊕\s*({operand_pattern})'
+    
+    # Keep replacing until no more XORs found
+    prev = None
+    max_iterations = 10
+    iterations = 0
+    while prev != expr and iterations < max_iterations:
+        prev = expr
+        expr = re.sub(xor_pattern, replace_xor, expr)
+        iterations += 1
+    
+    return expr
+
+# helper functions
+
+def datasetTriple(id,_df):
+        return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id]
+
+def labelToBool(label):
+    if label == "Uncertain" or label == "False":
+        return False
+    elif label == "True":
+        return True
+    else:
+        print("help :(")
+        print(label)
