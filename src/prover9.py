@@ -5,22 +5,47 @@ import nltk
 import re
 str2exp = nltk.sem.Expression.fromstring
 verbose = False
+from datetime import datetime
+import csv
 class Prover9:
     def __init__(self):
-        subprocess.run("wget -nv -O ../prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)    
-        subprocess.run("unzip -oq ../prover9.zip -d ../", shell=True)    
+        subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)    
+        subprocess.run("unzip -oq prover9.zip", shell=True)    
         self.prover9 = nltk.Prover9()
         self.prover9.config_prover9("/content/prover9/bin")
+        self.runid = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    def init_csv(self,path):
+        if not os.path.exists(path):
+            with open(path, "w", encoding="utf8") as f:
+                f.write("id,premise,conclusion,label,prover9\n")
 
     # call to prove case i from df, so df[i]
     def proveSingleProblem(self,i,df,wrongCounter,badFormatCounter):
         try:
-            wrongCounter += self.idToProve(i,df)
+            _premise,_conclusion,_label = datasetTriple(i,df)
+            prover9Answer = self.theoremProve(_premise, _conclusion)
+            if (labelToBool(_label) != prover9Answer):
+                if verbose:
+                    print(id)
+                    print("old premise & conc")
+                    print(_premise[0])
+                    print(_conclusion)
+                    self.theoremProve(_premise, _conclusion,help=True)
+                    print(":(",_label," is not ", prover9Answer)
+                    print()
+                wrongCounter += 1
+            else:
+                # TODO collect data
+                path = f"data/gold/{self.runid}.csv"
+                self.init_csv(path)
+                with open(path, "a", encoding="utf8", newline="") as f:
+                    csv.writer(f).writerow([i, _premise, _conclusion, _label, prover9Answer])
         except Exception as e: 
             if verbose:
                 _premise,_conclusion,_label = datasetTriple(i,df)
                 print("wrong format: ",i)
-                print(e)
+                print(repr(e))
                 print(_premise)
                 print(_conclusion)
                 print()
@@ -28,11 +53,11 @@ class Prover9:
         return wrongCounter,badFormatCounter
     
     # return 1 if lable was correct
-    def idToProve(self,id,_df,help=False):
+    def idToProve(self,id,_df):
         _premise,_conclusion,_label = datasetTriple(id,_df)
         prover9Answer = self.theoremProve(_premise, _conclusion)
         if (labelToBool(_label) != prover9Answer):
-            if help:
+            if verbose:
                 print(id)
                 print("old premise & conc")
                 print(_premise[0])

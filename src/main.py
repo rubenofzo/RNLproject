@@ -1,4 +1,4 @@
-from data import loadData, cleanData
+from data import dataHandler
 from prover9 import Prover9
 import pandas as pd
 
@@ -36,8 +36,9 @@ def maxBaselineScore(badFormatCounter,wrongCounter):
 if __name__ == '__main__':
     _prover9 = Prover9()
     # load data
-    data = loadData()
-    train_df = pd.DataFrame(data["train"])
-    train_df = cleanData(train_df)
+    data = dataHandler()
+    trainingData = data.rawDataset["train"]
+    train_df = pd.DataFrame(trainingData)
+    train_df = data.cleanData(train_df)
     setMaxBaseline(train_df,_prover9)
 

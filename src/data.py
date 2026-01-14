@@ -3,42 +3,48 @@ from datasets import load_from_disk
 from datasets import load_dataset
 import os
 from huggingface_hub import login
+import pandas
 
-def loadData():
-    # pull dataset
-    path = "../data/raw"
-    if not os.path.exists(path):
-        #login("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")
-        dataset = load_dataset("yale-nlp/FOLIO")
-        dataset.save_to_disk(path)
-    else:
-        dataset = load_from_disk(path)
-    return dataset
+class dataHandler:
+    def __init__(self):
+        # pull dataset
+        path = "data/raw"
+        if not os.path.exists(path):
+            #login("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")
+            dataset = load_dataset("yale-nlp/FOLIO")
+            dataset.save_to_disk(path)
+        else:
+            dataset = load_from_disk(path)
+        self.rawDataset = dataset
 
-def cleanData(df):
-    oldNew = {
-    #"Building(emmetBuilding) ∧ Five-Story(emmetBuilding) ∧ LocatedIn(emmetBuilding, portland) ∧ LocatedIn(portland, oregon))":
-    #"Building(emmetBuilding) ∧ Five-Story(emmetBuilding) ∧ LocatedIn(emmetBuilding, portland) ∧ LocatedIn(portland, oregon)",
+    def saveCsvData(self,name,dataset):
+        dataset.to_csv(f"data/{name}.csv", index=False)
 
-    "Customer(lily) ∧ In(lily, jameSFamily ∧ WatchIn(lily, tV, cinema)":
-    "Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)",
+    def cleanData(self,df):
+        oldNew = {
+        #"Building(emmetBuilding) ∧ Five-Story(emmetBuilding) ∧ LocatedIn(emmetBuilding, portland) ∧ LocatedIn(portland, oregon))":
+        #"Building(emmetBuilding) ∧ Five-Story(emmetBuilding) ∧ LocatedIn(emmetBuilding, portland) ∧ LocatedIn(portland, oregon)",
 
-    "pSOJ318.5-22" : "pSOJ3185_22",
+        "Customer(lily) ∧ In(lily, jameSFamily ∧ WatchIn(lily, tV, cinema)":
+        "Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)",
 
-    "¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok))":"¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok)",
-    "Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok))":"Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok)",
+        "pSOJ318.5-22" : "pSOJ3185_22",
 
-    "Five-Story" : "FiveStory",
-    "l-2021" : "l2021"
-    }
+        "¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok))":"¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok)",
+        "Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok))":"Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok)",
 
-    for old, new in oldNew.items():
-        df["premises-FOL"] = df["premises-FOL"].str.replace(old, new, regex=False)
-        df["conclusion-FOL"] = df["conclusion-FOL"].str.replace(old, new, regex=False)
+        "Five-Story" : "FiveStory",
+        "l-2021" : "l2021"
+        }
 
-    df["premises-FOL"] = df["premises-FOL"].replace(to_replace=r"(?<=\S)[-_](?=\S)", value='',regex=True)
+        for old, new in oldNew.items():
+            df["premises-FOL"] = df["premises-FOL"].str.replace(old, new, regex=False)
+            df["conclusion-FOL"] = df["conclusion-FOL"].str.replace(old, new, regex=False)
 
-    return df
+        df["premises-FOL"] = df["premises-FOL"].replace(to_replace=r"(?<=\S)[-_](?=\S)", value='',regex=True)
+        self.saveCsvData("clean",df)
+        self.cleanDataset = df
+        return df
 
 
 
