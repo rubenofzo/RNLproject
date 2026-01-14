@@ -2,18 +2,20 @@ from data import dataHandler
 from prover9 import Prover9
 import pandas as pd
 
+datacount = 1204
+
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
     wrongCounter = 0
     # test if all theorems get proves:
 
-    for i in range(1000):
+    for i in range(datacount-1):
         wrongCounter,badFormatCounter = _prover9.proveSingleProblem(i,df,wrongCounter,badFormatCounter)
 
     maxBaselineScore(badFormatCounter,wrongCounter)
 
 def maxBaselineScore(badFormatCounter,wrongCounter):
-    datacount = 1000
+    #datacount = 1204
     amountBadFormat = (datacount-badFormatCounter)
     print("formattedIncorrectly:",badFormatCounter)
     print("ProcentageWellFormated:"," %",amountBadFormat/datacount)
@@ -24,13 +26,13 @@ def maxBaselineScore(badFormatCounter,wrongCounter):
     print("new golden dataset:  ",datacount-wrongCounter-badFormatCounter)
     #best output:
     """
-    formattedIncorrectly: 169
-    ProcentageWellFormated:  % 0.8311688311688312
-    Maximum baseline
-    usefulDatasize:   832
-    provenCorrectly:   663
-    provenCorrectly out of all:  % 0.6623376623376623
-    provenCorrectly out of well formated:  % 0.796875
+        formattedIncorrectly: 185
+        ProcentageWellFormated:  % 0.8463455149501661
+        Maximum baseline
+        provenCorrectly out of well formated:  % 0.7978410206084396
+        correctDatasize:   1019
+        provenCorrectly out of all:  % 0.675249169435216
+        new golden dataset:   813
     """
 
 if __name__ == '__main__':
@@ -38,7 +40,11 @@ if __name__ == '__main__':
     # load data
     data = dataHandler()
     trainingData = data.rawDataset["train"]
+    validationData = data.rawDataset["validation"]
     train_df = pd.DataFrame(trainingData)
-    train_df = data.cleanData(train_df)
-    setMaxBaseline(train_df,_prover9)
+    val_df = pd.DataFrame(validationData)
+    full_df = pd.concat([train_df, val_df], ignore_index=True)
+    print(full_df.shape)
+    full_df = data.cleanData(full_df)
+    setMaxBaseline(full_df,_prover9)
 

@@ -4,7 +4,8 @@ import subprocess
 import nltk
 import re
 str2exp = nltk.sem.Expression.fromstring
-verbose = False
+verbose = True
+verbose2 = False
 from datetime import datetime
 import csv
 class Prover9:
@@ -26,7 +27,7 @@ class Prover9:
             _premise,_conclusion,_label = datasetTriple(i,df)
             prover9Answer = self.theoremProve(_premise, _conclusion)
             if (labelToBool(_label) != prover9Answer):
-                if verbose:
+                if verbose2:
                     print(id)
                     print("old premise & conc")
                     print(_premise[0])
@@ -81,12 +82,15 @@ class Prover9:
 ## Functions to convert FOLIO logical syntax to Prover9 syntax.
 def folioToProver9(s):
     #ensure bracket count
-    def trimUnmatchedBrackets(s: str) -> str:
+    def addMissingBrackets(s: str) -> str:
         balance = s.count('(') - s.count(')')
         if balance < 0:
-            return re.sub(r'\){1,%d}$' % (-balance), '', s)
+            # if the balance is below 0, there are more ) than ( so a ( should be added (in the front)
+            return ('('*balance) + s
+        if balance > 0:
+            return s + (')'*balance)
         return s
-    s = trimUnmatchedBrackets(s)
+    s = addMissingBrackets(s)
 
     # Normalize whitespace
     s = re.sub(r"\s+", " ", s).strip()
