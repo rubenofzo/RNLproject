@@ -8,13 +8,16 @@ verbose = True
 verbose2 = False
 from datetime import datetime
 import csv
+import os
+from pathlib import Path
 class Prover9:
     def __init__(self):
-        subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)    
-        subprocess.run("unzip -oq prover9.zip", shell=True)    
+        subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)
+        subprocess.run("unzip -oq prover9.zip", shell=True)
         self.prover9 = nltk.Prover9()
         self.prover9.config_prover9("/content/prover9/bin")
         self.runid = datetime.now().strftime("%Y%m%d_%H%M%S")
+
 
     def init_csv(self,path):
         if not os.path.exists(path):
@@ -78,6 +81,24 @@ class Prover9:
             print("premise",_premises[0])
             print("conclusion: ",_conclusion)
         return self.prover9.prove(str2exp(_conclusion), [ str2exp(p) for p in _premises ])
+
+    def predict_label(self, premises_fol, conclusion_fol) -> str:
+        # premises_fol can be list[str] or newline-separated str
+        if isinstance(premises_fol, str):
+            premises_fol = premises_fol.split("\n")
+
+        P = [folioToProver9(p) for p in premises_fol if str(p).strip()]
+        H = folioToProver9(conclusion_fol)
+
+        entailed = self.prover9.prove(str2exp(H), [str2exp(p) for p in P])
+        if entailed:
+            return "True"
+
+        contradicted = self.prover9.prove(str2exp(negate(H)), [str2exp(p) for p in P])
+        if contradicted:
+            return "False"
+
+        return "Uncertain"
 
 ## Functions to convert FOLIO logical syntax to Prover9 syntax.
 def folioToProver9(s):
@@ -177,6 +198,12 @@ def expand_xor(expr):
     return expr
 
 # helper functions
+
+def negate(expr: str) -> str:
+    expr = expr.strip()
+    if expr.startswith("-"):
+        return expr[1:].strip()
+    return f"-({expr})"
 
 def datasetTriple(id,_df):
         return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id]
