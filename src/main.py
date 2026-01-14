@@ -1,8 +1,30 @@
 from data import dataHandler
+import json
 from prover9 import Prover9
 import pandas as pd
 
 datacount = 1204
+
+def filterCorrectProblems(df, _prover9, limit=20):
+    correct_problems = []
+
+    for i in range(len(df)):
+        try:
+            # Try to prove the problem
+            is_wrong = _prover9.idToProve(i, df)
+
+            # If is_wrong == 0, then the label matches the prover9 result (proven correct)
+            if is_wrong == 0:
+                correct_problems.append(i)
+                if len(correct_problems) >= limit:
+                    break
+        except Exception as e:
+            # Skip problems that are not well-formatted
+            continue
+
+    # Return a dataframe with the filtered problems
+    filtered_df = df.iloc[correct_problems].reset_index(drop=True)
+    return filtered_df
 
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
@@ -48,3 +70,18 @@ if __name__ == '__main__':
     full_df = data.cleanData(full_df)
     setMaxBaseline(full_df,_prover9)
 
+
+
+    with open("../llm_fol.json", "r", encoding="utf-8") as f:
+        llm_data = json.load(f)
+
+    for i in llm_data:
+        premises = i["premises_FOL"] if "premises_FOL" in i else i["premises"]
+        concl = i["conclusion_FOL"] if "conclusion_FOL" in i else i["conclusion"]
+
+        # premises is a big newline string in your JSON -> split into lines
+        if isinstance(premises, str):
+            premises = [ln.strip() for ln in premises.splitlines() if ln.strip()]
+
+        pred = _prover9.predict_label(premises, concl)
+        print(i.get("example_id"), i.get("story_id"), pred, "gold:", i.get("label"))

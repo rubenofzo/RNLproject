@@ -1,0 +1,175 @@
+[
+  {
+    "story_id": 406,
+    "example_id": 1126,
+    "label": "True",
+    "premises": "All people who regularly drink coffee are dependent on caffeine.\nPeople regularly drink coffee, or they don't want to be addicted to caffeine, or both.\nNo one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug.\nRina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug.\nRina  is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.",
+    "premises_FOL": [
+      "all x (DrinkRegularly(x,coffee) -> IsDependentOn(x,caffeine))",
+      "all x (DrinkRegularly(x,coffee) | -WantsToBeAddictedTo(x,caffeine))",
+      "all x (-WantsToBeAddictedTo(x,caffeine) -> -IsUnawareThatCaffeineIsADrug(x))",
+      "(IsStudent(Rina) & IsUnawareThatCaffeineIsADrug(Rina)) | (-IsStudent(Rina) & AwareThatDrug(Rina,caffeine))",
+      "(IsStudent(Rina) & IsDependentOn(Rina,caffeine)) | (-IsStudent(Rina) & -IsDependentOn(Rina,caffeine))"
+    ],
+    "conclusion": "Rina doesn't want to be addicted to caffeine or is unaware that caffeine is a drug.",
+    "conclusion_FOL": "-WantsToBeAddictedTo(Rina,caffeine) | IsUnawareThatCaffeineIsADrug(Rina)"
+
+  },
+  {
+    "story_id": 406,
+    "example_id": 1128,
+    "label": "False",
+    "premises": "All people who regularly drink coffee are dependent on caffeine.\nPeople regularly drink coffee, or they don't want to be addicted to caffeine, or both.\nNo one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug.\nRina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug.\nRina  is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.",
+    "premises_FOL": [
+      "all x (DrinkRegularly(x,coffee) -> IsDependentOn(x,caffeine))",
+      "all x (DrinkRegularly(x,coffee) | -WantsToBeAddictedTo(x,caffeine))",
+      "all x (-WantsToBeAddictedTo(x,caffeine) -> -IsUnawareThatCaffeineIsADrug(x))",
+      "(IsStudent(Rina) & IsUnawareThatCaffeineIsADrug(Rina)) | (-IsStudent(Rina) & AwareThatDrug(Rina,caffeine))",
+      "(IsStudent(Rina) & IsDependentOn(Rina,caffeine)) | (-IsStudent(Rina) & -IsDependentOn(Rina,caffeine))"
+    ],
+    "conclusion": "Rina either regularly drinks coffee or is unaware that caffeine is a drug.",
+    "conclusion_FOL": "DrinkRegularly(Rina,coffee) | IsUnawareThatCaffeineIsADrug(Rina)"
+  },
+  {
+    "story_id": 8,
+    "example_id": 20,
+    "label": "Uncertain",
+    "premises": "Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music.\nAny choral conductor is a musician.\nSome musicians love music.\nMiroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.",
+    "premises_FOL": [
+      "Czech(MiroslavVenhoda)",
+      "ChoralConductor(MiroslavVenhoda)",
+      "all x (ChoralConductor(x) -> Musician(x))",
+      "exists x (Musician(x) & LovesMusic(x))",
+      "Book(MethodOfStudyingGregorianChant)",
+      "Published(MiroslavVenhoda,MethodOfStudyingGregorianChant,Year1946)",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,RenaissanceMusic))",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,BaroqueMusic))"
+    ],
+    "conclusion": "Miroslav Venhoda loved music.",
+    "conclusion_FOL": "LovesMusic(MiroslavVenhoda)"
+  },
+  {
+    "story_id": 8,
+    "example_id": 21,
+    "label": "True",
+    "premises": "Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music.\nAny choral conductor is a musician.\nSome musicians love music.\nMiroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.",
+    "premises_FOL": [
+      "Czech(MiroslavVenhoda)",
+      "ChoralConductor(MiroslavVenhoda)",
+      "all x (ChoralConductor(x) -> Musician(x))",
+      "exists x (Musician(x) & LovesMusic(x))",
+      "Book(MethodOfStudyingGregorianChant)",
+      "Published(MiroslavVenhoda,MethodOfStudyingGregorianChant,Year1946)",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,RenaissanceMusic))",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,BaroqueMusic))"
+    ],
+    "conclusion": "A Czech published a book in 1946.",
+    "conclusion_FOL": "exists x (Czech(x) & exists b (Book(b) & Published(x,b,Year1946)))"
+  },
+  {
+    "story_id": 8,
+    "example_id": 22,
+    "label": "False",
+    "premises": "Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music.\nAny choral conductor is a musician.\nSome musicians love music.\nMiroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.",
+    "premises_FOL": [
+      "Czech(MiroslavVenhoda)",
+      "ChoralConductor(MiroslavVenhoda)",
+      "all x (ChoralConductor(x) -> Musician(x))",
+      "exists x (Musician(x) & LovesMusic(x))",
+      "Book(MethodOfStudyingGregorianChant)",
+      "Published(MiroslavVenhoda,MethodOfStudyingGregorianChant,Year1946)",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,RenaissanceMusic))",
+      "all x (ChoralConductor(x) -> SpecializedInPerformanceOf(x,BaroqueMusic))"
+    ],
+    "conclusion": "No choral conductor specialized in the performance of Renaissance.",
+    "conclusion_FOL": "all x (ChoralConductor(x) -> -SpecializedInPerformanceOf(x,RenaissanceMusic))"
+  },
+  {
+    "story_id": 463,
+    "example_id": 1336,
+    "label": "Uncertain",
+    "premises": "All eels are fish. \nNo fish are plants. \nEverything displayed in the collection is either a plant or an animal.\nAll multicellular animals are not bacteria.\nAll animals displayed in the collection are multicellular.\nA sea eel is displayed in the collection.\nThe sea eel is an eel or an animal or not a plant.",
+    "premises_FOL": [
+      "all x (Eel(x) -> Fish(x))",
+      "all x (Fish(x) -> -Plant(x))",
+      "all x (DisplayedInCollection(x) -> (Plant(x) | Animal(x)))",
+      "all x ((Multicellular(x) & Animal(x)) -> -Bacteria(x))",
+      "all x ((Animal(x) & DisplayedInCollection(x)) -> Multicellular(x))",
+      "DisplayedInCollection(SeaEel)",
+      "Eel(SeaEel) | Animal(SeaEel) | -Plant(SeaEel)"
+    ],
+    "conclusion": "The sea eel is an eel.",
+    "conclusion_FOL": "Eel(seaEel)"
+  },
+  {
+    "story_id": 463,
+    "example_id": 1337,
+    "label": "False",
+    "premises": "All eels are fish. \nNo fish are plants. \nEverything displayed in the collection is either a plant or an animal.\nAll multicellular animals are not bacteria.\nAll animals displayed in the collection are multicellular.\nA sea eel is displayed in the collection.\nThe sea eel is an eel or an animal or not a plant.",
+    "premises_FOL": [
+      "all x (Eel(x) -> Fish(x))",
+      "all x (Fish(x) -> -Plant(x))",
+      "all x (DisplayedInCollection(x) -> (Plant(x) | Animal(x)))",
+      "all x ((Multicellular(x) & Animal(x)) -> -Bacteria(x))",
+      "all x ((Animal(x) & DisplayedInCollection(x)) -> Multicellular(x))",
+      "DisplayedInCollection(SeaEel)",
+      "Eel(SeaEel) | Animal(SeaEel) | -Plant(SeaEel)"
+    ],
+    "conclusion": "The sea eel is bacteria.",
+    "conclusion_FOL": "Bacteria(seaEel)"
+  },
+  {
+    "story_id": 463,
+    "example_id": 1338,
+    "label": "True",
+    "premises": "All eels are fish. \nNo fish are plants. \nEverything displayed in the collection is either a plant or an animal.\nAll multicellular animals are not bacteria.\nAll animals displayed in the collection are multicellular.\nA sea eel is displayed in the collection.\nThe sea eel is an eel or an animal or not a plant.",
+    "premises_FOL": [
+      "all x (Eel(x) -> Fish(x))",
+      "all x (Fish(x) -> -Plant(x))",
+      "all x (DisplayedInCollection(x) -> (Plant(x) | Animal(x)))",
+      "all x ((Multicellular(x) & Animal(x)) -> -Bacteria(x))",
+      "all x ((Animal(x) & DisplayedInCollection(x)) -> Multicellular(x))",
+      "DisplayedInCollection(SeaEel)",
+      "Eel(SeaEel) | Animal(SeaEel) | -Plant(SeaEel)"
+    ],
+    "conclusion": "The sea eel is multicellular or is bacteria.",
+    "conclusion_FOL": "Multicellular(seaEel) | Bacteria(seaEel)"
+  },
+  {
+    "story_id": 133,
+    "example_id": 394,
+    "label": "Uncertain",
+    "premises": "The Blake McFall Company Building is a building added to the National Register of Historic Places in 1990.\nThe Emmet Building is a five-story building in Portland, Oregon.\nThe Emmet Building was built in 1915.\nThe Emmet Building is another name for the Blake McFall Company Building.\nJohn works at the Emmet Building.",
+    "premises_FOL": [
+      "Building(BlakeMcFallCompanyBuilding)",
+      "AddedToNationalRegisterInYear(BlakeMcFallCompanyBuilding,Year1990)",
+      "Building(EmmetBuilding)",
+      "FiveStory(EmmetBuilding)",
+      "In(EmmetBuilding,PortlandOregon)",
+      "BuiltInYear(EmmetBuilding,Year1915)",
+      "EmmetBuilding = BlakeMcFallCompanyBuilding",
+      "WorksAt(John,EmmetBuilding)"
+    ],
+    "conclusion": "John started his current job in 1990.",
+    "conclusion_FOL": "StartedCurrentJobInYear(John,Year1990)"
+  },
+  {
+    "story_id": 226,
+    "example_id": 638,
+    "label": "True",
+    "premises": "William Dickinson was a British politician who sat in the House of Commons\nWilliam Dickinson attended Westminster school for high school and then the University of Edinburgh.\nThe University of Edinburgh is a university located in the United Kingdom.\nWilliam Dickinson supported the Portland Whigs.\nPeople who supported the Portland Whigs did not get a seat in the Parliament.",
+    "premises_FOL": [
+      "British(WilliamDickinson)",
+      "Politician(WilliamDickinson)",
+      "SatInHouseOfCommons(WilliamDickinson)",
+      "AttendedForHighSchool(WilliamDickinson,WestminsterSchool)",
+      "AttendedUniversity(WilliamDickinson,UniversityOfEdinburgh)",
+      "University(UniversityOfEdinburgh)",
+      "LocatedIn(UniversityOfEdinburgh,UnitedKingdom)",
+      "Supported(WilliamDickinson,PortlandWhigs)",
+      "all x (Supported(x,PortlandWhigs) -> -GotSeatInParliament(x))"
+    ],
+    "conclusion": "William Dickinson attended university in the United Kingdom.",
+    "conclusion_FOL": "exists u (AttendedUniversity(WilliamDickinson,u) & LocatedIn(u,UnitedKingdom))"
+  }
+]
