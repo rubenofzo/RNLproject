@@ -81,6 +81,12 @@ if __name__ == '__main__':
         pipeline = Pipeline(runid)
         pipeline.runPipeline()
 
+    evaluateGPT = False
+    if evaluateGPT:
+        #TODO read csv file from output/experiment1/ and put it in df variable
+        #setMaxBaseline(df,_prover9)
+        pass
+    
     LLMtest = False
     if LLMtest:
         with open("../llm_fol.json", "r", encoding="utf-8") as f:
