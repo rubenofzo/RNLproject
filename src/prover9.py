@@ -4,7 +4,7 @@ import subprocess
 import nltk
 import re
 str2exp = nltk.sem.Expression.fromstring
-verbose = True
+verbose = False
 verbose2 = False
 from datetime import datetime
 import csv
@@ -29,13 +29,13 @@ class Prover9:
         try:
             _premise,_conclusion,_label = datasetTriple(i,df)
             prover9Answer = self.theoremProve(_premise, _conclusion)
-            if (labelToBool(_label) != prover9Answer):
+            if _label != prover9Answer:
                 if verbose2:
                     print(id)
                     print("old premise & conc")
                     print(_premise[0])
                     print(_conclusion)
-                    self.theoremProve(_premise, _conclusion,help=True)
+                    self.theoremProve(_premise, _conclusion)
                     print(":(",_label," is not ", prover9Answer)
                     print()
                 wrongCounter += 1
@@ -57,48 +57,54 @@ class Prover9:
         return wrongCounter,badFormatCounter
     
     # return 1 if lable was correct
-    def idToProve(self,id,_df):
-        _premise,_conclusion,_label = datasetTriple(id,_df)
-        prover9Answer = self.theoremProve(_premise, _conclusion)
-        if (labelToBool(_label) != prover9Answer):
-            if verbose:
-                print(id)
-                print("old premise & conc")
-                print(_premise[0])
-                print(_conclusion)
-                self.theoremProve(_premise, _conclusion,help=True)
-                print(":(",_label," is not ", prover9Answer)
-                print()
-            return 1
-        return 0
+    # def idToProve(self,id,_df):
+    #     _premise,_conclusion,_label = datasetTriple(id,_df)
+    #     prover9Answer = self.theoremProve(_premise, _conclusion)
+    #     if _label != prover9Answer:
+    #         if verbose:
+    #             print(id)
+    #             print("old premise & conc")
+    #             print(_premise[0])
+    #             print(_conclusion)
+    #             self.theoremProve(_premise, _conclusion,help=True)
+    #             print(":(",_label," is not ", prover9Answer)
+    #             print()
+    #         return 1
+    #     return 0
     
-    def theoremProve(self,premises, conclusion, help = False):
+    def theoremProve(self,premises, conclusion):
         if type(premises) == str: 
             premises = premises.split('\n')
         _premises = [ folioToProver9(s) for s in premises ]
         _conclusion = folioToProver9(conclusion)
-        if help:
+        if verbose2:
             print("premise",_premises[0])
             print("conclusion: ",_conclusion)
-        return self.prover9.prove(str2exp(_conclusion), [ str2exp(p) for p in _premises ])
-
-    def predict_label(self, premises_fol, conclusion_fol) -> str:
-        # premises_fol can be list[str] or newline-separated str
-        if isinstance(premises_fol, str):
-            premises_fol = premises_fol.split("\n")
-
-        P = [folioToProver9(p) for p in premises_fol if str(p).strip()]
-        H = folioToProver9(conclusion_fol)
-
-        entailed = self.prover9.prove(str2exp(H), [str2exp(p) for p in P])
-        if entailed:
+        prover9true = str(self.prover9.prove(str2exp(_conclusion), [ str2exp(p) for p in _premises ]))
+        if prover9true == "True":
             return "True"
-
-        contradicted = self.prover9.prove(str2exp(negate(H)), [str2exp(p) for p in P])
-        if contradicted:
+        prover9false = str(self.prover9.prove(str2exp(negate(_conclusion)), [ str2exp(p) for p in _premises ]))
+        if prover9false == "True":
             return "False"
-
         return "Uncertain"
+
+    # def predict_label(self, premises_fol, conclusion_fol) -> str:
+        # # premises_fol can be list[str] or newline-separated str
+        # if isinstance(premises_fol, str):
+        #     premises_fol = premises_fol.split("\n")
+
+        # P = [folioToProver9(p) for p in premises_fol if str(p).strip()]
+        # H = folioToProver9(conclusion_fol)
+
+        # entailed = self.prover9.prove(str2exp(H), [str2exp(p) for p in P])
+        # if entailed:
+        #     return "True"
+
+        # contradicted = self.prover9.prove(str2exp(negate(H)), [str2exp(p) for p in P])
+        # if contradicted:
+        #     return "False"
+
+        # return "Uncertain"
 
 ## Functions to convert FOLIO logical syntax to Prover9 syntax.
 def folioToProver9(s):
@@ -208,11 +214,12 @@ def negate(expr: str) -> str:
 def datasetTriple(id,_df):
         return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id]
 
-def labelToBool(label):
-    if label == "Uncertain" or label == "False":
-        return False
-    elif label == "True":
-        return True
-    else:
-        print("help :(")
-        print(label)
+# def labelToBool(label):
+#     if label == "Uncertain" or label == "False":
+#         return False
+#     elif label == "True":
+#         return True
+#     else:
+#         print("help :(")
+#         print(label)
+
