@@ -2,6 +2,8 @@ from data import dataHandler
 import json
 from prover9 import Prover9
 import pandas as pd
+from datetime import datetime
+from pipeline import Pipeline
 
 datacount = 1204
 
@@ -51,24 +53,33 @@ def maxBaselineScore(badFormatCounter,wrongCounter):
         formattedIncorrectly: 185
         ProcentageWellFormated:  % 0.8463455149501661
         Maximum baseline
-        provenCorrectly out of well formated:  % 0.7978410206084396
+        provenCorrectly out of well formated:  % 0.6712463199214916
         correctDatasize:   1019
-        provenCorrectly out of all:  % 0.675249169435216
-        new golden dataset:   813
+        provenCorrectly out of all:  % 0.5681063122923588
+        new golden dataset:   684
     """
 
 if __name__ == '__main__':
-    _prover9 = Prover9()
-    # load data
-    data = dataHandler()
-    trainingData = data.rawDataset["train"]
-    validationData = data.rawDataset["validation"]
-    train_df = pd.DataFrame(trainingData)
-    val_df = pd.DataFrame(validationData)
-    full_df = pd.concat([train_df, val_df], ignore_index=True)
-    print(full_df.shape)
-    full_df = data.cleanData(full_df)
-    setMaxBaseline(full_df,_prover9)
+    runid = datetime.now().strftime("%Y%m%d_%H%M%S")
+    _prover9 = Prover9(runid)
+
+    setGoldCSV = False
+    if setGoldCSV:
+        # load data
+        data = dataHandler()
+        trainingData = data.rawDataset["train"]
+        validationData = data.rawDataset["validation"]
+        train_df = pd.DataFrame(trainingData)
+        val_df = pd.DataFrame(validationData)
+        full_df = pd.concat([train_df, val_df], ignore_index=True)
+        print(full_df.shape)
+        full_df = data.cleanData(full_df)
+        setMaxBaseline(full_df,_prover9)
+
+    promptGPT = True
+    if promptGPT:
+        pipeline = Pipeline(runid)
+        pipeline.runPipeline()
 
     LLMtest = False
     if LLMtest:

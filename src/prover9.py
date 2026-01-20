@@ -6,28 +6,27 @@ import re
 str2exp = nltk.sem.Expression.fromstring
 verbose = False
 verbose2 = False
-from datetime import datetime
 import csv
 import os
 from pathlib import Path
 class Prover9:
-    def __init__(self):
+    def __init__(self,runid):
         subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)
         subprocess.run("unzip -oq prover9.zip", shell=True)
         self.prover9 = nltk.Prover9()
         self.prover9.config_prover9("/content/prover9/bin")
-        self.runid = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.runid = runid
 
 
     def init_csv(self,path):
         if not os.path.exists(path):
             with open(path, "w", encoding="utf8") as f:
-                f.write("id,premise,conclusion,label,prover9\n")
+                f.write("id,premise,conclusion,premises-FOL,conclusion-FOL,label\n")
 
     # call to prove case i from df, so df[i]
     def proveSingleProblem(self,i,df,wrongCounter,badFormatCounter):
         try:
-            _premise,_conclusion,_label = datasetTriple(i,df)
+            _premise,_conclusion,_label,_NLpremise,_NLconclusion = datasetTriple(i,df)
             prover9Answer = self.theoremProve(_premise, _conclusion)
             if _label != prover9Answer:
                 if verbose2:
@@ -40,14 +39,13 @@ class Prover9:
                     print()
                 wrongCounter += 1
             else:
-                # TODO collect data
                 path = f"data/gold/{self.runid}.csv"
                 self.init_csv(path)
                 with open(path, "a", encoding="utf8", newline="") as f:
-                    csv.writer(f).writerow([i, _premise, _conclusion, _label, prover9Answer])
+                    csv.writer(f).writerow([i, _NLpremise,_NLconclusion,_premise, _conclusion, _label])
         except Exception as e: 
             if verbose:
-                _premise,_conclusion,_label = datasetTriple(i,df)
+                _premise,_conclusion,_label,_,_ = datasetTriple(i,df)
                 print("wrong format: ",i)
                 print(repr(e))
                 print(_premise)
@@ -212,7 +210,7 @@ def negate(expr: str) -> str:
     return f"-({expr})"
 
 def datasetTriple(id,_df):
-        return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id]
+        return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id],_df['premises'][id],_df['conclusion'][id]
 
 # def labelToBool(label):
 #     if label == "Uncertain" or label == "False":
