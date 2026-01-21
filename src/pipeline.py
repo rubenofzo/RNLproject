@@ -9,8 +9,7 @@ class Pipeline:
     def __init__(self,runid):
         # Set your OpenAI API key here
         api_key = ("sk-proj-EkdySd_E0Oz6J_MrZFZ-d6-j3Wo0rxBq5UA" 
-                   "O-ha9A0__zqKWKoKRJg3X2iVGjYqe11My0SMHMMT3BlbkFJGA3X0tJ"
-                            "f8hduyxHFYonArxBmMSPO8yVkN9HPLPrLOimdODEGB7yc"
+                   "O-ha9A0__zqKWSPO8yVkN9HPLPrLOimdODEGB7yc"
                             "BSNfwhQDGiK9dU5Oqbq1EA")
 
         self.client = OpenAI(api_key=api_key)
