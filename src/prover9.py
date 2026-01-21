@@ -14,7 +14,8 @@ class Prover9:
         subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)
         subprocess.run("unzip -oq prover9.zip", shell=True)
         self.prover9 = nltk.Prover9()
-        self.prover9.config_prover9(r"C:\Program Files (x86)\Prover9-Mace4\bin-win32")
+        # self.prover9.config_prover9(r"C:\Program Files (x86)\Prover9-Mace4\bin-win32")
+        self.prover9.config_prover9("/content/prover9/bin")
         self.runid = runid
 
 
