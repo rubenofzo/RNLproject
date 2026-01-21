@@ -59,6 +59,7 @@ class Pipeline:
                 - Do not introduce new named entities/constants in the conclusion.
                 - Be very careful with negation. If the natural language contains ‘not’ or ‘unaware’, that must appear as -Predicate(...)
                 - Double-check the final formula by restating it in English.
+                - When translating to Prover9, represent exclusive "either/or" statements using the negated equivalence syntax -(A <-> B). instead of the inclusive disjunction |.
                 
                 premises: "{premises}"
                 premises_FOL: "{premises_fol}"
