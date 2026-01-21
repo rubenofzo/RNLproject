@@ -28,7 +28,7 @@ Tests:
 
 
 
-OK prompt (FOL per sentence):
+prompt (FOL per sentence):
 
 SYSTEM:
 You are a precise semantic parser for the FOLIO dataset.

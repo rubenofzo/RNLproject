@@ -1,0 +1,1 @@
+{"story_id": 0, "label": "True", "conclusion-FOL": "¬WantToBeAddictedTo(rina, caffeine) ∨ (¬AwareThatDrug(rina, caffeine))", "llm_conclusion-FOL": "( -WantToBeAddictedTo(rina,caffeine) | -AwareThatDrug(rina,caffeine) )"}

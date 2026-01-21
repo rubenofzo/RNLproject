@@ -1,0 +1,65 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+1,"Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music.
+Any choral conductor is a musician.
+Some musicians love music.
+Miroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.",Miroslav Venhoda loved music.,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","Love(miroslav,music)",Uncertain
+4,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is an eel.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Eel(seaEel),Uncertain
+5,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is bacteria.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Bacteria(seaEel),False
+6,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is multicellular or is bacteria.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Multicellular(seaEel) | Bacteria(seaEel),True
+7,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson attended university in the United Kingdom.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","∃u (Attended(williamDickinson,u) & University(u) & LocatedIn(u,unitedKingdom))",True
+8,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson sat in the House of Commons.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","SatIn(williamDickinson,houseOfCommons)",True

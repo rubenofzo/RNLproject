@@ -1,0 +1,10 @@
+{"story_id": 0, "label": "True", "conclusion-FOL": "¬WantToBeAddictedTo(rina, caffeine) ∨ (¬AwareThatDrug(rina, caffeine))", "llm_conclusion-FOL": "(exists x (x = rina) & ( -WantToBeAddictedTo(x,caffeine) | -AwareThatDrug(x,caffeine) ))"}
+{"story_id": 4, "label": "Uncertain", "conclusion-FOL": "Love(miroslav, music)", "llm_conclusion-FOL": "Love(miroslav,music)"}
+{"story_id": 5, "label": "True", "conclusion-FOL": "∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))", "llm_conclusion-FOL": "∃x (Czech(x) & ∃b PublishedBook(x,b,yr1946))"}
+{"story_id": 6, "label": "False", "conclusion-FOL": "∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))", "llm_conclusion-FOL": "-all x (ChoralConductor(x) -> SpecializeInPerformanceOf(x, renaissanceMusic))"}
+{"story_id": 7, "label": "Uncertain", "conclusion-FOL": "Eel(seaEel)", "llm_conclusion-FOL": "Eel(seaEel)"}
+{"story_id": 8, "label": "False", "conclusion-FOL": "Bacteria(seaEel)", "llm_conclusion-FOL": "Bacteria(seaEel)"}
+{"story_id": 9, "label": "True", "conclusion-FOL": "Multicellular(seaEel) ∨ Bacteria(seaEel)", "llm_conclusion-FOL": "Multicellular(seaEel) | Bacteria(seaEel)"}
+{"story_id": 15, "label": "True", "conclusion-FOL": "∃x (Attended(williamDickinson, x) ∧ University(x) ∧ LocatedIn(x, unitedKingdom))", "llm_conclusion-FOL": "∃u (Attended(williamDickinson,u) & University(u) & LocatedIn(u,unitedKingdom))"}
+{"story_id": 16, "label": "True", "conclusion-FOL": "SatIn(williamDickinson, houseOfCommons)", "llm_conclusion-FOL": "SatIn(williamDickinson,houseOfCommons)"}
+{"story_id": 18, "label": "Uncertain", "conclusion-FOL": "GoToEveryWeek(lily, cinema)", "llm_conclusion-FOL": "GoToEveryWeek(lily,cinema)"}

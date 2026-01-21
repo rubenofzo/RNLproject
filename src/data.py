@@ -11,7 +11,7 @@ class dataHandler:
         # pull dataset
         path = "data/raw"
         if not os.path.exists(path):
-            #login("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")
+            # login("")
             dataset = load_dataset("yale-nlp/FOLIO")
             dataset.save_to_disk(path)
         else:
