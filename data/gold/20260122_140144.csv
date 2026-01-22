@@ -1,0 +1,426 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+0,"All people who regularly drink coffee are dependent on caffeine.
+People regularly drink coffee, or they don't want to be addicted to caffeine, or both.
+No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug.
+Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug.
+Rina  is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.",Rina doesn't want to be addicted to caffeine or is unaware that caffeine is a drug.,"∀x (DrinkRegularly(x, coffee) → IsDependentOn(x, caffeine))
+∀x (DrinkRegularly(x, coffee)  ∨ (¬WantToBeAddictedTo(x, caffeine)))
+∀x (¬WantToBeAddictedTo(x, caffeine) → ¬AwareThatDrug(x, caffeine))
+¬(Student(rina) ⊕  ¬AwareThatDrug(rina, caffeine))
+¬(IsDependentOn(rina, caffeine) ⊕ Student(rina))","( WantToBeAddictedTo(rina,caffeine) -> -AwareThatDrug(rina,caffeine) )",True
+1,"Miroslav Venhoda was a Czech choral conductor who specialized in the performance of Renaissance and Baroque music.
+Any choral conductor is a musician.
+Some musicians love music.
+Miroslav Venhoda published a book in 1946 called Method of Studying Gregorian Chant.",Miroslav Venhoda loved music.,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","Love(miroslav,music)",Uncertain
+4,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is an eel.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Eel(seaEel),Uncertain
+5,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is bacteria.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Bacteria(seaEel),False
+6,"All eels are fish. 
+No fish are plants. 
+Everything displayed in the collection is either a plant or an animal.
+All multicellular animals are not bacteria.
+All animals displayed in the collection are multicellular.
+A sea eel is displayed in the collection.
+The sea eel is an eel or an animal or not a plant.",The sea eel is multicellular or is bacteria.,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Multicellular(seaEel) | Bacteria(seaEel),True
+7,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson attended university in the United Kingdom.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","Attended(williamDickinson, x) & University(x) & LocatedIn(x, unitedKingdom)",True
+8,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson sat in the House of Commons.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","SatIn(williamDickinson,houseOfCommons)",True
+9,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.",Lily goes to cinemas every week.,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","GoToEveryWeek(lily, cinema)",Uncertain
+10,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.",Lily does not go to cinemas every week.,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","-all x (GoToEveryWeek(lily, x))",Uncertain
+11,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.","If Lily does not both go to cinemas every week and subscribe to HBO service, then Lily is either available to watch 3 movies every week without any additional fees or she prefers TV more.","∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","((-(GoToEveryWeek(lily,cinema) & SubscribedTo(lily,hBO))) -> (EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) | Prefer(lily,tVSeries)))",True
+12,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.","If Lily is available to watch 3 movies every week without any additional fees and she watches TV series in cinemas, then she goes to cinemas every week and prefers TV series more.","∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","((EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) & WatchIn(lily,tV,cinema)) -> (GoToEveryWeek(lily,cinema) & Prefer(lily,tVSeries)))",False
+13,"A La Liga soccer team ranks higher than another La Liga soccer team if it receives more points.
+If there are two La Liga soccer teams and neither has more points than the other, then the team which receives more points from the games between the two teams ranks higher.
+Real Madrid and Barcelona are both La Liga soccer teams.
+Real Madrid received more points than Barcelona.
+Neither Real Madrid nor Barcelona received more points from the games between them.",Real Madrid ranks higher than Barcelona.,"∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ MorePoints(x, y) → RankHigherThan(x, y))
+∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ ¬MorePoints(x, y) ∧ ¬MorePoints(y, x) ∧ MorePointsInGameBetween(x, y) →  RankHigherThan(x, y))
+LaLigaSoccerTeam(realMadrid) ∧ LaLigaSoccerTeam(barcelona)
+MorePoints(realMadrid, barcelona)
+¬MorePointsInGameBetween(realMadrid, barcelona) ∧ ¬MorePointsInGameBetween(barcelona, realMadrid)","RankHigherThan(realMadrid,barcelona)",True
+14,"Lawton Park is a neighborhood in Seattle. 
+All citizens of Lawton Park use the zip code 98199. 
+Tom is a citizen of Lawton Park.
+Daniel uses the zip code 98199.",Tom is a citizen of Washington.,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","CitizenOf(tom, washington)",Uncertain
+15,"Lawton Park is a neighborhood in Seattle. 
+All citizens of Lawton Park use the zip code 98199. 
+Tom is a citizen of Lawton Park.
+Daniel uses the zip code 98199.",Daniel is a citizen of Lawton Park.,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","ResidentOf(daniel, lawtonPark)",Uncertain
+16,"If a legislator is found guilty of stealing government funds, they will be suspended from office.
+Tiffany T. Alston was a legislator in Maryland's House of Delegates from 2011 to 2013.
+Tiffany T. Alston was found guilty of stealing government funds in 2012.",Tiffany T. Alston was suspended from the Maryland House of Delegates.,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",Suspended(tiffanyTAlston),True
+17,"If a legislator is found guilty of stealing government funds, they will be suspended from office.
+Tiffany T. Alston was a legislator in Maryland's House of Delegates from 2011 to 2013.
+Tiffany T. Alston was found guilty of stealing government funds in 2012.",Tiffany T. Alston was not suspended from the Maryland House of Delegates.,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",-Suspended(tiffanyTAlston),False
+18,"If a legislator is found guilty of stealing government funds, they will be suspended from office.
+Tiffany T. Alston was a legislator in Maryland's House of Delegates from 2011 to 2013.
+Tiffany T. Alston was found guilty of stealing government funds in 2012.",Tiffany T. Alston went to prison for stealing government funds.,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",WentToPrisonForStealingFunds(tiffanyTAlston),Uncertain
+19,"Some fish stings people.
+Stonefish is a fish.
+Stonefish stings when stepped on. 
+If a stonefish stings someone and they are not treated, it can cause death to them.
+To treat stonefish stings, apply heat to the affected area or use an antivenom.","If a stonefish stings you and you don’t use an antivenom, it can cause death to you.","∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","all x ((Sting(stonefish,x) & -UseAntivenomOn(x)) -> CauseDeathTo(stonefish,x))",Uncertain
+21,"Some fish stings people.
+Stonefish is a fish.
+Stonefish stings when stepped on. 
+If a stonefish stings someone and they are not treated, it can cause death to them.
+To treat stonefish stings, apply heat to the affected area or use an antivenom.","If you step on a stonefish and apply heat to the affected area, it can cause death to you.","∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","all x ((SteppedOnBy(stonefish,x) & ApplyHeatTo(x)) -> CauseDeathTo(stonefish,x))",Uncertain
+22,"Some monitors made by LG have a type-c port.
+Monitors that have a type-c port were not made before 2010.
+All monitors in the library are made before 2010. 
+The L-2021 monitor is either used in the library or has a type-c port.
+The L-2021 monitor is either both produced before 2010 and made by LG, or neither is true.",The L-2021 monitor either has a type-c port or is produced by LG.,"∃x (Monitor(x) ∧ ProducedBy(x, lG) ∧ Have(x, typeCPort) ∧ (¬(x=y)) ∧ Monitor(y) ∧ ProducedBy(y, lG) ∧ Have(y, typeCPort))
+∀x (Have(x, typeCPort) → ¬ProducedBefore(x, yr2010))
+∀x ((Monitor(x) ∧ In(x, library)) → ProducedBefore(x, yr2010))
+Monitor(l2021) ∧ (In(l2021, library) ⊕ Have(l2021, typeCPort))
+¬(ProducedBefore(l2021, yr2010) ⊕ ProducedBy(l2021, lG))","(Have(l2021,typeCPort) | ProducedBy(l2021,lG))",True
+23,"Everything is either outside the solar system or in the solar system. 
+Nothing outside the solar system has the Sun as its star.
+Everything in the solar system is gravitationally bound by the Sun.
+No planets gravitationally bound by the Sun are rogue planets. 
+All orphan planets are rogue planets.
+If PSO J318.5−22 is not both a rogue planet and a planet gravitationally bound by the Sun, then it is a rogue planet.",PSO J318.5−22 is an orphan planet.,"∀x (Outside(x, solarSystem) ⊕ In(x, solarSystem))
+∀x (Outside(x, solarSystem) → ¬SunAs(x, star))
+∀x (In(x, solarSystem) → BoundBy(x, sun, gravitationally))
+∀x (Planet(x) ∧ BoundBy(x, sun, gravitationally) → ¬(Planet(x) ∧ Rogue(x)))
+∀x (Planet(x) ∧ Orphan(x) → Planet(x) ∧ Rogue(x))
+¬(Planet(pSOJ318522) ∧ Rogue(pSOJ318522) ∧ BoundBy(pSOJ318522, sun, gravitationally)) → (Planet(pSOJ318522) ∧ Rogue(pSOJ318522))",Orphan(pSOJ318522),Uncertain
+24,"Sam is doing a project.
+A project is written either in C++ or Python.
+If Sam does a project written in Python, he will not use a Mac.
+Sam is using a Mac.
+If Sam uses a Mac, he will play a song.
+If a song is not titled ""Perfect,"" Sam will never play it.","The song Sam is playing is titled ""Perfect"".","∃x (Project(x) ∧ Do(sam, x))
+∀x (Project(x) → (WrittenIn(x, cplusplus) ⊕ WrittenIn(x, python)))
+∀x (Project(x) ∧ WrittenIn(x, python) ∧ Do(sam, x) → ¬Use(sam, mac))
+Use(sam, mac)
+∃x (Use(sam, mac) ∧ Song(x) → Play(sam, x))
+∀x (Song(x) ∧ Play(sam, x) → Titled(x, perfect))","∃x (Song(x) & Play(sam,x) & Titled(x,perfect))",Uncertain
+25,"Sam is doing a project.
+A project is written either in C++ or Python.
+If Sam does a project written in Python, he will not use a Mac.
+Sam is using a Mac.
+If Sam uses a Mac, he will play a song.
+If a song is not titled ""Perfect,"" Sam will never play it.","If a song is titled ""Perfect"", Sam will play it.","∃x (Project(x) ∧ Do(sam, x))
+∀x (Project(x) → (WrittenIn(x, cplusplus) ⊕ WrittenIn(x, python)))
+∀x (Project(x) ∧ WrittenIn(x, python) ∧ Do(sam, x) → ¬Use(sam, mac))
+Use(sam, mac)
+∃x (Use(sam, mac) ∧ Song(x) → Play(sam, x))
+∀x (Song(x) ∧ Play(sam, x) → Titled(x, perfect))","all x (Song(x) & Titled(x,perfect) -> Play(sam,x))",Uncertain
+26,"All rabbits have fur
+Some pets are rabbits.",Some pets do not have fur.,"∀x (Rabbit(x) → Have(x, fur))
+∃x (Pet(x) ∧ Rabbit(x))","exists x (Pet(x) & -Have(x,fur))",Uncertain
+27,"All social media applications containing chat features are software. 
+All social media applications that allow users to send messages to each other have chat features. 
+All social media applications have chat features or video features. 
+All social media applications that have video features allow users to upload videos. 
+All software that is social media applications are computer programs. 
+All social media applications that have high engagement metrics are addictive. 
+If a social media application is addictive, then it is not ideal for preteens. 
+TikTok is a social media application, and it is not ideal for preteens.",TikTok is a computer program.,"∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, chatFeature) → Software(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ AllowToSendTo(x, user, message) → Contain(x, chatFeature))
+∀x (SocialMedia(x) ∧ Application(x) → Contain(x, chatFeature) ∨ Contain(x, videoFeature))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, videoFeature) → Allow(x, user, uploadVideo))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Software(x) → ComputerProgram(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧Have(x, highEngagementMetric) → Addictive(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Addictive(x) → ¬IdealFor(x, preteen))
+SocialMedia(tikTok) ∧ Application(tikTok) ∧ ¬IdealFor(tikTok, preteen)",ComputerProgram(tikTok),True
+28,"All social media applications containing chat features are software. 
+All social media applications that allow users to send messages to each other have chat features. 
+All social media applications have chat features or video features. 
+All social media applications that have video features allow users to upload videos. 
+All software that is social media applications are computer programs. 
+All social media applications that have high engagement metrics are addictive. 
+If a social media application is addictive, then it is not ideal for preteens. 
+TikTok is a social media application, and it is not ideal for preteens.",TikTok is either ideal for preteens or a computer program.,"∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, chatFeature) → Software(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ AllowToSendTo(x, user, message) → Contain(x, chatFeature))
+∀x (SocialMedia(x) ∧ Application(x) → Contain(x, chatFeature) ∨ Contain(x, videoFeature))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, videoFeature) → Allow(x, user, uploadVideo))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Software(x) → ComputerProgram(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧Have(x, highEngagementMetric) → Addictive(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Addictive(x) → ¬IdealFor(x, preteen))
+SocialMedia(tikTok) ∧ Application(tikTok) ∧ ¬IdealFor(tikTok, preteen)","IdealFor(tikTok,preteen) | ComputerProgram(tikTok)",True
+29,"All social media applications containing chat features are software. 
+All social media applications that allow users to send messages to each other have chat features. 
+All social media applications have chat features or video features. 
+All social media applications that have video features allow users to upload videos. 
+All software that is social media applications are computer programs. 
+All social media applications that have high engagement metrics are addictive. 
+If a social media application is addictive, then it is not ideal for preteens. 
+TikTok is a social media application, and it is not ideal for preteens.",TikTok is does not have chat features or it is not a computer program.,"∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, chatFeature) → Software(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ AllowToSendTo(x, user, message) → Contain(x, chatFeature))
+∀x (SocialMedia(x) ∧ Application(x) → Contain(x, chatFeature) ∨ Contain(x, videoFeature))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Contain(x, videoFeature) → Allow(x, user, uploadVideo))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Software(x) → ComputerProgram(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧Have(x, highEngagementMetric) → Addictive(x))
+∀x (SocialMedia(x) ∧ Application(x) ∧ Addictive(x) → ¬IdealFor(x, preteen))
+SocialMedia(tikTok) ∧ Application(tikTok) ∧ ¬IdealFor(tikTok, preteen)","-Contain(tikTok,chatFeature) | -ComputerProgram(tikTok)",False
+32,"Ordinary is an unincorporated community.
+Located within Elliot County, Ordinary is on Kentucky Route 32.
+Ordinary is located northwest of Sandy Hook.",There is an unincorporated community located in Elliot County.,"UnincorporatedCommunity(ordinary)
+LocatedIn(ordinary, elliotCounty) ∧ On(ordinary, kentuckyRoute32)
+LocatedNorthwestOf(ordinary, sandyHook)","exists x (UnincorporatedCommunity(x) & LocatedIn(x, elliotCounty))",True
+33,"All young adults at the event like independence.
+All college students at the event are young adults.
+All Yale students at the event are college students.
+Everyone at the event is a Yale student or a Harvard student.
+All Harvard students at the event are diligent.
+Susan is at the event, and if Susan is a Harvard student, then she is a young adult.
+If Susan is a Yale student, then she does not like independence.",Susan is a college student.,"∀x (At(x, event) ∧ YoungAdult(x) → Like(x, independence))
+∀x (At(x, event) ∧ CollegeStudent(x) → YoungAdult(x))
+∀x (At(x, event) ∧ YaleStudent(x) → CollegeStudent(x))
+∀x (At(x, event) → (YaleStudent(x) ⊕ HarvardStudent(x)))
+∀x (At(x, event) ∧ HarvardStudent(x) → Diligent(x))
+At(susan, event) ∧ (HarvardStudent(susan) → YoungAdult(susan))
+YaleStudent(susan) → ¬Like(susan, independence)",CollegeStudent(susan),Uncertain
+34,"All young adults at the event like independence.
+All college students at the event are young adults.
+All Yale students at the event are college students.
+Everyone at the event is a Yale student or a Harvard student.
+All Harvard students at the event are diligent.
+Susan is at the event, and if Susan is a Harvard student, then she is a young adult.
+If Susan is a Yale student, then she does not like independence.",Susan likes independence and is diligent.,"∀x (At(x, event) ∧ YoungAdult(x) → Like(x, independence))
+∀x (At(x, event) ∧ CollegeStudent(x) → YoungAdult(x))
+∀x (At(x, event) ∧ YaleStudent(x) → CollegeStudent(x))
+∀x (At(x, event) → (YaleStudent(x) ⊕ HarvardStudent(x)))
+∀x (At(x, event) ∧ HarvardStudent(x) → Diligent(x))
+At(susan, event) ∧ (HarvardStudent(susan) → YoungAdult(susan))
+YaleStudent(susan) → ¬Like(susan, independence)","Like(susan,independence) & Diligent(susan)",True
+35,"All young adults at the event like independence.
+All college students at the event are young adults.
+All Yale students at the event are college students.
+Everyone at the event is a Yale student or a Harvard student.
+All Harvard students at the event are diligent.
+Susan is at the event, and if Susan is a Harvard student, then she is a young adult.
+If Susan is a Yale student, then she does not like independence.",Susan is not both diligent and likes independence.,"∀x (At(x, event) ∧ YoungAdult(x) → Like(x, independence))
+∀x (At(x, event) ∧ CollegeStudent(x) → YoungAdult(x))
+∀x (At(x, event) ∧ YaleStudent(x) → CollegeStudent(x))
+∀x (At(x, event) → (YaleStudent(x) ⊕ HarvardStudent(x)))
+∀x (At(x, event) ∧ HarvardStudent(x) → Diligent(x))
+At(susan, event) ∧ (HarvardStudent(susan) → YoungAdult(susan))
+YaleStudent(susan) → ¬Like(susan, independence)","-(Diligent(susan) & Like(susan, independence))",False
+36,"All professional athletes spend most of their time on sports.
+All Olympic gold medal winners are professional athletes.
+No full-time scientists spend the majority of their time on sports.
+All Nobel physics laureates are full-time scientists.
+Amy spends the most time on sports, or Amy is an Olympic gold medal winner.
+If Amy is not a Nobel physics laureate, then Amy is not an Olympic gold medal winner.",Amy is a professional athlete.,"∀x (ProfessionalAthlete(x) → SpendOn(x, mostOfTheirTime, sports))
+∀x (OlympicGoldMedalWinner(x) → ProfessionalAthlete(x))
+∀x (FullTimeScientist(x) → ¬SpendOn(x, mostOfTheirTime, sports))
+∀x (NobelPhysicsLaureate(x) → FullTimeScientist(x))
+SpendOn(amy, mostOfTheirTime, sports) ∨ OlympicGoldMedalWinner(amy)
+¬NobelPhysicsLaureate(amy) → ¬OlympicGoldMedalWinner(amy)",ProfessionalAthlete(amy),Uncertain
+37,"All professional athletes spend most of their time on sports.
+All Olympic gold medal winners are professional athletes.
+No full-time scientists spend the majority of their time on sports.
+All Nobel physics laureates are full-time scientists.
+Amy spends the most time on sports, or Amy is an Olympic gold medal winner.
+If Amy is not a Nobel physics laureate, then Amy is not an Olympic gold medal winner.",Amy is neither a full-time scientist nor an Olympic gold medal winner.,"∀x (ProfessionalAthlete(x) → SpendOn(x, mostOfTheirTime, sports))
+∀x (OlympicGoldMedalWinner(x) → ProfessionalAthlete(x))
+∀x (FullTimeScientist(x) → ¬SpendOn(x, mostOfTheirTime, sports))
+∀x (NobelPhysicsLaureate(x) → FullTimeScientist(x))
+SpendOn(amy, mostOfTheirTime, sports) ∨ OlympicGoldMedalWinner(amy)
+¬NobelPhysicsLaureate(amy) → ¬OlympicGoldMedalWinner(amy)",-FullTimeScientist(amy) & -OlympicGoldMedalWinner(amy),True
+38,"All professional athletes spend most of their time on sports.
+All Olympic gold medal winners are professional athletes.
+No full-time scientists spend the majority of their time on sports.
+All Nobel physics laureates are full-time scientists.
+Amy spends the most time on sports, or Amy is an Olympic gold medal winner.
+If Amy is not a Nobel physics laureate, then Amy is not an Olympic gold medal winner.","If Amy is not an Olympic gold medal winner, then Amy is a Nobel physics laureate.","∀x (ProfessionalAthlete(x) → SpendOn(x, mostOfTheirTime, sports))
+∀x (OlympicGoldMedalWinner(x) → ProfessionalAthlete(x))
+∀x (FullTimeScientist(x) → ¬SpendOn(x, mostOfTheirTime, sports))
+∀x (NobelPhysicsLaureate(x) → FullTimeScientist(x))
+SpendOn(amy, mostOfTheirTime, sports) ∨ OlympicGoldMedalWinner(amy)
+¬NobelPhysicsLaureate(amy) → ¬OlympicGoldMedalWinner(amy)",all x (x = amy -> (-OlympicGoldMedalWinner(x) -> NobelPhysicsLaureate(x))),False
+39,"Everyone working at Meta has a high income. 
+A person with a high income will not take a bus to their destination.
+People will either take a bus or drive to their destination. 
+Everyone who has a car will choose to drive to their destination. 
+No students drive to their destination. 
+James has a car or works at Meta.",James has a high income.,"∀x (WorkAt(x, meta) → HighIncome(x))
+∀x (HighIncome(x) → ¬MeansToDestination(x, bus))
+∀x (MeansToDestination(x, bus) ⊕ MeansToDestination(x, drive))
+∀x (HaveCar(x) → MeansToDestination(x, drive))
+∀x (Student(x) → ¬ MeansToDestination(x, drive))
+HaveCar(james) ∨ WorkAt(james, meta)",HighIncome(james),Uncertain
+40,"Everyone working at Meta has a high income. 
+A person with a high income will not take a bus to their destination.
+People will either take a bus or drive to their destination. 
+Everyone who has a car will choose to drive to their destination. 
+No students drive to their destination. 
+James has a car or works at Meta.",James does not have a high income.,"∀x (WorkAt(x, meta) → HighIncome(x))
+∀x (HighIncome(x) → ¬MeansToDestination(x, bus))
+∀x (MeansToDestination(x, bus) ⊕ MeansToDestination(x, drive))
+∀x (HaveCar(x) → MeansToDestination(x, drive))
+∀x (Student(x) → ¬ MeansToDestination(x, drive))
+HaveCar(james) ∨ WorkAt(james, meta)",-all x (x = james -> HighIncome(x)),Uncertain
+41,"Everyone working at Meta has a high income. 
+A person with a high income will not take a bus to their destination.
+People will either take a bus or drive to their destination. 
+Everyone who has a car will choose to drive to their destination. 
+No students drive to their destination. 
+James has a car or works at Meta.",James is a student.,"∀x (WorkAt(x, meta) → HighIncome(x))
+∀x (HighIncome(x) → ¬MeansToDestination(x, bus))
+∀x (MeansToDestination(x, bus) ⊕ MeansToDestination(x, drive))
+∀x (HaveCar(x) → MeansToDestination(x, drive))
+∀x (Student(x) → ¬ MeansToDestination(x, drive))
+HaveCar(james) ∨ WorkAt(james, meta)",Student(james),False
+42,"Everyone at the business conference is either an investor or an entrepreneur.
+None of those at the business conference who enjoy the opportunity of starting a business prefer a planned economy. 
+All entrepreneurs at the business conference enjoy the opportunity of starting a business. 
+Everyone at the business conference who enjoys state ownership of means of production prefers a planned economy. 
+Everyone at the business conference who is an ardent communist prefers state ownership of the means of production.
+Ho is at the business conference and prefers state ownership of the means of production.",Ho is not an ardent communist.,"∀x (At(x, businessConference) → (Investor(x) ⊕ Entrepreneur(x)))
+∀x ((At(x, businessConference) ∧ Enjoy(x, opportunityOfStartingOwnBusiness)) → ¬Prefer(x, plannedEconomy))
+∀x ((At(x, businessConference) ∧ Entrepreneur(x)) → Enjoy(x, opportunityOfStartingOwnBusiness))
+∀x ((At(x, businessConference) ∧ Enjoy(x, stateOwnershipOfMeansOfProduction)) → Prefer(x, plannedEconomy))
+∀x ((At(x, businessConference) ∧ ArdentCommunist(x)) → Prefer(x, stateOwnershipOfMeansOfProduction))
+At(ho, businessConference) ∧ Prefer(ho, stateOwnershipOfMeansOfProduction)",-all x (x = ho -> ArdentCommunist(x)),Uncertain
+43,"No television stars are certified public accountants.
+All certified public accountants have good business sense.",All television stars have good business sense.,"∀x (TelevisionStar(x) → ¬CertifiedPublicAccoutant(x))
+∀x (CertifiedPublicAccoutant(x) → Have(x, goodBusinessSense))","all x (TelevisionStar(x) -> Have(x,goodBusinessSense))",Uncertain
+44,"Some students in the class who are good at math are also good at chemistry.
+All students in the class who are good at chemistry enjoy conducting experiments. 
+All students in the class that enjoy conducting experiments are good at planning. 
+None of the students who are good at planning failed the class.
+James is a student in the class; he is either good at chemistry and failed the class, or bad at chemistry and passed the class.",James is good at planning.,"∃x ∃y (StudentInTheClass(x) ∧ GoodAt(x, math) ∧ GoodAt(x, chemistry) ∧ (¬(x=y)) ∧ StudentInTheClass(y) ∧ GoodAt(y, math) ∧ GoodAt(y, chemistry))
+∀x ((StudentInTheClass(x) ∧ GoodAt(x, chemistry)) → Enjoy(x, conductingExperiment))
+∀x ((StudentInTheClass(x) ∧ Enjoy(x, conductingExperiment)) → GoodAt(x, planning))
+∀x ((StudentInTheClass(x) ∧ GoodAt(x, planning)) → ¬Failed(x, theClass))
+StudentInTheClass(james) ∧ (¬(GoodAt(james, chemistry) ⊕ Failed(james, theClass)))","GoodAt(james,planning)",Uncertain
+45,"Some students in the class who are good at math are also good at chemistry.
+All students in the class who are good at chemistry enjoy conducting experiments. 
+All students in the class that enjoy conducting experiments are good at planning. 
+None of the students who are good at planning failed the class.
+James is a student in the class; he is either good at chemistry and failed the class, or bad at chemistry and passed the class.",James is good at math and chemistry.,"∃x ∃y (StudentInTheClass(x) ∧ GoodAt(x, math) ∧ GoodAt(x, chemistry) ∧ (¬(x=y)) ∧ StudentInTheClass(y) ∧ GoodAt(y, math) ∧ GoodAt(y, chemistry))
+∀x ((StudentInTheClass(x) ∧ GoodAt(x, chemistry)) → Enjoy(x, conductingExperiment))
+∀x ((StudentInTheClass(x) ∧ Enjoy(x, conductingExperiment)) → GoodAt(x, planning))
+∀x ((StudentInTheClass(x) ∧ GoodAt(x, planning)) → ¬Failed(x, theClass))
+StudentInTheClass(james) ∧ (¬(GoodAt(james, chemistry) ⊕ Failed(james, theClass)))","GoodAt(james,math) & GoodAt(james,chemistry)",False
+48,"All people who attend weddings are getting married or know the people who are getting married.
+No preteens or young children are getting married or know the people who are getting married.
+People who enjoy celebrating life milestone events with other people attend weddings.
+People who are fond of large group functions enjoy celebrating life milestone events with other people.
+All people who are outgoing and spirited are fond of large group functions.
+If Carol is not both a pre-teen or young child and attends a wedding, then Carol is not getting married or knows the people who are getting married.",Carol is a preteen or a young child.,"∀x (Attend(x, wedding) → GettingMarried(x) ∨ (∃y (Know(x, y) ∧ GettingMarried(y)))
+∀x (PreTeen(x) ∨ YoungChild(x) → ¬(GettingMarried(x) ⊕ (∃y (Know(x, y) ∧ GettingMarried(y)))))
+∀x (∃y ∃z (¬(x=y) ∧ ¬(x=z) ∧ ¬(y=z) ∧ Enjoy(x, celebratingLifeMileStoneEvent, y) ∧ Enjoy(x, celebratingLifeStoneEvent, z)) → Attend(x, wedding))
+∀x (FondOf(x, largeGroupFunction) → ∃y ∃z (¬(x=y) ∧ ¬(x=z) ∧ ¬(y=z) ∧ Enjoy(x, celebratingLifeMileStoneEventWith, y) ∧ Enjoy(x, celebratingLifeStoneEvent, z)))
+∀x (Outgoing(x) ∧ Sprited(x)  → FondOf(x, largeGroupFunction))
+¬((PreTeen(carol) ∨ YoungChildren(carol)) ∧ Attend(carol, wedding)) → ¬(GettingMarried(carol) ∨ (∃y (Know(carol, y) ∧ GettingMarried(y))))",(PreTeen(carol) | YoungChild(carol)),Uncertain
+49,"All velvet-finish lipsticks in the Rouge Dior set, Lunar New Year Limited Edition are refillable.
+Lipsticks in the Rouge Dior set, Lunar New Year Limited Edition have either a velvet-finish or a satin-finish.
+No satin-finish lipsticks in the set do not have ""rosewood"" in its offical description. 
+Lipstcks in the Rouge Dior set, Lunar New Year Limited Edition either does not have ""rosewood"" in its offical description or it has ""rosewood"" in its official description. 
+ROUGE Dior Colored Lip Balm 999 is a lipstick in the set, and it either has ""rosewood"" in its official description or has a velvet finish.","If ROUGE Dior Colored Lip Balm 999 is not both a velvet finish ipstick in the set and refillable, then it neither is refillable nor has ""rosewood"" in its official description.","∀x ((Lipstick(x) ∧ In(x, rougeDiorSet) ∧ In(x, lunarNewYearLimitedEdition) ∧ VelvetFinish(x)) → Refillable(x))
+∀x ((Lipstick(x) ∧ In(x, rougeDiorSet) ∧ In(x, lunarNewYearLimitedEdition)) → (VelvetFinish(x) ⊕ SatinFinish(x))
+∀x ((Lipstick(x) ∧ In(x, rougeDiorSet) ∧ In(x, lunarNewYearLimitedEdition) ∧ SatinFinish(x)) → ¬RosewoodInDescription(x))
+∀x ((Lipstick(x) ∧ In(x, rougeDiorSet) ∧ In(x, lunarNewYearLimitedEdition)) → (RosewoodInDescription(x) ⊕ ¬RosewoodInDescription(x)))
+Lipstick(rougeDiorColoredLipBalm999) ∧ In(rougeDiorColoredLipBalm999, rougeDiorSet) ∧ In(rougeDiorColoredLipBalm999, lunarNewYearLimitedEdition) ∧ (RosewoodInDescription(rougeDiorColoredLipBalm999) ⊕ VelvetFinish(rougeDiorColoredLipBalm999))","( -(VelvetFinish(rougeDiorColoredLipBalm999) & Lipstick(rougeDiorColoredLipBalm999) & In(rougeDiorColoredLipBalm999,rougeDiorSet) & In(rougeDiorColoredLipBalm999,lunarNewYearLimitedEdition) & Refillable(rougeDiorColoredLipBalm999)) -> (-Refillable(rougeDiorColoredLipBalm999) & -RosewoodInDescription(rougeDiorColoredLipBalm999)) )",True

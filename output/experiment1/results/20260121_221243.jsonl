@@ -1,0 +1,683 @@
+{"story_id": 0, "label": "True", "conclusion-FOL": "¬WantToBeAddictedTo(rina, caffeine) ∨ (¬AwareThatDrug(rina, caffeine))", "llm_conclusion-FOL": "( -WantToBeAddictedTo(rina,caffeine) | -AwareThatDrug(rina,caffeine) )"}
+{"story_id": 4, "label": "Uncertain", "conclusion-FOL": "Love(miroslav, music)", "llm_conclusion-FOL": "Love(miroslav,music)"}
+{"story_id": 5, "label": "True", "conclusion-FOL": "∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))", "llm_conclusion-FOL": "∃x ∃y ∃z (Czech(x) & PublishedBook(x,y,z) & z = yr1946)"}
+{"story_id": 6, "label": "False", "conclusion-FOL": "∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))", "llm_conclusion-FOL": "-all x (ChoralConductor(x) -> SpecializeInPerformanceOf(x, renaissanceMusic))"}
+{"story_id": 7, "label": "Uncertain", "conclusion-FOL": "Eel(seaEel)", "llm_conclusion-FOL": "Eel(seaEel)"}
+{"story_id": 8, "label": "False", "conclusion-FOL": "Bacteria(seaEel)", "llm_conclusion-FOL": "Bacteria(seaEel)"}
+{"story_id": 9, "label": "True", "conclusion-FOL": "Multicellular(seaEel) ∨ Bacteria(seaEel)", "llm_conclusion-FOL": "Multicellular(seaEel) | Bacteria(seaEel)"}
+{"story_id": 15, "label": "True", "conclusion-FOL": "∃x (Attended(williamDickinson, x) ∧ University(x) ∧ LocatedIn(x, unitedKingdom))", "llm_conclusion-FOL": "Attended(williamDickinson, universityOfEdinburgh) & University(universityOfEdinburgh) & LocatedIn(universityOfEdinburgh, unitedKingdom)"}
+{"story_id": 16, "label": "True", "conclusion-FOL": "SatIn(williamDickinson, houseOfCommons)", "llm_conclusion-FOL": "SatIn(williamDickinson,houseOfCommons)"}
+{"story_id": 18, "label": "Uncertain", "conclusion-FOL": "GoToEveryWeek(lily, cinema)", "llm_conclusion-FOL": "GoToEveryWeek(lily,cinema)"}
+{"story_id": 19, "label": "Uncertain", "conclusion-FOL": "¬GoToEveryWeek(lily, cinema)", "llm_conclusion-FOL": "-all x (x = lily -> GoToEveryWeek(x,cinema))"}
+{"story_id": 21, "label": "True", "conclusion-FOL": "(GoToEveryWeek(lily, cinema) ∧ SubscribedTo(lily, hBO)) → (EligibleForThreeFreeMoviesEveryWeek(lily) ⊕ Prefer(lily, tVSeries))", "llm_conclusion-FOL": "( -( GoToEveryWeek(lily,cinema) & SubscribedTo(lily,hBO) ) -> ( -( EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) <-> Prefer(lily,tVSeries) ) ) )"}
+{"story_id": 22, "label": "False", "conclusion-FOL": "(EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) ∧ WatchIn(lily, tV, cinema)) → (GoToEveryWeek(lily, cinema) ∧ Prefer(lily, tVSeries))", "llm_conclusion-FOL": "(all x)( (x = lily & EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x) & WatchIn(x,tV,cinema)) -> (GoToEveryWeek(x,cinema) & Prefer(x,tVSeries)) )"}
+{"story_id": 23, "label": "True", "conclusion-FOL": "RankHigherThan(realMadrid, barcelona)", "llm_conclusion-FOL": "RankHigherThan(realMadrid,barcelona)"}
+{"story_id": 27, "label": "Uncertain", "conclusion-FOL": "ResidentOf(tom, washington)", "llm_conclusion-FOL": "CitizenOf(tom, washington)"}
+{"story_id": 28, "label": "Uncertain", "conclusion-FOL": "ResidentOf(daniel, lawtonPark)", "llm_conclusion-FOL": "ResidentOf(daniel, lawtonPark)"}
+{"story_id": 29, "label": "True", "conclusion-FOL": "Suspended(tiffanyTAlston)", "llm_conclusion-FOL": "Suspended(tiffanyTAlston)"}
+{"story_id": 30, "label": "False", "conclusion-FOL": "¬Suspended(tiffanyTAlston)", "llm_conclusion-FOL": "-Suspended(tiffanyTAlston)"}
+{"story_id": 31, "label": "Uncertain", "conclusion-FOL": "Prison(tiffanyTAlston)", "llm_conclusion-FOL": "WentToPrisonForStealingFunds(tiffanyTAlston)"}
+{"story_id": 32, "label": "Uncertain", "conclusion-FOL": "∀x (Sting(stonefish, x) ∧ ¬UseAntivenomOn(x) → CauseDeathTo(stonefish, x))", "llm_conclusion-FOL": "all x ((Sting(stonefish,x) & -UseAntivenomOn(x)) -> CauseDeathTo(stonefish,x))"}
+{"story_id": 33, "label": "True", "conclusion-FOL": "∃x ∃y (Fish(x) ∧ Sting(x, y) ∧ ¬Treated(y) → CauseDeathTo(x, y))", "llm_conclusion-FOL": "exists x (Fish(x) & exists y (Sting(x,y) & ( -Treated(y) -> CauseDeathTo(x,y) )))"}
+{"story_id": 34, "label": "Uncertain", "conclusion-FOL": "∀x (SteppedOnBy(stonefish, x) ∧ ApplyHeatTo(x)  → CauseDeathTo(stonefish, x))", "llm_conclusion-FOL": "all x ((SteppedOnBy(stonefish,x) & ApplyHeatTo(x)) -> CauseDeathTo(stonefish,x))"}
+{"story_id": 37, "label": "True", "conclusion-FOL": "Have(l2021, typeCPort) ⊕ ProducedBy(l2021, lG)", "llm_conclusion-FOL": "Have(l2021,typeCPort) | ProducedBy(l2021,lG)"}
+{"story_id": 40, "label": "Uncertain", "conclusion-FOL": "Planet(pSOJ3185_22) ∧ Orphan(pSOJ3185_22)", "llm_conclusion-FOL": "Orphan(pSOJ318522)"}
+{"story_id": 44, "label": "Uncertain", "conclusion-FOL": "∀x (Song(x) ∧ Play(sam, x) ∧ Titled(x, perfect))", "llm_conclusion-FOL": "exists x (Song(x) & Play(sam,x) & all y (Song(y) & Play(sam,y) -> y = x) & Titled(x,perfect))"}
+{"story_id": 45, "label": "Uncertain", "conclusion-FOL": "∀x (Titled(x, perfect) → Play(sam, x))", "llm_conclusion-FOL": "all x (Song(x) & Titled(x,perfect) -> Play(sam,x))"}
+{"story_id": 46, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Pet(x) ∧ Pet(y) ∧ ¬Have(x, fur) ∧ ¬Have(y, fur))", "llm_conclusion-FOL": "exists x (Pet(x) & -Have(x,fur))"}
+{"story_id": 47, "label": "True", "conclusion-FOL": "ComputerProgram(tikTok)", "llm_conclusion-FOL": "ComputerProgram(tikTok)"}
+{"story_id": 48, "label": "True", "conclusion-FOL": "IdealFor(tikTok, preteen) ⊕ ComputerProgram(tikTok)", "llm_conclusion-FOL": "IdealFor(tikTok,preteen) | ComputerProgram(tikTok)"}
+{"story_id": 49, "label": "False", "conclusion-FOL": "¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok)", "llm_conclusion-FOL": "-Contain(tikTok,chatFeature) | -ComputerProgram(tikTok)"}
+{"story_id": 50, "label": "False", "conclusion-FOL": "Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok)", "llm_conclusion-FOL": "Contain(tikTok,chatFeature) | ComputerProgram(tikTok)"}
+{"story_id": 51, "label": "False", "conclusion-FOL": "∀x (On(x, kentuckyRoute32) → ¬UnincorporatedCommunity(x))", "llm_conclusion-FOL": "all x (On(x,kentuckyRoute32) -> -UnincorporatedCommunity(x))"}
+{"story_id": 52, "label": "True", "conclusion-FOL": "∃x (UnincorporatedCommunity(x) ∧ LocatedIn(x, elliotCounty))", "llm_conclusion-FOL": "exists x (UnincorporatedCommunity(x) & LocatedIn(x, elliotCounty))"}
+{"story_id": 53, "label": "Uncertain", "conclusion-FOL": "CollegeStudent(susan)", "llm_conclusion-FOL": "exists x (x = susan & CollegeStudent(x))"}
+{"story_id": 54, "label": "True", "conclusion-FOL": "Like(susan, independence) ∧ Diligent(susan)", "llm_conclusion-FOL": "Like(susan,independence) & Diligent(susan)"}
+{"story_id": 55, "label": "False", "conclusion-FOL": "¬(Like(susan, independence) ∧ Diligent(susan))", "llm_conclusion-FOL": "-(Diligent(susan) & Like(susan,independence))"}
+{"story_id": 58, "label": "Uncertain", "conclusion-FOL": "ProfessionalAthlete(amy)", "llm_conclusion-FOL": "ProfessionalAthlete(amy)"}
+{"story_id": 59, "label": "True", "conclusion-FOL": "¬(FullTimeScientist(amy) ∨ OlympicGoldMedalWinner(amy))", "llm_conclusion-FOL": "-FullTimeScientist(amy) & -OlympicGoldMedalWinner(amy)"}
+{"story_id": 60, "label": "False", "conclusion-FOL": "¬OlympicGoldMedalWinner(amy) → NobelPhysicsLaureate(amy)", "llm_conclusion-FOL": "all x (x=amy -> (-OlympicGoldMedalWinner(x) -> NobelPhysicsLaureate(x)))"}
+{"story_id": 66, "label": "Uncertain", "conclusion-FOL": "HighIncome(james)", "llm_conclusion-FOL": "HighIncome(james)"}
+{"story_id": 67, "label": "Uncertain", "conclusion-FOL": "¬HighIncome(james)", "llm_conclusion-FOL": "-all x (x = james -> HighIncome(x))"}
+{"story_id": 68, "label": "False", "conclusion-FOL": "Student(james)", "llm_conclusion-FOL": "Student(james)"}
+{"story_id": 72, "label": "Uncertain", "conclusion-FOL": "¬ArdentCommunist(ho)", "llm_conclusion-FOL": "-all x( x = ho -> ArdentCommunist(x))"}
+{"story_id": 74, "label": "Uncertain", "conclusion-FOL": "∀x (TelevisionStar(x) → Have(x, goodBusinessSense))", "llm_conclusion-FOL": "all x (TelevisionStar(x) -> Have(x,goodBusinessSense))"}
+{"story_id": 75, "label": "Uncertain", "conclusion-FOL": "GoodAt(james, planning)", "llm_conclusion-FOL": "GoodAt(james,planning)"}
+{"story_id": 76, "label": "False", "conclusion-FOL": "GoodAt(james, chemistry) ∧ GoodAt(james, math)", "llm_conclusion-FOL": "GoodAt(james,math) & GoodAt(james,chemistry)"}
+{"story_id": 78, "label": "True", "conclusion-FOL": "(GoodAt(james, chemistry) ∨ Failed(james, theClass)) → (GoodAt(james, planning) ⊕ GoodAt(james, math))", "llm_conclusion-FOL": "((GoodAt(james,chemistry) | Failed(james,theClass)) -> (GoodAt(james,planning) | GoodAt(james,math)))"}
+{"story_id": 82, "label": "True", "conclusion-FOL": "Spend(sarah, money)", "llm_conclusion-FOL": "∃t(Weekend(t) & Spend(sarah,t))"}
+{"story_id": 84, "label": "Uncertain", "conclusion-FOL": "PreTeen(carol) ∨ YoungChild(carol)", "llm_conclusion-FOL": "PreTeen(carol) | YoungChild(carol)"}
+{"story_id": 89, "label": "True", "conclusion-FOL": "¬((Lipstick(rougeDiorColoredLipBalm999) ∧ In(rougeDiorColoredLipBalm999, rougeDiorSet) ∧ In(rougeDiorColoredLipBalm999, lunarNewYearLimitedEdition) ∧ VelvetFinish(rougeDiorColoredLipBalm999) ∧ Refillable(rougeDiorColoredLipBalm999)) → (¬Refillable(rougeDiorColoredLipBalm999) ∧ ¬RosewoodInDescription(rougeDiorColoredLipBalm999)))", "llm_conclusion-FOL": "all x (x = rougeDiorColoredLipBalm999 -> ( - ( VelvetFinish(x) & Lipstick(x) & In(x,rougeDiorSet) & In(x,lunarNewYearLimitedEdition) & Refillable(x) ) -> ( -Refillable(x) & -RosewoodInDescription(x) )))"}
+{"story_id": 94, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Conservative(x) ∧ Conservative(y) ∧ ¬SenateRepublican(x) ∧ ¬SenateRepublican(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Conservative(x) & -SenateRepublican(x))"}
+{"story_id": 98, "label": "Uncertain", "conclusion-FOL": "Pirate(nancy)", "llm_conclusion-FOL": "Pirate(nancy)"}
+{"story_id": 101, "label": "True", "conclusion-FOL": "From(lanaWilson, unitedStates) ∧ Filmmaker(lanaWilson)", "llm_conclusion-FOL": "Filmmaker(lanaWilson) & From(lanaWilson, unitedStates)"}
+{"story_id": 102, "label": "False", "conclusion-FOL": "¬∃x(Filmmaker(x) ∧ From(x, kirkland) ∧ DirectedBy(missAmericana, x))", "llm_conclusion-FOL": "-all y (DirectedBy(missAmericana,y) & Filmmaker(y) & From(y,kirkland))"}
+{"story_id": 103, "label": "Uncertain", "conclusion-FOL": "FilmmakerAward(lanaWilson, theIndependentSpiritAwardForBestDocumentary)", "llm_conclusion-FOL": "Exists(x) (Won(lanaWilson,x) & Equals(x,theIndependentSpiritAwardForBestDocumentary))"}
+{"story_id": 104, "label": "True", "conclusion-FOL": "∃x (Bear(x) ∧ ¬Wild(x))", "llm_conclusion-FOL": "all x (Bear(x) -> Wild(x)) -> exists x (Bear(x) & -Wild(x))"}
+{"story_id": 105, "label": "False", "conclusion-FOL": "King(elizabeth)", "llm_conclusion-FOL": "King(elizabeth)"}
+{"story_id": 106, "label": "True", "conclusion-FOL": "HavePower(elizabeth)", "llm_conclusion-FOL": "HavePower(elizabeth)"}
+{"story_id": 107, "label": "True", "conclusion-FOL": "Leader(elizabeth)", "llm_conclusion-FOL": "Leader(elizabeth)"}
+{"story_id": 108, "label": "Uncertain", "conclusion-FOL": "Have(bunny, y) ∧ Regular(y) ∧ NineToFiveJob(y)", "llm_conclusion-FOL": "- (exists y (Have(bunny,y) & Regular(y) & NineToFiveJob(y)))"}
+{"story_id": 111, "label": "Uncertain", "conclusion-FOL": "PlayedFor(thomasBarber, boltonWanderers) ∧ PlayedIn(boltonWanderers,theFootballLeague)", "llm_conclusion-FOL": "PlayedFor(thomasBarber, boltonWanderers) & PlayedIn(boltonWanderers, theFootballLeague)"}
+{"story_id": 112, "label": "True", "conclusion-FOL": "PlayedAs(thomasBarber, insideLeft)", "llm_conclusion-FOL": "PlayedAs(thomasBarber, insideLeft)"}
+{"story_id": 113, "label": "True", "conclusion-FOL": "∃x (English(x) ∧ ProfessionalFootballer(x) ∧ ScoredTheWinningGoalIn(x, facupfinal1913))", "llm_conclusion-FOL": "exists x (English(x) & ProfessionalFootballer(x) & ScoredTheWinningGoalIn(x, facupfinal1913))"}
+{"story_id": 116, "label": "True", "conclusion-FOL": "GoodAtPlaying(peter, piano)", "llm_conclusion-FOL": "GoodAtPlaying(peter,piano)"}
+{"story_id": 120, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (CancerResearcher(x) ∧ Use(x, cancerEffectSize) ∧ UsedToDetermine(cancerEffectSize, relativeImportanceOfGeneteticAlterations))", "llm_conclusion-FOL": "∃x (CancerResearcher(x) & TendToUse(x, cancerEffectSize) & DetermineRelativeImportanceOf(x, geneticAlteration) & Confer(geneticAlteration, selectiveAdvantage, toCancerCell))"}
+{"story_id": 121, "label": "Uncertain", "conclusion-FOL": "SelectionIntensitySomaticVariants(pValue)", "llm_conclusion-FOL": "∃x (PValue(x) & Represents(x, selectionIntensityForSomaticVariantsInCancerCellLineages))"}
+{"story_id": 122, "label": "Uncertain", "conclusion-FOL": "Preferred(cancerResearchers, cancerEffectSize)", "llm_conclusion-FOL": "∃x (CancerResearcher(x) & PreferredBy(cancerEffectSize,x))"}
+{"story_id": 124, "label": "Uncertain", "conclusion-FOL": "Bioegradable(worksheet)", "llm_conclusion-FOL": "Biodegradable(worksheet)"}
+{"story_id": 125, "label": "Uncertain", "conclusion-FOL": "¬Bioegradable(worksheet)", "llm_conclusion-FOL": "-all x (Worksheet(x) -> Biodegradable(x))"}
+{"story_id": 126, "label": "False", "conclusion-FOL": "Bad(worksheet)", "llm_conclusion-FOL": "Bad(worksheet)"}
+{"story_id": 127, "label": "True", "conclusion-FOL": "¬Bad(worksheet)", "llm_conclusion-FOL": "-all x (Worksheet(x) -> Bad(x))"}
+{"story_id": 128, "label": "False", "conclusion-FOL": "∃x (Snake(x) ∧ Have(x, fur))", "llm_conclusion-FOL": "exists x (Snake(x) & Have(x,fur))"}
+{"story_id": 132, "label": "Uncertain", "conclusion-FOL": "Cat(ron)", "llm_conclusion-FOL": "Cat(ron)"}
+{"story_id": 133, "label": "False", "conclusion-FOL": "Penguin(henry) ⊕ Endothermic(henry)", "llm_conclusion-FOL": "-(Penguin(henry) <-> Endothermic(henry))"}
+{"story_id": 134, "label": "True", "conclusion-FOL": "¬(Penguin(ron) ⊕ Endothermic(henry))", "llm_conclusion-FOL": "-( (Penguin(ron) & Endothermic(ron)) <-> -(Penguin(ron) | Endothermic(ron)) )"}
+{"story_id": 135, "label": "True", "conclusion-FOL": "∃x (Discover(yevgenykurochkin, x) ∧ BirdGenus(x))", "llm_conclusion-FOL": "∃g(New(g) & BirdGenus(g) & Discover(yevgenykurochkin,g))"}
+{"story_id": 137, "label": "Uncertain", "conclusion-FOL": "LiveIn(yevgenykurochkin, mongolia)", "llm_conclusion-FOL": "∃x(IsSpecies(x,ambiortusDementjevi) & LiveIn(x,mongolia) & Discover(yevgenykurochkin,x))"}
+{"story_id": 139, "label": "Uncertain", "conclusion-FOL": "Seasoned(jack) ∧ SoftwareEngineerInterviewer(jack) ∧ At(jack, google)", "llm_conclusion-FOL": "exists g (Seasoned(jack) & SoftwareEngineerInterviewer(jack) & At(jack,g))"}
+{"story_id": 142, "label": "True", "conclusion-FOL": "∃x (Built(pierredeRigauddeVaudreuil, x) ∧ LocatedIn(x, newFrance))", "llm_conclusion-FOL": "∃x (Built(pierredeRigauddeVaudreuil,x) & LocatedIn(x,newFrance))"}
+{"story_id": 143, "label": "Uncertain", "conclusion-FOL": "∃x (Built(pierredeRigauddeVaudreuil, x) ∧ LocatedIn(x, newEngland))", "llm_conclusion-FOL": "exists F (Built(pierredeRigauddeVaudreuil,F) & LocatedIn(F,newEngland))"}
+{"story_id": 144, "label": "Uncertain", "conclusion-FOL": "LocatedIn(fortCarillon, europe)", "llm_conclusion-FOL": "LocatedIn(fortCarillon,europe)"}
+{"story_id": 145, "label": "Uncertain", "conclusion-FOL": "NBAPlayer(stephenCurry)", "llm_conclusion-FOL": "NBAPlayer(stephencurry)"}
+{"story_id": 148, "label": "False", "conclusion-FOL": "FolkSong(inception)", "llm_conclusion-FOL": "FolkSong(inception)"}
+{"story_id": 149, "label": "True", "conclusion-FOL": "¬FolkSong(inception)", "llm_conclusion-FOL": "-FolkSong(inception)"}
+{"story_id": 150, "label": "True", "conclusion-FOL": "Video(inception) ⊕ FolkSong(inception)", "llm_conclusion-FOL": "Video(inception) | FolkSong(inception)"}
+{"story_id": 151, "label": "Uncertain", "conclusion-FOL": "Video(mac)", "llm_conclusion-FOL": "Video(mac)"}
+{"story_id": 152, "label": "Uncertain", "conclusion-FOL": "BasedOn(x, fact) ∨ BasedOn(x, rule)", "llm_conclusion-FOL": "(all x)(x = modusPonens -> (BasedOn(x,fact) & BasedOn(x,rule)))"}
+{"story_id": 155, "label": "Uncertain", "conclusion-FOL": "StruggleAt(jack, halfCourtShot)", "llm_conclusion-FOL": "StruggleAt(jack,halfCourtShot)"}
+{"story_id": 157, "label": "True", "conclusion-FOL": "GoodAt(jack, twos) ∨ BadAt(jack, midRangeShot)", "llm_conclusion-FOL": "GoodAt(jack,twos) | BadAt(jack,midRangeShot)"}
+{"story_id": 162, "label": "False", "conclusion-FOL": "BadAt(jack, midRangeShot) ∧ GoodAt(jack, twos) → ¬GoodAt(jack, twos) ∧ GoodAt(jack, threes)", "llm_conclusion-FOL": "all x (((x = jack & -GoodAt(x,twos) & BadAt(x,midRangeShot)) -> (-GoodAt(x,twos) & GoodAt(x,threes))))"}
+{"story_id": 163, "label": "Uncertain", "conclusion-FOL": "GoodAt(jack, twos) ∨ GoodAt(jack, threes) → BadAt(jack, halfCourtShot) ∧ BadAt(jack, midRangeShot)", "llm_conclusion-FOL": "all x ( x = jack -> ( ( GoodAt(x,twos) | GoodAt(x,threes) ) -> ( StruggleAt(x,halfCourtShot) & BadAt(x,midRangeShot) ) ) )"}
+{"story_id": 164, "label": "True", "conclusion-FOL": "∀x (Plant(x) → ¬Mushroom(x))", "llm_conclusion-FOL": "all x (Plant(x) -> -Mushroom(x))"}
+{"story_id": 165, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Street(x) ∧ Street(y) ∧ Dustless(x) ∧ Dustless(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Street(x) & Dustless(x))"}
+{"story_id": 167, "label": "Uncertain", "conclusion-FOL": "MakeALotOfMoney(singhKaur)", "llm_conclusion-FOL": "MakeALotOfMoney(singhKaur)"}
+{"story_id": 168, "label": "Uncertain", "conclusion-FOL": "Writer(singhKaur)", "llm_conclusion-FOL": "Writer(singhKaur)"}
+{"story_id": 169, "label": "True", "conclusion-FOL": "Have(singhKaur, busyLife)", "llm_conclusion-FOL": "Have(singhKaur,busyLife)"}
+{"story_id": 170, "label": "Uncertain", "conclusion-FOL": "∀x (Building(x) → Magnificent(x))", "llm_conclusion-FOL": "all x (Building(x) -> Magnificent(x))"}
+{"story_id": 172, "label": "Uncertain", "conclusion-FOL": "CapableOf(hulu, abstractThought)", "llm_conclusion-FOL": "CapableOf(hulu,abstractThought)"}
+{"story_id": 173, "label": "Uncertain", "conclusion-FOL": "¬CapableOf(hulu, abstractThought)", "llm_conclusion-FOL": "-all x (x = hulu -> CapableOf(x,abstractThought))"}
+{"story_id": 178, "label": "Uncertain", "conclusion-FOL": "PreventsHarm(controlledSubstancesAct)", "llm_conclusion-FOL": "PreventsHarm(controlledSubstancesAct)"}
+{"story_id": 180, "label": "True", "conclusion-FOL": "∀x ((Child(x) ∧ InChemicalEndangerment(x)) → Harmful(x))", "llm_conclusion-FOL": "all x (Child(x) & InChemicalEndangerment(x) -> Harmful(x))"}
+{"story_id": 181, "label": "Uncertain", "conclusion-FOL": "Entrepreneur(markZuckerberg)", "llm_conclusion-FOL": "Entrepreneur(markZuckerberg)"}
+{"story_id": 182, "label": "False", "conclusion-FOL": "RiskAverse(markZuckerberg)", "llm_conclusion-FOL": "RiskAverse(markZuckerberg)"}
+{"story_id": 183, "label": "True", "conclusion-FOL": "¬RiskAverse(markZuckerberg)", "llm_conclusion-FOL": "-all x (x = markZuckerberg -> RiskAverse(x))"}
+{"story_id": 184, "label": "True", "conclusion-FOL": "∃x (Wildfeed(x) ∧ CopyrightViolation(x))", "llm_conclusion-FOL": "exists x (Wildfeed(x) & CopyrightViolation(x))"}
+{"story_id": 185, "label": "True", "conclusion-FOL": "∃x (Wildfeed(x) ∧ Prerecorded(x))", "llm_conclusion-FOL": "exists x (Wildfeed(x) & Prerecorded(x))"}
+{"story_id": 186, "label": "Uncertain", "conclusion-FOL": "∃x (SyndicatedShows(x) ∧ CopyrightViolation(x))", "llm_conclusion-FOL": "all x (SyndicatedShow(x) -> CopyrightViolation(x))"}
+{"story_id": 187, "label": "True", "conclusion-FOL": "∃x (HighlyDeveloped(x) ∧ LocatedIn(x, westernHemisphere))", "llm_conclusion-FOL": "exists x (HighlyDeveloped(x) & LocatedIn(x,westernHemisphere))"}
+{"story_id": 188, "label": "False", "conclusion-FOL": "¬LocatedIn(unitedStatesOfAmerica, westHemisphere)", "llm_conclusion-FOL": "-LocatedIn(usa,westernHemisphere)"}
+{"story_id": 192, "label": "True", "conclusion-FOL": "Poem(catullus4) ∧ WrittenIn(catullus4, iambicTrimeter) ∧ StrongAgingAnalogy(catullus4)", "llm_conclusion-FOL": "Poem(catullus4) & WrittenIn(catullus4,iambicTrimeter) & StrongAgingAnalogy(catullus4)"}
+{"story_id": 193, "label": "True", "conclusion-FOL": "∃x (Film(x) ∧ Directed(michael, x) ∧ About(x, malfunctioningRobots))", "llm_conclusion-FOL": "∃x∃y (Directed(michael,x) & Film(x) & About(x,y) & MalfunctioningRobots(y))"}
+{"story_id": 197, "label": "True", "conclusion-FOL": "∃x (DistrictIn(xiangshan, x) ∧ DistrictIn(diecai, x) ∧ City(x))", "llm_conclusion-FOL": "exists C (DistrictIn(xiangshan,C) & DistrictIn(diecai,C) & City(C))"}
+{"story_id": 198, "label": "True", "conclusion-FOL": "DistrictIn(xiufeng, guilin)", "llm_conclusion-FOL": "DistrictIn(xiufeng,guilin)"}
+{"story_id": 200, "label": "Uncertain", "conclusion-FOL": "EnjoyGoingOutOftenTo(peter, restaurant, friend)", "llm_conclusion-FOL": "EnjoyGoingOutOftenToWith(peter,restaurant,friend)"}
+{"story_id": 203, "label": "True", "conclusion-FOL": "EasyToOperate(modelXX)", "llm_conclusion-FOL": "EasyToOperate(modelXX)"}
+{"story_id": 204, "label": "Uncertain", "conclusion-FOL": "ControlledBy(modelXX, managers)", "llm_conclusion-FOL": "ControlledBy(modelXX,managers)"}
+{"story_id": 205, "label": "Uncertain", "conclusion-FOL": "ConnectedTo(modelXX, googleHome)", "llm_conclusion-FOL": "ConnectedTo(modelXX,googleHome)"}
+{"story_id": 206, "label": "Uncertain", "conclusion-FOL": "InterestingSoloist(ryan)", "llm_conclusion-FOL": "InterestingSoloist(ryan)"}
+{"story_id": 209, "label": "Uncertain", "conclusion-FOL": "Cool(harry)", "llm_conclusion-FOL": "Cool(harry)"}
+{"story_id": 210, "label": "Uncertain", "conclusion-FOL": "¬Cool(harry)", "llm_conclusion-FOL": "-Cool(harry)"}
+{"story_id": 216, "label": "True", "conclusion-FOL": "ThisBrand(g910) ∧ (ReturnedBy(g910, customer) ∨ SoldIn(g910, walmart))", "llm_conclusion-FOL": "ReturnedBy(g910,customer) | SoldIn(g910,walmart)"}
+{"story_id": 217, "label": "True", "conclusion-FOL": "ReturnedBy(g910, customer) ⊕ SoldIn(g910, walmart)", "llm_conclusion-FOL": "(exists x (x = g910 & ReturnedBy(x,customer))) | SoldIn(g910,walmart)"}
+{"story_id": 223, "label": "Uncertain", "conclusion-FOL": "MechanicalWatch(moonWatch)", "llm_conclusion-FOL": "MechanicalWatch(moonwatch)"}
+{"story_id": 224, "label": "False", "conclusion-FOL": "SmartWatch(moonwatch) ∧ MechanicalWatch(moonwatch)", "llm_conclusion-FOL": "SmartWatch(moonwatch) & MechanicalWatch(moonwatch)"}
+{"story_id": 225, "label": "True", "conclusion-FOL": "SmartWatch(moonwatch) ∧ MechanicalWatch(moonwatch) → ¬MechanicalWatch(moonwatch)", "llm_conclusion-FOL": "all x ( (x = moonwatch & SmartWatch(x) & MechanicalWatch(x)) -> -MechanicalWatch(x) )"}
+{"story_id": 231, "label": "Uncertain", "conclusion-FOL": "Thing(jack)", "llm_conclusion-FOL": "Thing(jack)"}
+{"story_id": 232, "label": "Uncertain", "conclusion-FOL": "¬Thing(jack)", "llm_conclusion-FOL": "-Thing(jack)"}
+{"story_id": 233, "label": "False", "conclusion-FOL": "Thing(jack) ∧ Iphone(jack)", "llm_conclusion-FOL": "Thing(jack) & Iphone(jack)"}
+{"story_id": 234, "label": "True", "conclusion-FOL": "¬(Thing(jack) ∧ Iphone(jack))", "llm_conclusion-FOL": "-(Thing(jack) & Iphone(jack))"}
+{"story_id": 235, "label": "False", "conclusion-FOL": "∀x (Phone(x) → ¬Electronic(x))", "llm_conclusion-FOL": "all x (Phone(x) -> -Electronic(x))"}
+{"story_id": 236, "label": "True", "conclusion-FOL": "∃x (Museum(x) ∧ In(x, nYC) ∧ Include(x, byzantineArt) ∧ Include(x, islamicArt))", "llm_conclusion-FOL": "exists x (Museum(x) & In(x,nYC) & Include(x,byzantineArt) & Include(x,islamicArt))"}
+{"story_id": 237, "label": "True", "conclusion-FOL": "∃x (Museum(x) ∧ In(x, nYC) ∧ Include(x, americanArt))", "llm_conclusion-FOL": "(all x)( (Museum(x) & In(x,nYC)) -> Include(x,americanArt) )"}
+{"story_id": 238, "label": "Uncertain", "conclusion-FOL": "∃x (Museum(x) ∧ In(x, nYC) ∧ Include(x, greekArt))", "llm_conclusion-FOL": "exists x (Museum(x) & In(x,nYC) & Include(x,greekArt))"}
+{"story_id": 242, "label": "Uncertain", "conclusion-FOL": "Village(gasteren) ∧ In(gasteren, netherlands)", "llm_conclusion-FOL": "Village(gasteren) & In(gasteren,netherlands)"}
+{"story_id": 243, "label": "False", "conclusion-FOL": "City(gasteren)", "llm_conclusion-FOL": "City(gasteren)"}
+{"story_id": 244, "label": "Uncertain", "conclusion-FOL": "Population(gasteren, num155)", "llm_conclusion-FOL": "Population(gasteren,num155)"}
+{"story_id": 247, "label": "Uncertain", "conclusion-FOL": "∀x (Platypuses(x) → Vertebrate(x))", "llm_conclusion-FOL": "all x (Platypus(x) -> Vertebrate(x))"}
+{"story_id": 248, "label": "True", "conclusion-FOL": "AustralianCitizen(bobbyFlynn)", "llm_conclusion-FOL": "AustralianCitizen(bobbyFlynn)"}
+{"story_id": 249, "label": "Uncertain", "conclusion-FOL": "FlewToIn(bobbyFlynn, america, year2007)", "llm_conclusion-FOL": "FliesToInYear(bobbyFlynn, america, year2007)"}
+{"story_id": 250, "label": "Uncertain", "conclusion-FOL": "BornIn(bobbyFlynn, queens)", "llm_conclusion-FOL": "BornIn(bobbyFlynn, queens)"}
+{"story_id": 251, "label": "Uncertain", "conclusion-FOL": "∀x (Enzyme(x) → Protein(x))", "llm_conclusion-FOL": "all x (Enzyme(x) -> Protein(x))"}
+{"story_id": 252, "label": "True", "conclusion-FOL": "∃x ∃y (Series(x) ∧ AiredOn(x, aBC) ∧ Develops(y, x) ∧ ShowRunnerOf(y, witchesOfEastEnd))", "llm_conclusion-FOL": "exists x (Series(x) & AiredOn(x,aBC) & exists y (ShowRunnerOf(y,witchesOfEastEnd) & Develops(y,x)))"}
+{"story_id": 254, "label": "Uncertain", "conclusion-FOL": "Develops(maggieFriedman, witchesOfEastEnd)", "llm_conclusion-FOL": "Develops(maggieFriedman, witchesOfEastEnd)"}
+{"story_id": 260, "label": "True", "conclusion-FOL": "CanMake(luke, goodBreakfast)", "llm_conclusion-FOL": "CanMake(luke,goodBreakfast)"}
+{"story_id": 261, "label": "False", "conclusion-FOL": "Chef(luke)", "llm_conclusion-FOL": "Chef(luke)"}
+{"story_id": 262, "label": "True", "conclusion-FOL": "∃x ∃y (Develop(eTS, x) ∧ StateWideAssesment(x) ∧ Develop(eTS, y) ∧ AssociatedWith(y, entryToUSEducationInstitution))", "llm_conclusion-FOL": "∃x ∃y (Develop(eTS,x) & Develop(eTS,y) & Assessment(x) & Assessment(y) & For(x,k12Statewide) & For(y,entryToUSEducationInstitution))"}
+{"story_id": 263, "label": "False", "conclusion-FOL": "∀x (Administer(eTS, x) → ¬InternationalTest(x))", "llm_conclusion-FOL": "-all x (Administer(eTS,x) -> InternationalTest(x))"}
+{"story_id": 264, "label": "Uncertain", "conclusion-FOL": "∃x (Administer(eTS, x) ∧ InChina(x) ∧ (TOEFL(x) ∨ TOEIC(x) ∨ GRE(x) ∨ SubjectTest(x)))", "llm_conclusion-FOL": "∃x (Administer(eTS,x) & InternationalTest(x) & TOEFL(x) & GRE(x) & SubjectTest(x) & In(x,china))"}
+{"story_id": 265, "label": "False", "conclusion-FOL": "∃y (Resist(robert, y) ∧ Hallmark(y) ∧ Delectabl(y) ∧ Dessert(y) ∧ FamousIn(y, italy))", "llm_conclusion-FOL": "exists y (Resist(robert,y) & Hallmark(y) & Delectabl(y) & Dessert(y) & FamousIn(y,italy))"}
+{"story_id": 270, "label": "Uncertain", "conclusion-FOL": "StudyIn(tom, unitedStates)", "llm_conclusion-FOL": "Exists(x) (Tom(x) & Wants(x, studyAbroad))"}
+{"story_id": 272, "label": "True", "conclusion-FOL": "Demolished(islip)", "llm_conclusion-FOL": "Demolished(islip)"}
+{"story_id": 273, "label": "False", "conclusion-FOL": "StillUsed(islip)", "llm_conclusion-FOL": "StillUsed(islip)"}
+{"story_id": 279, "label": "Uncertain", "conclusion-FOL": "In(crotonRiverWatershed, bronx)", "llm_conclusion-FOL": "In(crotonRiverWatershed, bronx)"}
+{"story_id": 280, "label": "Uncertain", "conclusion-FOL": "∀x (Water(x) ∧ From(x, crotonRiver) → FlowsTo(x, bronx))", "llm_conclusion-FOL": "all x ((Water(x) & From(x,crotonRiver)) -> FlowsTo(x,bronx))"}
+{"story_id": 281, "label": "Uncertain", "conclusion-FOL": "∀x (Warship(x) → ¬CommercialVessel(x))", "llm_conclusion-FOL": "all x (Warship(x) -> -CommercialVessel(x))"}
+{"story_id": 284, "label": "Uncertain", "conclusion-FOL": "SongInFilm(buttsWigglin)", "llm_conclusion-FOL": "SongInFilm(buttsWigglin)"}
+{"story_id": 285, "label": "Uncertain", "conclusion-FOL": "AppliedTo(daniel, stanfordUniversity) ∧ ¬GotInto(daniel, stanfordUniversity) ∧ Alumni(danielsFamilyMembers, stanfordUniversity)", "llm_conclusion-FOL": "Exists(a)(AppliedTo(daniel,a) & = (a,stanfordUniversity) & -AdmittedTo(daniel,stanfordUniversity) & Exists(f)(FamilyMemberOf(f,daniel) & GraduatedFromStanfordUniversity(f)))"}
+{"story_id": 286, "label": "True", "conclusion-FOL": "Studied(daniel, bioengineering) ∧ UndergraduateAt(daniel, riceUniversity)", "llm_conclusion-FOL": "Studied(daniel,bioengineering) & UndergraduateAt(daniel,riceUniversity)"}
+{"story_id": 287, "label": "Uncertain", "conclusion-FOL": "GrewUpIn(daniel, minneapolis) ∧ GrewUpIn(danielsOlderSister, minneapolis)", "llm_conclusion-FOL": "GrewUpIn(daniel,minneapolis) & GrewUpIn(danielsOlderSister,minneapolis)"}
+{"story_id": 292, "label": "Uncertain", "conclusion-FOL": "Island(leyte) ∧ In(leyte, philippines)", "llm_conclusion-FOL": "Island(leyte) & In(leyte,philippines)"}
+{"story_id": 293, "label": "False", "conclusion-FOL": "∀x ∀y ((Earthquake(x) ∧ StrikeInCity(x, y) ∧ In(y, philippines)) → ¬Deadly(x))", "llm_conclusion-FOL": "allx ally allz ((Person(x) & Earthquake(y) & In(z,philippines) & StrikeInCity(y,z)) -> -DiedInEq(x,y))"}
+{"story_id": 294, "label": "True", "conclusion-FOL": "∃x ∃y (Earthquake(x) ∧ StrikeInYr(x, year1999) ∧ StrikeInMo(x, december) ∧ StrikeInCity(x, y) ∧ In(y, philippines))", "llm_conclusion-FOL": "exists x (Earthquake(x) & StrikeInYr(x,year1999) & In(philippines,philippines))"}
+{"story_id": 295, "label": "Uncertain", "conclusion-FOL": "Newspapers(matt)", "llm_conclusion-FOL": "ReadToKeepUpdatedOn(matt,theWallStreetJournal,financialMetric) & (exists y (- (y=theWallStreetJournal) & NewsPaper(y) & ReadToKeepUpdatedOn(matt,y,financialMetric)))"}
+{"story_id": 304, "label": "Uncertain", "conclusion-FOL": "∃x (Player(x) ∧ CompleteGame(x))", "llm_conclusion-FOL": "exists x (Game(x) & exists y (Player(y) & -ReachGreen(y)))"}
+{"story_id": 306, "label": "True", "conclusion-FOL": "ConsidersMostImportantLoveLanguage(adam, wordOfAffirmation)", "llm_conclusion-FOL": "ConsidersMostImportantLoveLanguage(adam,wordOfAffirmation)."}
+{"story_id": 308, "label": "True", "conclusion-FOL": "ConsidersMostImportantLoveLanguage(adam, physicalTouch) ⊕ ConsidersMostImportantLoveLanguage(adam, wordOfAffirmation)", "llm_conclusion-FOL": "(ConsidersMostImportantLoveLanguage(adam,physicalTouch) | ConsidersMostImportantLoveLanguage(adam,wordOfAffirmation))"}
+{"story_id": 310, "label": "Uncertain", "conclusion-FOL": "Reptile(john)", "llm_conclusion-FOL": "Reptile(john)"}
+{"story_id": 311, "label": "True", "conclusion-FOL": "¬(Iguana(john) ∧ Fly(john))", "llm_conclusion-FOL": "-(Iguana(john) & Fly(john))"}
+{"story_id": 312, "label": "False", "conclusion-FOL": "Animal(john) ∧ Fly(john) ∧ Bird(john)", "llm_conclusion-FOL": "Animal(john) & Fly(john) & Bird(john)"}
+{"story_id": 320, "label": "Uncertain", "conclusion-FOL": "PRCNational(mei)", "llm_conclusion-FOL": "PRCNational(mei)"}
+{"story_id": 321, "label": "Uncertain", "conclusion-FOL": "¬PRCNational(mei)", "llm_conclusion-FOL": "-PRCNational(mei)"}
+{"story_id": 323, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (GoodTeacher(x) ∧ GoodTeacher(y) ∧ ¬WellInformed(x) ∧ ¬WellInformed(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (GoodTeacher(x) & -WellInformed(x))"}
+{"story_id": 324, "label": "False", "conclusion-FOL": "Background(mort)", "llm_conclusion-FOL": "Background(mort)"}
+{"story_id": 325, "label": "Uncertain", "conclusion-FOL": "PhilatelicLit(eragon)", "llm_conclusion-FOL": "PhilatelicLit(eragon)"}
+{"story_id": 326, "label": "True", "conclusion-FOL": "∃x (DramaFilm(x) ∧ Produces(columbiaPictures, x))", "llm_conclusion-FOL": "exists x (DramaFilm(x) & Produces(columbiaPictures,x))"}
+{"story_id": 327, "label": "Uncertain", "conclusion-FOL": "∃x (AdventureFilm(x) ∧ Produces(columbiaPictures, x))", "llm_conclusion-FOL": "exists x (AdventureFilm(x) & Produces(columbiaPictures,x))"}
+{"story_id": 328, "label": "Uncertain", "conclusion-FOL": "∃x (ChildrensFilm(x) ∧ Produces(paramount, x))", "llm_conclusion-FOL": "all x (Produces(paramount,x) -> ChildrensFilm(x))"}
+{"story_id": 329, "label": "True", "conclusion-FOL": "∃x (AdventureFilm(x) ∧ Produces(paramount, x))", "llm_conclusion-FOL": "all x (AdventureFilm(x) -> Produces(paramount,x))"}
+{"story_id": 343, "label": "False", "conclusion-FOL": "¬Speak(captainAmerica, english)", "llm_conclusion-FOL": "-Speak(captainAmerica,english)"}
+{"story_id": 344, "label": "True", "conclusion-FOL": "ComeFrom(captainAmerica, marvelUniverse)", "llm_conclusion-FOL": "ComeFrom(captainAmerica, marvelUniverse)"}
+{"story_id": 345, "label": "Uncertain", "conclusion-FOL": "Speak(captainAmerica, spanish)", "llm_conclusion-FOL": "Speak(captainAmerica, spanish)"}
+{"story_id": 347, "label": "False", "conclusion-FOL": "¬Writer(robertZimmer)", "llm_conclusion-FOL": "-Writer(robertZimmer)"}
+{"story_id": 348, "label": "Uncertain", "conclusion-FOL": "Biographer(robertZimmer)", "llm_conclusion-FOL": "Biographer(robertZimmer)"}
+{"story_id": 349, "label": "Uncertain", "conclusion-FOL": "RepayOnTime(john) → ApprovedFor(john, mortgage)", "llm_conclusion-FOL": "all x (x = john -> (RepayOnTime(x) -> ApprovedFor(x,mortgage)))"}
+{"story_id": 352, "label": "Uncertain", "conclusion-FOL": "PhDStudent(john)", "llm_conclusion-FOL": "PhDStudent(john)"}
+{"story_id": 353, "label": "Uncertain", "conclusion-FOL": "GoTo(john, europe) → See(john, eiffelTower)", "llm_conclusion-FOL": "all t (GoTo(john,europe) -> See(john,eiffelTower))"}
+{"story_id": 354, "label": "True", "conclusion-FOL": "∃x (CapitalOf(x, france) ∧ LocatedIn(eiffelTower, x))", "llm_conclusion-FOL": "LocatedIn(eiffelTower, paris) & CapitalOf(paris, france)"}
+{"story_id": 355, "label": "Uncertain", "conclusion-FOL": "LiveIn(john, belgium)", "llm_conclusion-FOL": "LiveIn(john, belgium)"}
+{"story_id": 356, "label": "False", "conclusion-FOL": "ElectricCar(toyotaPrius)", "llm_conclusion-FOL": "ElectricCar(toyotaPrius)"}
+{"story_id": 357, "label": "True", "conclusion-FOL": "¬ElectricCar(toyotaPrius)", "llm_conclusion-FOL": "-ElectricCar(toyotaPrius)"}
+{"story_id": 358, "label": "Uncertain", "conclusion-FOL": "MadeIn(toyotaPrius, maranello)", "llm_conclusion-FOL": "FerrariV12Engine(toyotaPrius)"}
+{"story_id": 359, "label": "False", "conclusion-FOL": "Ferrari(toyotaPrius) ∨ LoudCar(toyotaPrius) → ElectricCar(toyotaPrius)", "llm_conclusion-FOL": "all x (( (x = toyotaPrius & (Ferrari(x) | LoudCar(x))) -> ElectricCar(x) ))"}
+{"story_id": 360, "label": "False", "conclusion-FOL": "GrownIn(piper, garden)", "llm_conclusion-FOL": "exists x (x = piper & GrownIn(x,garden))"}
+{"story_id": 361, "label": "True", "conclusion-FOL": "¬GrownIn(piper, garden)", "llm_conclusion-FOL": "-all x (GrownIn(piper,x) -> x=garden)"}
+{"story_id": 362, "label": "Uncertain", "conclusion-FOL": "Kitten(piper)", "llm_conclusion-FOL": "Kitten(piper)"}
+{"story_id": 365, "label": "True", "conclusion-FOL": "∃x ∃y (SonOf(x, y) ∧ GeneralPractitioner(y) ∧ WordSetter(x))", "llm_conclusion-FOL": "exists x (SonOf(x,y) & GeneralPractitioner(y) & WordSetter(x))"}
+{"story_id": 366, "label": "False", "conclusion-FOL": "¬Magazine(worldmedicine)", "llm_conclusion-FOL": "-Magazine(worldMedicine)"}
+{"story_id": 367, "label": "False", "conclusion-FOL": "∀x (British(x) → ¬Author(x))", "llm_conclusion-FOL": "all x -(British(x) & Author(x))"}
+{"story_id": 368, "label": "False", "conclusion-FOL": "∀x (Journalist(x) → ¬BornIn(x, yorkshire))", "llm_conclusion-FOL": "-all x (Journalist(x) & BornIn(x, yorkshire))"}
+{"story_id": 369, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Son(x, y) ∧ GeneralPractitioner(y) ∧ ¬Author(x))", "llm_conclusion-FOL": "exists x (SonOf(x,y) & GeneralPractitioner(y) & -Author(x))"}
+{"story_id": 370, "label": "Uncertain", "conclusion-FOL": "∃x (Reading(x) ∧ Fun(x))", "llm_conclusion-FOL": "exists x (Reading(x) & Fun(x))"}
+{"story_id": 371, "label": "False", "conclusion-FOL": "∃x ∃y (HandbrakeOf(x, y) ∧ Parked(y) ∧ Car(y) ∧ Up(x))", "llm_conclusion-FOL": "exists x exists y (HandbrakeOf(x,y) & Parked(y) & Car(y) -> Up(x))"}
+{"story_id": 372, "label": "Uncertain", "conclusion-FOL": "RegularlyRideHorsesForPleasure(manny)", "llm_conclusion-FOL": "RegularlyRideHorseForPleasure(manny)"}
+{"story_id": 375, "label": "True", "conclusion-FOL": "∀x (BatteryTower(x) → DeployCannons(x))", "llm_conclusion-FOL": "all x (BatteryTower(x) -> DeployCannons(x))"}
+{"story_id": 376, "label": "True", "conclusion-FOL": "∀x ∀y ((Roundel(x) ∧ BatteryTower(y)) → Older(x, y))", "llm_conclusion-FOL": "all x all y ((Roundel(x) & BatteryTower(y)) -> Older(x,y))"}
+{"story_id": 377, "label": "Uncertain", "conclusion-FOL": "∀x ∀y ((BatteryTower(x) ∧ AdjacentWall(x,y)) → Higher(x, y))", "llm_conclusion-FOL": "all x all y ( (BatteryTower(x) & AdjacentWalls(x,y)) -> Higher(x,y) )"}
+{"story_id": 378, "label": "True", "conclusion-FOL": "∀x (Roundel(x) → DeployCannons(x))", "llm_conclusion-FOL": "all x (Roundel(x) -> DeployCannons(x))"}
+{"story_id": 379, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Paper(x) ∧ Paper(y) ∧ Hard(x) ∧ Hard(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Paper(x) & Hard(x))"}
+{"story_id": 380, "label": "True", "conclusion-FOL": "∀x (Volunteer(x) ∧ ContributeTo(x, naturalDisasterResponse) → Receive(x, intangibleBenefit))", "llm_conclusion-FOL": "all x ( (Volunteer(x) & ContributeTo(x,naturalDisasterResponse)) -> Receive(x,intangibleBenefit) )"}
+{"story_id": 381, "label": "Uncertain", "conclusion-FOL": "∀x (Volunteer(x) ∧ Environmental(x) → WorkInGroup(x))", "llm_conclusion-FOL": "all x ( (Volunteer(x) & Environmental(x)) -> WorkInGroup(x) )"}
+{"story_id": 382, "label": "Uncertain", "conclusion-FOL": "∀x (Volunteer(x) → Trained(x))", "llm_conclusion-FOL": "all x (Volunteer(x) -> Trained(x))"}
+{"story_id": 383, "label": "Uncertain", "conclusion-FOL": "Old(mike) ∧ LiveIn(mike, stableHome)", "llm_conclusion-FOL": "Old(mike) & LiveIn(mike,stableHome)"}
+{"story_id": 388, "label": "Uncertain", "conclusion-FOL": "HigherThan(towerA, num400)", "llm_conclusion-FOL": "HigherThan(towerA,num400)"}
+{"story_id": 389, "label": "Uncertain", "conclusion-FOL": "¬HigherThan(towerA, num400)", "llm_conclusion-FOL": "-all x(HigherThan(towerA,num400) -> x=x)"}
+{"story_id": 392, "label": "Uncertain", "conclusion-FOL": "Osprey(bubbles)", "llm_conclusion-FOL": "Osprey(bubbles)"}
+{"story_id": 393, "label": "False", "conclusion-FOL": "Goldfish(bubbles)", "llm_conclusion-FOL": "Goldfish(bubbles)"}
+{"story_id": 394, "label": "True", "conclusion-FOL": "¬Goldfish(bubbles)", "llm_conclusion-FOL": "-Goldfish(bubbles)"}
+{"story_id": 398, "label": "Uncertain", "conclusion-FOL": "Still(bird)", "llm_conclusion-FOL": "Still(bird)"}
+{"story_id": 399, "label": "Uncertain", "conclusion-FOL": "¬Still(bird)", "llm_conclusion-FOL": "-all x (x = bird -> Still(x))"}
+{"story_id": 400, "label": "True", "conclusion-FOL": "Unpredictable(bird) ∧ Changing(bird)", "llm_conclusion-FOL": "Unpredictable(bird) & Changing(bird)"}
+{"story_id": 401, "label": "True", "conclusion-FOL": "Unpredictable(bird) ∨ Changing(bird)", "llm_conclusion-FOL": "Unpredictable(bird) | Changing(bird)"}
+{"story_id": 402, "label": "False", "conclusion-FOL": "Unpredictable(bird) ⊕ Changing(bird)", "llm_conclusion-FOL": "(exists x (x = bird & Unpredictable(x))) | (exists x (x = bird & Changing(x)))"}
+{"story_id": 403, "label": "False", "conclusion-FOL": "Small(bird) ∨ Still(bird) → Unpredictable(bird) ⊕ Changing(bird)", "llm_conclusion-FOL": "all x ( x = bird -> ( ( Small(x) | Still(x) ) -> ( Unpredictable(x) | Changing(x) ) ) )"}
+{"story_id": 404, "label": "True", "conclusion-FOL": "∃x (British(x) ∧ Creates(x, dIRay))", "llm_conclusion-FOL": "exists x (British(x) & Creates(x,dIRay))"}
+{"story_id": 405, "label": "True", "conclusion-FOL": "∃x ∃y(British(x) ∧ TelevisionSeries(y) ∧ Produces(x, y))", "llm_conclusion-FOL": "exists x exists y (British(x) & Produces(x,y) & TelevisionSeries(y))"}
+{"story_id": 406, "label": "Uncertain", "conclusion-FOL": "GetOn(mike, 180, lSAT)", "llm_conclusion-FOL": "exists s exists t (GetOn(mike,s,t) & s=scoreOf180 & t=lSAT)"}
+{"story_id": 408, "label": "False", "conclusion-FOL": "Take(mike, barExam)", "llm_conclusion-FOL": "Take(mike,barExam)"}
+{"story_id": 412, "label": "Uncertain", "conclusion-FOL": "∀x (Monitor(x) ∧ OneOEightO(x) → ¬Buy(john, x))", "llm_conclusion-FOL": "allx((Monitor(x) & OneOEightO(x)) -> -Buy(john,x))"}
+{"story_id": 413, "label": "True", "conclusion-FOL": "∀x (Monitor(x) ∧ TwoK(x) → ¬Buy(john, x))", "llm_conclusion-FOL": "allx((Monitor(x) & TwoK(x)) -> -Buy(john,x))"}
+{"story_id": 414, "label": "False", "conclusion-FOL": "∀x (ImportantScientificAchievement(x) ∧ USInvention(x))", "llm_conclusion-FOL": "all x (ImportantScientificAchievement(x) -> USInvention(x))"}
+{"story_id": 415, "label": "True", "conclusion-FOL": "∃x ∃y (Mammal(x) ∧ Mammal(y) ∧ ¬Pet(x) ∧ ¬Pet(y))", "llm_conclusion-FOL": "exists x (Mammal(x) & -Pet(x))"}
+{"story_id": 421, "label": "Uncertain", "conclusion-FOL": "ProfessionalSoccerPlayer(rogerFederer)", "llm_conclusion-FOL": "ProfessionalSoccerPlayer(rogerfederer)"}
+{"story_id": 422, "label": "Uncertain", "conclusion-FOL": "Nice(mary)", "llm_conclusion-FOL": "Nice(mary)"}
+{"story_id": 423, "label": "True", "conclusion-FOL": "¬(Nice(mary) ∧ Teacher(mary) ∧ WorkAt(mary, pool))", "llm_conclusion-FOL": "-all x (x = mary -> (Teacher(x) & WorkAt(x,pool) & Nice(x)))"}
+{"story_id": 424, "label": "False", "conclusion-FOL": "Nice(mary) ∧ Teacher(mary) ∧ WorkAt(mary, pool)", "llm_conclusion-FOL": "Teacher(mary) & WorkAt(mary,pool) & Nice(mary)"}
+{"story_id": 426, "label": "Uncertain", "conclusion-FOL": "BornIn(bernardaBrysonShahn, greece)", "llm_conclusion-FOL": "BornIn(bernardaBrysonShahn,greece)"}
+{"story_id": 427, "label": "True", "conclusion-FOL": "American(bernardaBrysonShahn)", "llm_conclusion-FOL": "American(bernardaBrysonShahn)"}
+{"story_id": 428, "label": "Uncertain", "conclusion-FOL": "Divorced(bernardaBrysonShahn)", "llm_conclusion-FOL": "Exists(n)(DivorceEvent(n) & Involves(bernardaBrysonShahn,n) & OccurredBefore(n,now) & CountOfDivorces(bernardaBrysonShahn,n) = one)"}
+{"story_id": 429, "label": "Uncertain", "conclusion-FOL": "∃y (LiveWith(emily, y) ∧ Roommate(y))", "llm_conclusion-FOL": "InEmmasFamily(emily) & exists y (LiveWith(emily,y) & Roommate(y))"}
+{"story_id": 431, "label": "Uncertain", "conclusion-FOL": "FacultyMember(nancy)", "llm_conclusion-FOL": "FacultyMember(nancy)"}
+{"story_id": 432, "label": "True", "conclusion-FOL": "PaidBy(nancy, school) ∧ Have(nancy, student)", "llm_conclusion-FOL": "PaidBy(nancy,school) & Have(nancy,student)"}
+{"story_id": 439, "label": "True", "conclusion-FOL": "Heptalogy(harryPotter)", "llm_conclusion-FOL": "Heptalogy(harryPotter)"}
+{"story_id": 440, "label": "False", "conclusion-FOL": "¬Heptalogy(chroniclesOfNarnia)", "llm_conclusion-FOL": "-Heptalogy(chroniclesOfNarnia)"}
+{"story_id": 441, "label": "Uncertain", "conclusion-FOL": "Heptalogy(lordOfRings)", "llm_conclusion-FOL": "Heptalogy(lordOfTheRings)"}
+{"story_id": 446, "label": "Uncertain", "conclusion-FOL": "ComeToWorkWithEveryDay(kat, positiveAttitude)", "llm_conclusion-FOL": "ComeToWorkWithEveryDay(kat,positiveAttitude)"}
+{"story_id": 449, "label": "True", "conclusion-FOL": "FreeToModify(drishti)", "llm_conclusion-FOL": "FreeToModify(drishti)"}
+{"story_id": 450, "label": "True", "conclusion-FOL": "∀x (EnglishScore(zhang, x) ∧ LowerThan95(x))", "llm_conclusion-FOL": "LowerThan95(zhang)"}
+{"story_id": 452, "label": "True", "conclusion-FOL": "¬GetGradeIn(wu, aPlus, englishClass) ∧¬GetGradeIn(wu, a, englishClass)", "llm_conclusion-FOL": "-(GetGradeIn(wu,a,englishClass) | GetGradeIn(wu,aPlus,englishClass))"}
+{"story_id": 454, "label": "False", "conclusion-FOL": "Paid(tora) ∧ Software(tora)", "llm_conclusion-FOL": "Paid(tora)"}
+{"story_id": 455, "label": "True", "conclusion-FOL": "Free(tora) ∧ Software(tora)", "llm_conclusion-FOL": "Free(tora)"}
+{"story_id": 459, "label": "Uncertain", "conclusion-FOL": "MultipleRace(detroitcity)", "llm_conclusion-FOL": "∃r1 ∃r2 (InRace(detroitcity,r1) & InRace(detroitcity,r2) & -(r1 = r2))"}
+{"story_id": 461, "label": "True", "conclusion-FOL": "Racehorse(detroitcity)", "llm_conclusion-FOL": "Racehorse(detroitcity)"}
+{"story_id": 462, "label": "Uncertain", "conclusion-FOL": "GoodAt(monhoff, physicalArt)", "llm_conclusion-FOL": "GoodAt(monhoff,physicalArt)"}
+{"story_id": 463, "label": "False", "conclusion-FOL": "¬(∃x (Illustrator(x) ∧ AmericanCitizen(x)))", "llm_conclusion-FOL": "-all x (Illustrator(x) -> AmericanCitizen(x))"}
+{"story_id": 464, "label": "True", "conclusion-FOL": "∃x (TheSecondSmallestEigenvalueOf(x, theGraphLaplacian) ∧ HonoredBy(miroslavFiedler, x))", "llm_conclusion-FOL": "HonoredBy(miroslavFiedler, theGraphLaplacianSecondSmallestEigenvalue)"}
+{"story_id": 465, "label": "Uncertain", "conclusion-FOL": "French(miroslavFiedler) ∧ Mathematician(miroslavFiedler)", "llm_conclusion-FOL": "Mathematician(miroslavFiedler) & French(miroslavFiedler)"}
+{"story_id": 466, "label": "True", "conclusion-FOL": "∃x (Czech(x) ∧ Mathematician(x) ∧ KnownFor(x, contributionsToLinearAlgebraAndGraphTheory))", "llm_conclusion-FOL": "exists x (Czech(x) & Mathematician(x) & KnownFor(x,contributionsToLinearAlgebraAndGraphTheory))"}
+{"story_id": 467, "label": "True", "conclusion-FOL": "∀x (Laptop(x) → CanPlayGameOn(x))", "llm_conclusion-FOL": "all x (Laptop(x) -> CanPlayGameOn(x))"}
+{"story_id": 468, "label": "Uncertain", "conclusion-FOL": "∀x (Phone(x) → ¬CanPlayGameOn(x))", "llm_conclusion-FOL": "all x (Phone(x) -> -CanPlayGameOn(x))"}
+{"story_id": 469, "label": "True", "conclusion-FOL": "GraduatedWith(walterBrown, bachelorsOfArt)", "llm_conclusion-FOL": "GraduatedWith(walterBrown,bachelorsOfArt)"}
+{"story_id": 470, "label": "True", "conclusion-FOL": "∃t(In(walterBrownFather, toledo, t))", "llm_conclusion-FOL": "∃t In(walterBrownFather,toledo,t)"}
+{"story_id": 473, "label": "Uncertain", "conclusion-FOL": "SoldIn(thinkpadX1, appleStore)", "llm_conclusion-FOL": "SoldIn(thinkpadX1,appleStore)"}
+{"story_id": 479, "label": "Uncertain", "conclusion-FOL": "∀x (PartOf(x, centralLine) → Design(johnNash, x))", "llm_conclusion-FOL": "∃x∃y(Designed(nash,x) & PartOf(x,y) & In(y,1900) & y = centralline)"}
+{"story_id": 481, "label": "False", "conclusion-FOL": "Ghost(jojo)", "llm_conclusion-FOL": "exists x (x = jojo & Ghost(x))"}
+{"story_id": 484, "label": "False", "conclusion-FOL": "Husky(fido)", "llm_conclusion-FOL": "Husky(fido)"}
+{"story_id": 485, "label": "True", "conclusion-FOL": "¬Husky(fido)", "llm_conclusion-FOL": "-all x (x = fido -> Husky(x))"}
+{"story_id": 487, "label": "True", "conclusion-FOL": "¬Dog(fido) ∧ ¬Husky(fido)", "llm_conclusion-FOL": "-all x (Dog(fido) | Husky(fido))"}
+{"story_id": 491, "label": "True", "conclusion-FOL": "LikePlayingWith(cat, taigaVole)", "llm_conclusion-FOL": "LikePlayingWith(cat,taigaVole)"}
+{"story_id": 492, "label": "False", "conclusion-FOL": "¬LiveIn(taigaVole, coldPlace)", "llm_conclusion-FOL": "-LiveIn(taigaVole,coldPlace)"}
+{"story_id": 493, "label": "Uncertain", "conclusion-FOL": "ProstateCancer(adenocarcinoma)", "llm_conclusion-FOL": "ProstateCancer(adenocarcinoma)"}
+{"story_id": 503, "label": "Uncertain", "conclusion-FOL": "ProducedBy(x, aOC)", "llm_conclusion-FOL": "ProducedBy(a2017,aOC)"}
+{"story_id": 506, "label": "True", "conclusion-FOL": "∃x (SoccerTeam(x) ∧ Holds(x, theLithuanianSuperCup))", "llm_conclusion-FOL": "exists X (SoccerTeam(X) & Holds(X,theLithuanianSuperCup))"}
+{"story_id": 507, "label": "True", "conclusion-FOL": "∃x (Village(x) ∧ In(x, england))", "llm_conclusion-FOL": "exists x (Village(x) & In(x, england))"}
+{"story_id": 508, "label": "False", "conclusion-FOL": "¬(∃x (CivilParish(x) ∧ In(x, england)))", "llm_conclusion-FOL": "all x (CivilParish(x) -> -In(x, england))"}
+{"story_id": 509, "label": "True", "conclusion-FOL": "Writer(douglasAdams)", "llm_conclusion-FOL": "Writer(douglasAdams)"}
+{"story_id": 510, "label": "True", "conclusion-FOL": "Create(douglasAdams, innovativeIdea)", "llm_conclusion-FOL": "Create(douglasAdams,innovativeIdea)"}
+{"story_id": 511, "label": "Uncertain", "conclusion-FOL": "¬Contain(theSalmonOfDoubt, innovativeIdea)", "llm_conclusion-FOL": "-all i (Contain(theSalmonOfDoubt,i) & innovativeIdea = i)"}
+{"story_id": 512, "label": "Uncertain", "conclusion-FOL": "EcoFriendly(reformation) ∧ Brand(reformation)", "llm_conclusion-FOL": "EcoFriendly(reformation) & Brand(reformation)"}
+{"story_id": 520, "label": "Uncertain", "conclusion-FOL": "YaleGraduate(john)", "llm_conclusion-FOL": "YaleGraduate(john)"}
+{"story_id": 521, "label": "Uncertain", "conclusion-FOL": "AppleMade(unannouncedHuaweiPhone) ∧ Cellphone(unannouncedHuaweiPhone)", "llm_conclusion-FOL": "Person(joe) & TakingClasses(joe)"}
+{"story_id": 524, "label": "True", "conclusion-FOL": "WorldLeadingLightingDesigner(hughVanstone) ∧ From(hughVanstone, unitedKingdom)", "llm_conclusion-FOL": "WorldLeadingLightingDesigner(hughVanstone) & From(hughVanstone, unitedKingdom)"}
+{"story_id": 525, "label": "Uncertain", "conclusion-FOL": "∃x(GreaterThan(x, num170) ∧ LitProductions(hughVanstone,x))", "llm_conclusion-FOL": "LitProductions(hughVanstone,num170)"}
+{"story_id": 526, "label": "Uncertain", "conclusion-FOL": "AttendedSchoolIn(hughVanstone, unitedStates)", "llm_conclusion-FOL": "∃x(AttendedSchoolIn(hughVanstone,x) & From(hughVanstone, unitedStates))"}
+{"story_id": 528, "label": "True", "conclusion-FOL": "∃x (American(x) ∧ ComputerScientist(x) ∧ Called(x, fatherOfTheAnalysisOfAlgorithms))", "llm_conclusion-FOL": "exists x (American(x) & Scientist(x) & Called(x,fatherOfTheAnalysisOfAlgorithms))"}
+{"story_id": 529, "label": "True", "conclusion-FOL": "∃x (Mathematician(x) ∧ Called(x, fatherOfTheAnalysisOfAlgorithms))", "llm_conclusion-FOL": "exists x (Mathematician(x) & Called(x,fatherOfTheAnalysisOfAlgorithms))"}
+{"story_id": 530, "label": "Uncertain", "conclusion-FOL": "WellKnownFigureIn(donaldErvinKnuth, artificialIntelligence)", "llm_conclusion-FOL": "WellKnownInAI(donaldErvinKnuth)"}
+{"story_id": 531, "label": "True", "conclusion-FOL": "∃x (FleaBeetle(x) ∧ In(x, chrysomelidaeFamily))", "llm_conclusion-FOL": "exists x (FleaBeetle(x) & In(x,chrysomelidaeFamily))"}
+{"story_id": 532, "label": "False", "conclusion-FOL": "∀x (FleaBeetle(x) → ¬In(x, chrysomelidaeFamily))", "llm_conclusion-FOL": "all x (In(x,chrysomelidaeFamily) -> -FleaBeetle(x))"}
+{"story_id": 538, "label": "Uncertain", "conclusion-FOL": "GoTo(john, theCinema) ∧ GoTo(john, today)", "llm_conclusion-FOL": "GoTo(john,theCinema)"}
+{"story_id": 539, "label": "Uncertain", "conclusion-FOL": "¬Bad(weather, today)", "llm_conclusion-FOL": "-Good(weather, today)"}
+{"story_id": 540, "label": "Uncertain", "conclusion-FOL": "Sells(quiksilver, beer)", "llm_conclusion-FOL": "∃x (Beer(x) & Sells(quiksilver,x))"}
+{"story_id": 541, "label": "Uncertain", "conclusion-FOL": "Owns(joe, flannel)", "llm_conclusion-FOL": "exists x (Owns(joe,x) & x = flannel)"}
+{"story_id": 542, "label": "True", "conclusion-FOL": "∃x (Owns(joe, x) ∧ Sportswear(x) ∨ Clothing(x) ∨ Footwear(x) ∨ Accessory(x))", "llm_conclusion-FOL": "exists x (Owns(joe,x) & (Sportswear(x) | Clothing(x) | Footwear(x) | Accessory(x)))"}
+{"story_id": 543, "label": "Uncertain", "conclusion-FOL": "VideoGame(beLionel) ∧ PokemonSeries(beLionel)", "llm_conclusion-FOL": "In(beLionel,pokemonSeries)"}
+{"story_id": 547, "label": "Uncertain", "conclusion-FOL": "PaymentCard(bankOfAmerica) ∧ International(bankOfAmerica)", "llm_conclusion-FOL": "International(bankOfAmerica)"}
+{"story_id": 548, "label": "False", "conclusion-FOL": "∀x (PaymentCard(bankOfAmerica) ∧ International(bankOfAmerica) ∧ SocialPayment(x) ∧TransferredTo(x, bankOfAmerica))", "llm_conclusion-FOL": "(all x)((PaymentCard(x) & IssuedBy(x,bankOfAmerica)) -> (International(x) & (all y)(SocialPayment(y) & TransferredTo(y,x))))"}
+{"story_id": 549, "label": "True", "conclusion-FOL": "∀x ((PaymentCard(bandOfAmerica) ∧ International(bandOfAmerica) ∧ SocialPayment(x) ∧ TransferredTo(x, bandOfAmerica)) → International(bandOfAmerica))", "llm_conclusion-FOL": "all x ((PaymentCard(bankOfAmerica) & International(bankOfAmerica) & (SocialPayment(x) & TransferredTo(x, bankOfAmerica))) -> International(bankOfAmerica))"}
+{"story_id": 550, "label": "Uncertain", "conclusion-FOL": "Van(luminaAPV)", "llm_conclusion-FOL": "Van(luminaAPV)"}
+{"story_id": 552, "label": "True", "conclusion-FOL": "Van(astro)", "llm_conclusion-FOL": "Van(astro)"}
+{"story_id": 554, "label": "Uncertain", "conclusion-FOL": "WorkFrom(george, home)", "llm_conclusion-FOL": "WorkFrom(george,home)"}
+{"story_id": 555, "label": "False", "conclusion-FOL": "¬(WorkFrom(george, home) ∧ WorkIn(george, office)) → ¬(Commuter(george) ∨ Have(george, relaxedSchedule))", "llm_conclusion-FOL": "all x (x = george & -WorkFrom(x,home) & WorkIn(x,office) -> -Commuter(x) & -Have(x,relaxedSchedule))"}
+{"story_id": 556, "label": "True", "conclusion-FOL": "¬(Have(george, homeOffice) ⊕ WorkIn(george, office)) → (WorkFrom(george, home) ⊕ Have(george, relaxedSchedule))", "llm_conclusion-FOL": "(all x (WorkIn(x,office) -> Commuter(x)) & all x -(WorkIn(x,office) <-> WorkFrom(x,home)) & all x (WorkFrom(x,home) -> Have(x,relaxedSchedule)) & -(Commuter(george) <-> Have(george,homeOffice)) & (-(WorkFrom(george,home) <-> Have(george,homeOffice)) -> (-WorkFrom(george,home) & Commuter(george))) -> ( ( (Have(george,homeOffice) & WorkIn(george,office)) | (-Have(george,homeOffice) & -WorkIn(george,office)) ) -> (WorkFrom(george,home) | Have(george,relaxedSchedule)) ))"}
+{"story_id": 557, "label": "Uncertain", "conclusion-FOL": "American(joeRogan)", "llm_conclusion-FOL": "American(joeRogan)"}
+{"story_id": 558, "label": "True", "conclusion-FOL": "MusicSupervisor(jasonKramer)", "llm_conclusion-FOL": "MusicSupervisor(jasonKramer)"}
+{"story_id": 564, "label": "Uncertain", "conclusion-FOL": "∃y (LiveIn(rochelle, y) ∧ Place(y) ∧ Named(y, galicia))", "llm_conclusion-FOL": "exists y (LiveIn(rochelle,y) & Place(y) & Named(y,galicia))"}
+{"story_id": 568, "label": "Uncertain", "conclusion-FOL": "LivesIn(ralphHammerthaler, germany)", "llm_conclusion-FOL": "LivesIn(ralphHammerthaler,germany)"}
+{"story_id": 569, "label": "Uncertain", "conclusion-FOL": "Win(hamlet, hugoAward)", "llm_conclusion-FOL": "Win(hamlet,hugoAward)"}
+{"story_id": 572, "label": "Uncertain", "conclusion-FOL": "Food(grape)", "llm_conclusion-FOL": "Food(grape)"}
+{"story_id": 573, "label": "Uncertain", "conclusion-FOL": "¬Food(grape)", "llm_conclusion-FOL": "-Food(grape)"}
+{"story_id": 574, "label": "False", "conclusion-FOL": "Lemon(banana) ∧ Meadow(banana)", "llm_conclusion-FOL": "all x (Banana(x) -> (Lemon(x) & Meadow(x)))"}
+{"story_id": 575, "label": "True", "conclusion-FOL": "¬(Lemon(banana) ∧ Meadow(banana))", "llm_conclusion-FOL": "-(Lemon(banana) & Meadow(banana))"}
+{"story_id": 576, "label": "Uncertain", "conclusion-FOL": "From(bostonCeltics, sanFrancisco)", "llm_conclusion-FOL": "From(bostonCeltics,sanFrancisco)"}
+{"story_id": 578, "label": "True", "conclusion-FOL": "MoreIncome(goldenStateWarriors)", "llm_conclusion-FOL": "MoreIncome(goldenStateWarriors)"}
+{"story_id": 587, "label": "Uncertain", "conclusion-FOL": "LivingBeing(jumbo)", "llm_conclusion-FOL": "LivingBeing(jumbo)"}
+{"story_id": 590, "label": "Uncertain", "conclusion-FOL": "CelestialBody(europa) ∧ In(europa, solarSystem) ∧ (∃y (OrbitOf(y, x) ∧ Clear(x, y) ∧ DebrisFree(y))) ∧ NearlySphericalShape(europa, gravity)", "llm_conclusion-FOL": "CelestialBody(europa) & In(europa,solarSystem) & (exists y (OrbitOf(y,europa) & Clear(europa,y) & DebrisFree(y))) & NearlySphericalShape(europa,gravity)"}
+{"story_id": 593, "label": "True", "conclusion-FOL": "NeedToBeWrittenWith(asItWasByHarryStyles, words)", "llm_conclusion-FOL": "NeedToBeWrittenWith(asItWasByHarryStyles,words)"}
+{"story_id": 594, "label": "Uncertain", "conclusion-FOL": "Song(asItWasByHarryStyles) ∧ From(asItWasByHarryStyles, 12thCentury)", "llm_conclusion-FOL": "Song(asItWasByHarryStyles) & From(asItWasByHarryStyles,12thCentury)"}
+{"story_id": 595, "label": "False", "conclusion-FOL": "¬(Song(asItWasByHarryStyles) ∧ By(asItWasByHarryStyles, kanyeWest) ∧ NeedToBeWrittenWith(asItWasByHarryStyles, words))", "llm_conclusion-FOL": "-(By(asItWasByHarryStyles,kanyeWest) & NeedToBeWrittenWith(asItWasByHarryStyles,words))"}
+{"story_id": 596, "label": "True", "conclusion-FOL": "Popular(yourWoman)", "llm_conclusion-FOL": "Popular(yourWoman)"}
+{"story_id": 597, "label": "False", "conclusion-FOL": "∀x (Produce(whiteTown, x) → ¬Popular(x))", "llm_conclusion-FOL": "all x (Produce(whiteTown,x) -> -Popular(x))"}
+{"story_id": 598, "label": "Uncertain", "conclusion-FOL": "Successful(whiteTown)", "llm_conclusion-FOL": "SuccessfulBand(whiteTown)"}
+{"story_id": 599, "label": "Uncertain", "conclusion-FOL": "Function(maximumOfQuasiConvexFunction) ∧ RepresentOn(maximumOfQuasiConvexFunction, straightLine, coordinatePlane)", "llm_conclusion-FOL": "Function(maximumOfQuasiConvexFunction) & RepresentOn(maximumOfQuasiConvexFunction,straightLine,coordinatePlane)"}
+{"story_id": 600, "label": "False", "conclusion-FOL": "¬RealValuedFunction(maximumOfQuasiConvexFunction)", "llm_conclusion-FOL": "-all x (x = maximumOfQuasiConvexFunction -> RealValuedFunction(x))"}
+{"story_id": 601, "label": "True", "conclusion-FOL": "QuasiConvexFunction(maximumOfQuasiConvexFunction) ∨ ¬RealValuedFunction(maximumOfQuasiConvexFunction)", "llm_conclusion-FOL": "QuasiConvexFunction(maximumOfQuasiConvexFunction) | -RealValuedFunction(maximumOfQuasiConvexFunction)"}
+{"story_id": 602, "label": "True", "conclusion-FOL": "PlayPenalty(realMadrid, atleticoMadrid)", "llm_conclusion-FOL": "PlayPenalty(realMadrid,atleticoMadrid)"}
+{"story_id": 603, "label": "False", "conclusion-FOL": "¬PlayPenalty(realMadrid, atleticoMadrid)", "llm_conclusion-FOL": "-SoccerTeam(realMadrid) | -SoccerTeam(atleticoMadrid) | -SameScore(realMadrid,atleticoMadrid) | -During(regularTime) | -During(extraTime) | -PlayPenalty(realMadrid,atleticoMadrid)"}
+{"story_id": 604, "label": "True", "conclusion-FOL": "∃x (Form(x, system7) ∧ FormerMemberOf(x, gong))", "llm_conclusion-FOL": "∃x (Form(x, system7) & FormerMemberOf(x, gong))"}
+{"story_id": 605, "label": "Uncertain", "conclusion-FOL": "∃x (Single(x) ∧ Release(system7, x))", "llm_conclusion-FOL": "∃x (Release(system7,x) & Single(x))"}
+{"story_id": 606, "label": "False", "conclusion-FOL": "¬Band(system7)", "llm_conclusion-FOL": "-Band(system7)"}
+{"story_id": 607, "label": "True", "conclusion-FOL": "∀x (Model(x) ∧ Extractive(x) → Faithful(x))", "llm_conclusion-FOL": "all x (Model(x) & Extractive(x) -> Faithful(x))"}
+{"story_id": 608, "label": "False", "conclusion-FOL": "∃x (Model(x) ∧ Extractive(x) ∧ ¬Faithful(x))", "llm_conclusion-FOL": "exists x (Model(x) & Extractive(x) & -Faithful(x))"}
+{"story_id": 612, "label": "False", "conclusion-FOL": "SpendFrivolously(thomas, aLotOfMoney)", "llm_conclusion-FOL": "SpendFrivolously(thomas,aLotOfMoney)"}
+{"story_id": 615, "label": "True", "conclusion-FOL": "CertifiedGold(wolfgangamAdeusPhoenix)", "llm_conclusion-FOL": "CertifiedGold(wolfgangamadeusphoenix)"}
+{"story_id": 617, "label": "True", "conclusion-FOL": "¬WakesUp(theHulk) → ¬Happy(thor)", "llm_conclusion-FOL": "all x ( (x = theHulk & -WakesUp(x)) -> all y (y = thor -> -Happy(y)) )"}
+{"story_id": 619, "label": "Uncertain", "conclusion-FOL": "¬Happy(thor) → ¬Breaks(thor, bridge)", "llm_conclusion-FOL": "all x ( -Happy(thor) -> -Breaks(x,bridge) )"}
+{"story_id": 622, "label": "Uncertain", "conclusion-FOL": "Treats(diethylcarbamazine, filariasis)", "llm_conclusion-FOL": "UsesInTreatmentOf(diethylcarbamazine, filariasis)"}
+{"story_id": 623, "label": "Uncertain", "conclusion-FOL": "RealNumber(one)", "llm_conclusion-FOL": "RealNumber(one)"}
+{"story_id": 627, "label": "Uncertain", "conclusion-FOL": "Leukemia(bladderCancer)", "llm_conclusion-FOL": "Leukemia(bladderCancer)"}
+{"story_id": 631, "label": "True", "conclusion-FOL": "¬(EssentialFor(lithium, electronics) ⊕ (∃y(Between(y, num61, num63) ∧ AtomicNumber(lithium, y)))) → ¬(¬RareEarthMetals(lithium) ∨ UsedIn(lithium, industry))", "llm_conclusion-FOL": "all x ((x = lithium & (-EssentialFor(x,electronics) | (Element(x) & exists y (Between(y,num61,num63) & AtomicNumber(x,y))))) -> (-NonRareEarthElement(x) | UsedIn(x,industry)))"}
+{"story_id": 639, "label": "Uncertain", "conclusion-FOL": "ChooseWhatToDoWith(john, time)", "llm_conclusion-FOL": "ChooseWhatToDoWith(john,time)"}
+{"story_id": 641, "label": "True", "conclusion-FOL": "MultinationalCompany(ableton)", "llm_conclusion-FOL": "MultinationalCompany(ableton)"}
+{"story_id": 642, "label": "Uncertain", "conclusion-FOL": "MakesAISoftware(ableton)", "llm_conclusion-FOL": "MakesAISoftware(ableton)"}
+{"story_id": 643, "label": "False", "conclusion-FOL": "¬OfficeIn(ableton, germany)", "llm_conclusion-FOL": "-OfficeIn(ableton,germany)"}
+{"story_id": 644, "label": "Uncertain", "conclusion-FOL": "Flightless(fido) ∧ Bird(fido)", "llm_conclusion-FOL": "Flightless(fido) & Bird(fido)"}
+{"story_id": 647, "label": "Uncertain", "conclusion-FOL": "MemberOf(leon, universityFaculty)", "llm_conclusion-FOL": "MemberOf(leon,universityFaculty)"}
+{"story_id": 648, "label": "True", "conclusion-FOL": "¬UndergraduateStudent(leon) ∧ ¬PrincipalInvestigator(leon)", "llm_conclusion-FOL": "-UndergraduateStudent(leon) & -PrincipalInvestigator(leon)"}
+{"story_id": 649, "label": "False", "conclusion-FOL": "¬PrincipalInvestigator(leon) → UndergraduateStudent(leon)", "llm_conclusion-FOL": "all x (x = leon & -PrincipalInvestigator(x) -> UndergraduateStudent(x))"}
+{"story_id": 650, "label": "Uncertain", "conclusion-FOL": "¬(∃x (Cutman(x) ∧ AppearIn(x, boxingMatch)))", "llm_conclusion-FOL": "all x (Cutman(x) -> -AppearIn(x,boxingMatch))"}
+{"story_id": 651, "label": "Uncertain", "conclusion-FOL": "∀x (¬Cutman(x) → ¬Handle(x, nosebleed))", "llm_conclusion-FOL": "all x( -Cutman(x) -> -Handle(x,nosebleed) )"}
+{"story_id": 652, "label": "True", "conclusion-FOL": "Treat(jack, physicalDamageToAFighter)", "llm_conclusion-FOL": "Treat(jack,physicalDamageToAFighter)"}
+{"story_id": 653, "label": "True", "conclusion-FOL": "∃x ∃y (Painting(x) ∧ TheWorldsBestKnown(x) ∧ PaintedBy(x, y) ∧ Scientist(y))", "llm_conclusion-FOL": "all x ((TheWorldsBestKnown(x) & Painting(x)) -> (exists y (PaintedBy(x,y) & Scientist(y))))"}
+{"story_id": 654, "label": "Uncertain", "conclusion-FOL": "∃x (PaintedBy(x, leonardodaVinci) ∧ Landscape(x))", "llm_conclusion-FOL": "∃x (Painting(x) & PaintedBy(x, leonardodaVinci) & Landscape(x))"}
+{"story_id": 656, "label": "False", "conclusion-FOL": "GrandSlamUmpire(nadal)", "llm_conclusion-FOL": "GrandSlamUmpire(nadal)"}
+{"story_id": 657, "label": "True", "conclusion-FOL": "¬GrandSlamUmpire(nadal)", "llm_conclusion-FOL": "-all x (GrandSlamUmpire(x) -> x = nadal)"}
+{"story_id": 658, "label": "Uncertain", "conclusion-FOL": "GrandSlamChampion(nadal)", "llm_conclusion-FOL": "GrandSlamChampion(nadal)"}
+{"story_id": 659, "label": "True", "conclusion-FOL": "¬(GrandSlamUmpire(nadal) ∨ ProfessionalTennisUmpire(nadal))", "llm_conclusion-FOL": "-(GrandSlamUmpire(nadal) | ProfessionalTennisUmpire(nadal))"}
+{"story_id": 660, "label": "True", "conclusion-FOL": "ProfessionalTennisUmpire(nadal) → GrandSlamUmpire(nadal)", "llm_conclusion-FOL": "all x (x = nadal & ProfessionalTennisUmpire(x) -> GrandSlamUmpire(x))"}
+{"story_id": 661, "label": "False", "conclusion-FOL": "GrandSlamUmpire(nadal) ∨ ProfessionalTennisPlayer(nadal) → GrandSlamUmpire(nadal)", "llm_conclusion-FOL": "all x ( ( (x = nadal) & (GrandSlamUmpire(x) | ProfessionalTennisPlayer(x)) ) -> GrandSlamUmpire(x) )"}
+{"story_id": 662, "label": "True", "conclusion-FOL": "Sanctioned(crudeOilDataExchange)", "llm_conclusion-FOL": "Sanctioned(crudeOilDataExchange)"}
+{"story_id": 663, "label": "False", "conclusion-FOL": "¬Sanctioned(crudeOilDataExchange)", "llm_conclusion-FOL": "-Sanctioned(crudeOilDataExchange)"}
+{"story_id": 664, "label": "True", "conclusion-FOL": "Limited(crudeOilDataExchange)", "llm_conclusion-FOL": "Limited(crudeOilDataExchange)"}
+{"story_id": 665, "label": "Uncertain", "conclusion-FOL": "Invigorating(v)", "llm_conclusion-FOL": "Invigorating(v)"}
+{"story_id": 669, "label": "True", "conclusion-FOL": "∃x (Company(x) ∧ Holds(koeitecmo, x))", "llm_conclusion-FOL": "∃y(Company(y) & Holds(koeitecmo,y))"}
+{"story_id": 674, "label": "Uncertain", "conclusion-FOL": "Compatible(playStationCamera, playStation2) ∧ Compatible(playStationCamera, playStation3) ∧ Compatible(playStationCamera, playStation4) ∧ Compatible(playStationCamera, playStation5)", "llm_conclusion-FOL": "all s ((System(s) & CompatibleWith(playStationCamera,s)) -> (s=playStation2 | s=playStation3 | s=playStation4 | s=playStation5))"}
+{"story_id": 675, "label": "True", "conclusion-FOL": "∃y (Call(american, y, soccer) ∧ Play(adamBuska, y))", "llm_conclusion-FOL": "∃y (Call(american,y,soccer) & Play(adamBuska,y))"}
+{"story_id": 676, "label": "Uncertain", "conclusion-FOL": "Game(PokemonDiamond) ∧ SupportsWindows(PokemonDiamond)", "llm_conclusion-FOL": "SupportsWindows(PokemonDiamond)"}
+{"story_id": 677, "label": "False", "conclusion-FOL": "(Game(PokemonDiamond) ∧ SupportsWindows(PokemonDiamond)) ∧ (Game(PokemonDiamond) ∧ SoldMoreThan100MillionCopies(PokemonDiamond))", "llm_conclusion-FOL": "SupportsWindows(PokemonDiamond) & SoldMoreThan100MillionCopies(PokemonDiamond)"}
+{"story_id": 682, "label": "False", "conclusion-FOL": "Film(hamilton)", "llm_conclusion-FOL": "Film(hamilton)"}
+{"story_id": 684, "label": "Uncertain", "conclusion-FOL": "∃x ∃y(Wins(hamilton, x) ∧ (¬(x=y)) ∧ Wins(hamilton, y))", "llm_conclusion-FOL": "∃a ∃b ∃c (Wins(hamilton,a) & Wins(hamilton,b) & -(a = b))"}
+{"story_id": 687, "label": "True", "conclusion-FOL": "ElectedTo(ann, philadelphiaCityCouncil, year1980)", "llm_conclusion-FOL": "ElectedTo(annJLand, philadelphiaCityCouncil, year1980)"}
+{"story_id": 692, "label": "True", "conclusion-FOL": "∃x (WonCup(aberdeen, x))", "llm_conclusion-FOL": "exists y WonCup(aberdeen,y)"}
+{"story_id": 693, "label": "Uncertain", "conclusion-FOL": "LiveIn(mary, manhattan)", "llm_conclusion-FOL": "exists x (LiveIn(mary,x) & x = manhattan)"}
+{"story_id": 696, "label": "Uncertain", "conclusion-FOL": "PrecededBy(pictureMemory, dataProcessing)", "llm_conclusion-FOL": "PrecededBy(pictureMemory,dataProcessing)"}
+{"story_id": 700, "label": "Uncertain", "conclusion-FOL": "CurrentlyDecommissioned(theUSSLyon)", "llm_conclusion-FOL": "CurrentlyDecommissioned(theUSSLyon)"}
+{"story_id": 701, "label": "Uncertain", "conclusion-FOL": "EcoFriendly(chopsticks)", "llm_conclusion-FOL": "EcoFriendly(chopsticksUsedInTomsHouse)"}
+{"story_id": 707, "label": "True", "conclusion-FOL": "HigherRank(manchesterCity, manchesterUnited)", "llm_conclusion-FOL": "HigherRank(manchestercity,manchesterunited)"}
+{"story_id": 708, "label": "True", "conclusion-FOL": "FootballCoach(dennisGreen)", "llm_conclusion-FOL": "FootballCoach(dennisGreen)"}
+{"story_id": 709, "label": "False", "conclusion-FOL": "¬PlayInNFL(johnRandle)", "llm_conclusion-FOL": "-PlayInNFL(johnRandle)"}
+{"story_id": 710, "label": "Uncertain", "conclusion-FOL": "PlayPositionFor(crisCarter, wr, minnesotaVikings, year1997)", "llm_conclusion-FOL": "PlayPositionFor(crisCarter,position,minnesotaVikings,year)"}
+{"story_id": 711, "label": "False", "conclusion-FOL": "PrivateStudySpot(room116)", "llm_conclusion-FOL": "PrivateStudySpot(116)"}
+{"story_id": 715, "label": "True", "conclusion-FOL": "∃x (LargeComplex(x) ∧ SoutheastOf(x, baku))", "llm_conclusion-FOL": "exists x (LargeComplex(x) & SoutheastOf(x,baku))"}
+{"story_id": 716, "label": "False", "conclusion-FOL": "∀x (GeologicalStructures(x) ∧ Offshore(x) → ¬NorthwestOf(baku, x))", "llm_conclusion-FOL": "-all x (Offshore(x) & GeologicalStructures(x) -> NorthwestOf(baku,x))"}
+{"story_id": 717, "label": "True", "conclusion-FOL": "Tutor(herodicus, hippocrates)", "llm_conclusion-FOL": "Tutor(herodicus, hippocrates)"}
+{"story_id": 718, "label": "Uncertain", "conclusion-FOL": "Tutor(hippocrates, herodicus)", "llm_conclusion-FOL": "Tutor(hippocrates, herodicus)"}
+{"story_id": 719, "label": "Uncertain", "conclusion-FOL": "∃x (Born(herodicus, x) ∧ CityState(x))", "llm_conclusion-FOL": "∃c (CityState(c) & Born(herodicus,c))"}
+{"story_id": 720, "label": "False", "conclusion-FOL": "¬Recommend(herodicus, massages)", "llm_conclusion-FOL": "-Recommend(herodicus,massages)"}
+{"story_id": 721, "label": "True", "conclusion-FOL": "∃x ∃y (Born(herodicus, x) ∧ Colony(x, y) ∧ CityState(y))", "llm_conclusion-FOL": "∃c ∃s (Born(herodicus,c) & Colony(c,s) & CityState(s))"}
+{"story_id": 722, "label": "Uncertain", "conclusion-FOL": "Student(billy)", "llm_conclusion-FOL": "Student(billy)"}
+{"story_id": 723, "label": "False", "conclusion-FOL": "Student(billy)  ∧ Scientist(billy)", "llm_conclusion-FOL": "Student(billy) & Scientist(billy)"}
+{"story_id": 724, "label": "True", "conclusion-FOL": "(Student(billy) ∨ Scientist(billy)) → (Student(billy) ∧ Kid(billy))", "llm_conclusion-FOL": "all x (((x = billy) & (Student(x) | Scientist(x))) -> (Student(x) & Kid(x)))"}
+{"story_id": 725, "label": "True", "conclusion-FOL": "∃x ∃y(SonOf(x, y) ∧ RefereeObserver(y) ∧ FootballPlayer(x))", "llm_conclusion-FOL": "exists x exists y (SonOf(x,y) & RefereeObserver(y) & FootballPlayer(x))"}
+{"story_id": 728, "label": "Uncertain", "conclusion-FOL": "Referee(andywinter)", "llm_conclusion-FOL": "FootballReferee(andyWinter)"}
+{"story_id": 729, "label": "Uncertain", "conclusion-FOL": "Planner(erica)", "llm_conclusion-FOL": "Planner(erica)"}
+{"story_id": 735, "label": "True", "conclusion-FOL": "PlaysOften(erica, chess) ⊕ InterestedIn(erica, puzzle) → ¬(InterestedIn(erica, puzzle) ∨ PlaysOften(erica, chess))", "llm_conclusion-FOL": "(all x y)(x=y -> x=y)"}
+{"story_id": 739, "label": "True", "conclusion-FOL": "TopSoccerPlayer(ronaldo)", "llm_conclusion-FOL": "TopSoccerPlayer(ronaldo)"}
+{"story_id": 740, "label": "False", "conclusion-FOL": "¬TopSoccerPlayer(ronaldo)", "llm_conclusion-FOL": "-TopSoccerPlayer(ronaldo)"}
+{"story_id": 742, "label": "Uncertain", "conclusion-FOL": "∀x (Hatchery(x) → OpenToVisitors(x))", "llm_conclusion-FOL": "all x (Hatchery(x) -> OpenToVisitor(x))"}
+{"story_id": 743, "label": "Uncertain", "conclusion-FOL": "ReleaseAnimalToWild(nationalLobsterhatchery)", "llm_conclusion-FOL": "ReleaseAnimalToWild(nationalLobsterHatchery)"}
+{"story_id": 753, "label": "True", "conclusion-FOL": "∃x (Old(x) ∧ TraditionalSummerCamp(x) ∧ ForBoysAndGirls(x))", "llm_conclusion-FOL": "exists x (OldestOntarioSummerCamp(x) & TraditionalSummerCamp(x) & ForBoysAndGirls(x))"}
+{"story_id": 754, "label": "True", "conclusion-FOL": "∃x (TraditionalSummerCamp(x) ∧ ForBoysAndGirls(x) ∧ OperatedUntil(YMCA, x, year2015))", "llm_conclusion-FOL": "exists x (TraditionalSummerCamp(x) & ForBoysAndGirls(x) & OperatedUntil(yMCA,x,year2015))"}
+{"story_id": 755, "label": "Uncertain", "conclusion-FOL": "EstablishedIn(campdavern, year1989)", "llm_conclusion-FOL": "EstablishedIn(campDavern, year1989)"}
+{"story_id": 756, "label": "Uncertain", "conclusion-FOL": "EmilysFriends(taylor) ∧ (∃y (HoldAt(taylor, y, workPlace) ∧ Tenured(y) ∧ HighRanking(y) ∧ Position(y)))", "llm_conclusion-FOL": "EmilysFriend(taylor) & exists y (HoldAt(taylor,y,workPlace) & Tenured(y) & HighRanking(y) & Position(y))"}
+{"story_id": 760, "label": "Uncertain", "conclusion-FOL": "PlotsToSwallowUp(medeEmpire, attolia)", "llm_conclusion-FOL": "PlotsToSwallowUp(medeEmpire, attolia)"}
+{"story_id": 761, "label": "False", "conclusion-FOL": "¬SetIn(thickAsTheives, medeEmpire)", "llm_conclusion-FOL": "-all x (x = thickAsTheives -> SetIn(x, medeEmpire))"}
+{"story_id": 763, "label": "True", "conclusion-FOL": "∃x ∃y (TabletComputer(x) ∧ German(y) ∧ Producer(y) ∧ AnnouncedBy(x, y))", "llm_conclusion-FOL": "∃x∃y (TabletComputer(x) & AnnouncedBy(x,y) & German(y) & Producer(y))"}
+{"story_id": 765, "label": "Uncertain", "conclusion-FOL": "EmployeesInJamesSTown(leif) ∧ GoodAt(leif, math)", "llm_conclusion-FOL": "GoodAt(leif,math)"}
+{"story_id": 768, "label": "Uncertain", "conclusion-FOL": "MostPopular(blueberry)", "llm_conclusion-FOL": "MostPopular(blueberry)"}
+{"story_id": 769, "label": "Uncertain", "conclusion-FOL": "MostPopular(cherry)", "llm_conclusion-FOL": "MostPopular(cherry)"}
+{"story_id": 771, "label": "False", "conclusion-FOL": "Attend(james) ∧ (¬AttendInPerson(james))", "llm_conclusion-FOL": "Attend(james) & -AttendInPerson(james)"}
+{"story_id": 772, "label": "True", "conclusion-FOL": "Attend(jack) ∧ AttendInPerson(jack)", "llm_conclusion-FOL": "AttendInPerson(jack)"}
+{"story_id": 773, "label": "True", "conclusion-FOL": "Registered(jack)", "llm_conclusion-FOL": "Registered(jack)"}
+{"story_id": 775, "label": "Uncertain", "conclusion-FOL": "American(davidHaivri)", "llm_conclusion-FOL": "CitizenOf(davidHaivri, america)"}
+{"story_id": 776, "label": "Uncertain", "conclusion-FOL": "ElectedTo(davidHaivri, shomronMunicipalCouncil)", "llm_conclusion-FOL": "ElectedTo(davidHaivri,shomronMunicipalCouncil)"}
+{"story_id": 777, "label": "True", "conclusion-FOL": "Has(mary, influenza) ⊕ Has(susan, influenza)", "llm_conclusion-FOL": "-(Has(mary, influenza) <-> Has(susan, influenza))"}
+{"story_id": 779, "label": "True", "conclusion-FOL": "∃x (European(x) ∧ FamiliarWithLaws(x))", "llm_conclusion-FOL": "exists x (European(x) & FamiliarWithLaws(x))"}
+{"story_id": 783, "label": "False", "conclusion-FOL": "Mythological(shetani) ⊕ Creature(shetani)", "llm_conclusion-FOL": "(Mythological(shetani) | Creature(shetani))"}
+{"story_id": 790, "label": "Uncertain", "conclusion-FOL": "Meet(mary, trafficJam)", "llm_conclusion-FOL": "Meet(mary,trafficJam)"}
+{"story_id": 791, "label": "Uncertain", "conclusion-FOL": "∀x (¬Hungry(x) → ¬Happy(x))", "llm_conclusion-FOL": "all x (-Hungry(x) -> -Happy(x))"}
+{"story_id": 792, "label": "Uncertain", "conclusion-FOL": "WhiteCollarWorker(mary)", "llm_conclusion-FOL": "WhiteCollarWorker(mary)"}
+{"story_id": 793, "label": "False", "conclusion-FOL": "Advocate(mary)", "llm_conclusion-FOL": "Advocate(mary)"}
+{"story_id": 794, "label": "True", "conclusion-FOL": "¬Advocate(mary)", "llm_conclusion-FOL": "-all x (Advocate(x) & x = mary)"}
+{"story_id": 795, "label": "False", "conclusion-FOL": "Advocate(mary) ⊕ TippedEmployee(mary)", "llm_conclusion-FOL": "(Advocate(mary) & -TippedEmployee(mary)) | (-Advocate(mary) & TippedEmployee(mary))"}
+{"story_id": 796, "label": "True", "conclusion-FOL": "(¬(Advocate(mary) ∧ EntitledTo(mary, federalMinimumWage))) → ¬TippedEmployee(mary)", "llm_conclusion-FOL": "all x ( (x = mary & -(Advocate(mary) & EntitledTo(mary,federalMinimumWage))) -> -TippedEmployee(mary) )"}
+{"story_id": 797, "label": "True", "conclusion-FOL": "(Advocate(mary) ⊕ TippedEmployee(mary)) → Advocate(mary)", "llm_conclusion-FOL": "all x (((x = mary & (Advocate(x) | TippedEmployee(x))) -> Advocate(x)))"}
+{"story_id": 798, "label": "True", "conclusion-FOL": "NewYorker(asaHoffmann)", "llm_conclusion-FOL": "NewYorker(asaHoffmann)"}
+{"story_id": 799, "label": "Uncertain", "conclusion-FOL": "GrandMaster(asaHoffmann)", "llm_conclusion-FOL": "GrandMaster(asaHoffmann)"}
+{"story_id": 800, "label": "False", "conclusion-FOL": "¬LiveIn(asaHoffmann, newYorkCity)", "llm_conclusion-FOL": "-LiveIn(asaHoffmann,newYorkCity)"}
+{"story_id": 801, "label": "Uncertain", "conclusion-FOL": "Get(philip, schengenVisa)", "llm_conclusion-FOL": "Get(philip,schengenVisa)"}
+{"story_id": 802, "label": "False", "conclusion-FOL": "Apply(philip, schengenVisa) ∧ Get(philip, schengenVisa)", "llm_conclusion-FOL": "Apply(philip,schengenVisa) & Get(philip,schengenVisa)"}
+{"story_id": 804, "label": "Uncertain", "conclusion-FOL": "∀x ∀y (Fear(x) → ¬(Terror(y) ∧ LeadTo(x, y)))", "llm_conclusion-FOL": "all x all y ( (Fear(x) & Terror(y) & LeadTo(x,y)) -> x = y )"}
+{"story_id": 806, "label": "False", "conclusion-FOL": "∃x (GreatLake(x) ∧ ¬FormAtEndOf(x, lastGlacialPeriod))", "llm_conclusion-FOL": "∃x (GreatLake(x) & -FormAtEndOf(x,lastGlacialPeriod))"}
+{"story_id": 808, "label": "False", "conclusion-FOL": "Professional(stephenCurry) ∧ CenterBack(stephenCurry)", "llm_conclusion-FOL": "Professional(stephenCurry) & CenterBack(stephenCurry)"}
+{"story_id": 809, "label": "True", "conclusion-FOL": "¬(Professional(stephenCurry) ∧ CenterBack(stephenCurry))", "llm_conclusion-FOL": "-CenterBack(stephenCurry)"}
+{"story_id": 810, "label": "Uncertain", "conclusion-FOL": "Proposed(thomasGilovich, naiveCynicism)", "llm_conclusion-FOL": "Proposed(thomasGilovich,naiveCynicism)"}
+{"story_id": 811, "label": "True", "conclusion-FOL": "∃x (Proposed(justinKruger, x) ∧ PhilosophyOfMind(x))", "llm_conclusion-FOL": "∃x (PhilosophyOfMind(x) & Proposed(justinKruger,x))"}
+{"story_id": 812, "label": "Uncertain", "conclusion-FOL": "∃x (WorkedOn(thomasGilovich, x) ∧ PhilosophyOfMind(x))", "llm_conclusion-FOL": "∃x (PhilosophyOfMind(x) & WorkedOn(thomasGilovich,x))"}
+{"story_id": 815, "label": "Uncertain", "conclusion-FOL": "∃x ∀y ((AwardedTo(turingAward, x) ∧ AwardedTo(turingAward, y) ∧ ContributedTo(y, algorithms) ∧ ¬(x=y)) → ¬ContributedTo(y, algorithms))", "llm_conclusion-FOL": "all x all y (((AwardedTo(turingAward,x) & ContributedTo(x,analysisOfAlgorithms)) & (AwardedTo(turingAward,y) & ContributedTo(y,analysisOfAlgorithms))) -> x = y)"}
+{"story_id": 816, "label": "False", "conclusion-FOL": "∀x (AwardedTo(turingAward, x) → ¬ContributedTo(x, numericalMethods))", "llm_conclusion-FOL": "all x (AwardedTo(turingAward,x) -> -ContributedTo(x,numericalMethods))"}
+{"story_id": 817, "label": "Uncertain", "conclusion-FOL": "LeetcodeProblems(twosum) ∧ Easy(twosum)", "llm_conclusion-FOL": "Easy(twosum) & LeetcodeProblems(twosum)"}
+{"story_id": 818, "label": "Uncertain", "conclusion-FOL": "¬(LeetcodeProblems(twosum) ∧ Easy(twosum))", "llm_conclusion-FOL": "-all x ( (LeetcodeProblems(x) & x = twosum) -> Easy(x) )"}
+{"story_id": 822, "label": "True", "conclusion-FOL": "∃x (LeadSingleOf(x, inside) ∧ Contains(x, hopefulMessage))", "llm_conclusion-FOL": "exists x (LeadSingleOf(x,inside) & Contains(x,hopefulMessage))"}
+{"story_id": 823, "label": "Uncertain", "conclusion-FOL": "Korean(hyunsik)", "llm_conclusion-FOL": "SouthKorean(hyunsik)"}
+{"story_id": 824, "label": "True", "conclusion-FOL": "∃x ∃y (Furniture(x) ∧ Furniture(y) ∧ Round(x) ∧ Round(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Furniture(x) & Round(x))"}
+{"story_id": 825, "label": "True", "conclusion-FOL": "∃x ∃y (Commited(x, crime) ∧ Commited(y, crime) ∧ ProductOf(x, brokenHome) ∧ ProductOf(y, brokenHome) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Commited(x,crime) & ProductOf(x,brokenHome))"}
+{"story_id": 826, "label": "Uncertain", "conclusion-FOL": "MindReading(multivoxelPatternAnalysis) ∧ BrainDecoding(multivoxelPatternAnalysis)", "llm_conclusion-FOL": "BrainDecoding(multivoxelPatternAnalysis)"}
+{"story_id": 832, "label": "True", "conclusion-FOL": "RoomFor(allison, broccoli)", "llm_conclusion-FOL": "RoomFor(allison,broccoli)"}
+{"story_id": 833, "label": "False", "conclusion-FOL": "AtLuisParty(mauricia)", "llm_conclusion-FOL": "AtLuisParty(mauricia)"}
+{"story_id": 834, "label": "Uncertain", "conclusion-FOL": "RoomFor(gustave, dessert)", "llm_conclusion-FOL": "RoomFor(gustave,dessert)"}
+{"story_id": 835, "label": "True", "conclusion-FOL": "∃x ∃y (RockBand(x) ∧ LeadSinger(x, y) ∧ SongWriter(y))", "llm_conclusion-FOL": "exists x exists y (RockBand(x) & LeadSinger(x,y) & SongWriter(y))"}
+{"story_id": 838, "label": "Uncertain", "conclusion-FOL": "Sophist(theisticGod)", "llm_conclusion-FOL": "Sophist(theisticGod)"}
+{"story_id": 839, "label": "False", "conclusion-FOL": "Sophist(theisticGod) ∧ Philosopher(theisticGod)", "llm_conclusion-FOL": "Sophist(theisticGod) & Philosopher(theisticGod)"}
+{"story_id": 840, "label": "True", "conclusion-FOL": "Philosopher(theisticGod) → ¬Sophist(theisticGod)", "llm_conclusion-FOL": "all x ((x = theisticGod & Philosopher(x)) -> -Sophist(x))"}
+{"story_id": 842, "label": "True", "conclusion-FOL": "¬Cover(noah, heating) ∧ ¬Cover(ava, heating)", "llm_conclusion-FOL": "exists x exists y (Apartment(x) & Apartment(y) & LiveIn(noah,x) & LiveIn(ava,y) & -Cover(x,heating) & -Cover(y,heating))"}
+{"story_id": 843, "label": "True", "conclusion-FOL": "∀x (Apartment(x) ∧ LiveIn(susan, x) ∧ Cover(x, water))", "llm_conclusion-FOL": "-PayBill(susan, water)"}
+{"story_id": 844, "label": "Uncertain", "conclusion-FOL": "Perfect(fabricbundle)", "llm_conclusion-FOL": "Perfect(fabricBundle)"}
+{"story_id": 847, "label": "True", "conclusion-FOL": "Animal(leo)", "llm_conclusion-FOL": "Animal(leo)"}
+{"story_id": 849, "label": "False", "conclusion-FOL": "∀x (Dog(x) → ¬Naughty(x))", "llm_conclusion-FOL": "exists x (Dog(x) & -Naughty(x))"}
+{"story_id": 850, "label": "Uncertain", "conclusion-FOL": "∀x (Scare(x) → Fun(x))", "llm_conclusion-FOL": "all x (Scare(x) -> Fun(x))"}
+{"story_id": 851, "label": "Uncertain", "conclusion-FOL": "Won(threeBodyProblem, hugoAward)", "llm_conclusion-FOL": "Won(threeBodyProblem,hugoAward)"}
+{"story_id": 852, "label": "True", "conclusion-FOL": "AboutFuture(threeBodyProblem)", "llm_conclusion-FOL": "FowardLooking(threeBodyProblem)"}
+{"story_id": 853, "label": "Uncertain", "conclusion-FOL": "WrittenBy(threeBodyProblem, cixinLiu)", "llm_conclusion-FOL": "WrittenBy(threeBodyProblem, cixinLiu)"}
+{"story_id": 854, "label": "Uncertain", "conclusion-FOL": "LateNightPerson(james)", "llm_conclusion-FOL": "LateNightPerson(james)"}
+{"story_id": 855, "label": "False", "conclusion-FOL": "LateNightPerson(james) ∧ EarlyMorningPerson(james)", "llm_conclusion-FOL": "LateNightPerson(james) & EarlyMorningPerson(james)"}
+{"story_id": 856, "label": "True", "conclusion-FOL": "EarlyMorningPerson(james) → LateNightPerson(james)", "llm_conclusion-FOL": "all x ( (x = james & EarlyMorningPerson(x)) -> LateNightPerson(x) )"}
+{"story_id": 859, "label": "False", "conclusion-FOL": "∀x (Elephantopus(x) → ¬NativeTo(x, southeasternunitedstates))", "llm_conclusion-FOL": "all x (Elephantopus(x) -> -NativeTo(x,southeasternunitedstates))"}
+{"story_id": 860, "label": "Uncertain", "conclusion-FOL": "∀x (Elephantopus(x) → TraditionalMedicine(x))", "llm_conclusion-FOL": "exists x (ElephantopusScaber(x) & TraditionalMedicine(x))"}
+{"story_id": 861, "label": "Uncertain", "conclusion-FOL": "YaleDormitory(harkness)", "llm_conclusion-FOL": "YaleDormitory(harkness)"}
+{"story_id": 862, "label": "Uncertain", "conclusion-FOL": "¬YaleDormitory(harkness)", "llm_conclusion-FOL": "-all x (x = harkness -> YaleDormitory(x))"}
+{"story_id": 865, "label": "False", "conclusion-FOL": "Skyscraper(laLaurieHouse)", "llm_conclusion-FOL": "Skyscraper(laLaurieHouse)"}
+{"story_id": 866, "label": "True", "conclusion-FOL": "¬Skyscraper(laLaurieHouse)", "llm_conclusion-FOL": "-Skyscraper(laLaurieHouse)"}
+{"story_id": 867, "label": "Uncertain", "conclusion-FOL": "TerrifyingBuilding(laLaurieHouse) ∧ OnHalloween(laLaurieHouse)", "llm_conclusion-FOL": "TerrifyingBuilding(laLaurieHouse) & OnHalloween(laLaurieHouse)"}
+{"story_id": 868, "label": "True", "conclusion-FOL": "Skyscraper(laLaurieHouse) ⊕ MansionHouse(laLaurieHouse)", "llm_conclusion-FOL": "Skyscraper(laLaurieHouse) | MansionHouse(laLaurieHouse)"}
+{"story_id": 870, "label": "True", "conclusion-FOL": "Skyscraper(laLaurieHouse) ⊕ CreepyHauntedHouse(laLaurieHouse)", "llm_conclusion-FOL": "Skyscraper(laLaurieHouse) | CreepyHauntedHouse(laLaurieHouse)"}
+{"story_id": 871, "label": "False", "conclusion-FOL": "¬(MansionHouse(laLaurieHouse) ∧ InUrbanArea(laLaurieHouse)) → (Skyscraper(laLaurieHouse) ⊕ InUrbanArea(laLaurieHouse))", "llm_conclusion-FOL": "(( -MansionHouse(laLaurieHouse) | -InUrbanArea(laLaurieHouse) ) -> ( Skyscraper(laLaurieHouse) | InUrbanArea(laLaurieHouse) ))"}
+{"story_id": 872, "label": "False", "conclusion-FOL": "Skyscraper(laLaurieHouse) ⊕ MansionHouse(laLaurieHouse) → InUrbanArea(laLaurieHouse)", "llm_conclusion-FOL": "(all x (x = laLaurieHouse -> (Skyscraper(x) | MansionHouse(x)) -> InUrbanArea(x)))"}
+{"story_id": 873, "label": "False", "conclusion-FOL": "Skyscraper(laLaurieHouse) ⊕ MansionHouse(laLaurieHouse) → ¬(CreepyHauntedHouse(laLaurieHouse) ∨ TerrifyingBuilding(laLaurieHouse) ∧ OnHalloween(laLaurieHouse))", "llm_conclusion-FOL": "(all x (x = laLaurieHouse -> (Skyscraper(x) | MansionHouse(x)))) -> all x (x = laLaurieHouse -> (-CreepyHauntedHouse(x) & -(TerrifyingBuilding(x) & OnHalloween(x))))"}
+{"story_id": 874, "label": "False", "conclusion-FOL": "Skyscraper(laLaurieHouse) ⊕ CreepyHauntedHouse(laLaurieHouse) → ¬MansionHouse(laLaurieHouse)", "llm_conclusion-FOL": "all x ( (x = laLaurieHouse -> (Skyscraper(x) | CreepyHauntedHouse(x))) -> -MansionHouse(x) )"}
+{"story_id": 878, "label": "False", "conclusion-FOL": "∀x (Coursing(x) ∧ ¬Banned(x))", "llm_conclusion-FOL": "all x (Coursing(x) -> -Banned(x))"}
+{"story_id": 879, "label": "True", "conclusion-FOL": "∀x (GreyhoundRacing(x) → CompetitiveSport(x))", "llm_conclusion-FOL": "all x (GreyhoundRacing(x) -> CompetitiveSport(x))"}
+{"story_id": 882, "label": "True", "conclusion-FOL": "∃x ∃y (Living(x) ∧ Living(y) ∧ Plant(x) ∧ Plant(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Living(x) & Plant(x))"}
+{"story_id": 886, "label": "True", "conclusion-FOL": "∀x (Movie(x) ∧ Popular(x) → Attract(x, attention))", "llm_conclusion-FOL": "all x ( (Movie(x) & Popular(x)) -> Attract(x,attention) )"}
+{"story_id": 888, "label": "True", "conclusion-FOL": "∃x (Scottish(x) ∧ Joined(x, scottishPremiership))", "llm_conclusion-FOL": "exists x (Scottish(x) & Team(x) & Joined(x, scottishPremiership))"}
+{"story_id": 896, "label": "Uncertain", "conclusion-FOL": "IntendedToAssess(sAT, studentsMathSkill)", "llm_conclusion-FOL": "AssessMathSkills(sAT, students)"}
+{"story_id": 897, "label": "False", "conclusion-FOL": "¬BornIn(rafaNadal, mallorca)", "llm_conclusion-FOL": "-BornIn(rafaNadal,mallorca)"}
+{"story_id": 898, "label": "True", "conclusion-FOL": "InBig3(rafaNadal)", "llm_conclusion-FOL": "InBig3(rafaNadal)"}
+{"story_id": 899, "label": "Uncertain", "conclusion-FOL": "GreatestOfAllTime(rafaNadal)", "llm_conclusion-FOL": "GreatestPlayerOfAllTime(rafaNadal)"}
+{"story_id": 900, "label": "Uncertain", "conclusion-FOL": "∀x (SandwichCookie(x) → Delicious(x))", "llm_conclusion-FOL": "all x (SandwichCookie(x) -> Delicious(x))"}
+{"story_id": 901, "label": "False", "conclusion-FOL": "Pupil(bailey)", "llm_conclusion-FOL": "Pupil(bailey)"}
+{"story_id": 902, "label": "True", "conclusion-FOL": "¬Pupil(bailey)", "llm_conclusion-FOL": "-all x (Pupil(x) & x = bailey)"}
+{"story_id": 903, "label": "Uncertain", "conclusion-FOL": "Plant(bailey)", "llm_conclusion-FOL": "Plant(bailey)"}
+{"story_id": 904, "label": "True", "conclusion-FOL": "Human(bailey) → ¬Pupil(bailey)", "llm_conclusion-FOL": "all x (x = bailey & Human(x) -> -Pupil(x))"}
+{"story_id": 905, "label": "Uncertain", "conclusion-FOL": "Wearable(watch)", "llm_conclusion-FOL": "Wearable(watch)"}
+{"story_id": 908, "label": "True", "conclusion-FOL": "Olympian(carlosReyes)", "llm_conclusion-FOL": "Olympian(carlosReyes)"}
+{"story_id": 909, "label": "False", "conclusion-FOL": "HeavyWeight(carlosReyes)", "llm_conclusion-FOL": "HeavyWeight(carlosReyes)"}
+{"story_id": 910, "label": "Uncertain", "conclusion-FOL": "WonOlympicMedal(carlosReyes)", "llm_conclusion-FOL": "Exists m WonOlympicMedal(carlosReyes, m)"}
+{"story_id": 913, "label": "Uncertain", "conclusion-FOL": "BigFanOfMusic(sam)", "llm_conclusion-FOL": "BigFanOfPopBand(sam) & BigFanOfPopSinger(sam)"}
+{"story_id": 920, "label": "True", "conclusion-FOL": "∃x (CargoShip(x) ∧ SeizedBy(x, germany) ∧ SoldTo(x, hongkong))", "llm_conclusion-FOL": "exists x (CargoShip(x) & SeizedBy(x,germany) & SoldTo(x,hongkong))"}
+{"story_id": 921, "label": "False", "conclusion-FOL": "∀x ∀y (SoldTo(x, hongkong) → ¬SeizedBy(x, y))", "llm_conclusion-FOL": "-all x (Ship(x) & SeizedBy(x,hongkong) -> SoldTo(x,hongkong))"}
+{"story_id": 922, "label": "Uncertain", "conclusion-FOL": "SeizedBy(britta, hongkong)", "llm_conclusion-FOL": "SeizedBy(britta,hongkong)"}
+{"story_id": 923, "label": "True", "conclusion-FOL": "GoodWideReceiver(quincyMcduffie)", "llm_conclusion-FOL": "GoodWideReceiver(quincyMcduffie)"}
+{"story_id": 926, "label": "True", "conclusion-FOL": "SituatedOn(longueau, pairsLille)", "llm_conclusion-FOL": "SituatedOn(longueau, pairsLille)"}
+{"story_id": 927, "label": "False", "conclusion-FOL": "¬In(boves, europe)", "llm_conclusion-FOL": "-In(boves, europe)"}
+{"story_id": 928, "label": "Uncertain", "conclusion-FOL": "Serve(longueau, hautsDeFrance)", "llm_conclusion-FOL": "Serve(longueau, hautsDeFrance)"}
+{"story_id": 929, "label": "True", "conclusion-FOL": "Sergeant(tedSmith)", "llm_conclusion-FOL": "Sergeant(tedSmith)"}
+{"story_id": 930, "label": "False", "conclusion-FOL": "∀x ∀y (Rower(x) ∧ Buisness(y) → ¬Own(x, y))", "llm_conclusion-FOL": "-all x all y ((Rower(x) & Buisness(y)) -> -Own(x,y))"}
+{"story_id": 931, "label": "False", "conclusion-FOL": "∀x (Sergeant(x) → ¬From(x, auckland))", "llm_conclusion-FOL": "all x (Sergeant(x) -> -From(x, auckland))"}
+{"story_id": 932, "label": "False", "conclusion-FOL": "∀x ∀y (Buisness(x) ∧ Own(y, x) → ¬ServeIn(y, egypt))", "llm_conclusion-FOL": "all x all y ((Buisness(x) & Own(y,x)) -> -ServeIn(y,egypt))"}
+{"story_id": 933, "label": "Uncertain", "conclusion-FOL": "∀x (Human(x) → Werewolf(x))", "llm_conclusion-FOL": "all x (Human(x) -> Werewolf(x))"}
+{"story_id": 934, "label": "Uncertain", "conclusion-FOL": "∀x (Werewolf(x) → Wolf(x))", "llm_conclusion-FOL": "all x (Werewolf(x) -> Wolf(x))"}
+{"story_id": 935, "label": "Uncertain", "conclusion-FOL": "∀x ∃y (Werewolf(x) → ScratchedBy(y, x))", "llm_conclusion-FOL": "∃x ∃y (Werewolf(x) & ScratchedBy(y,x))"}
+{"story_id": 936, "label": "Uncertain", "conclusion-FOL": "Fight(jung, sadollah, uFCFightNight)", "llm_conclusion-FOL": "Fight(jung,sadollah,uFCFightNight)"}
+{"story_id": 937, "label": "True", "conclusion-FOL": "Event(uFCFightNight) ∧ ¬FightIn(jung, uFCFightNight)", "llm_conclusion-FOL": "-FightIn(jung,uFCFightNight)"}
+{"story_id": 938, "label": "Uncertain", "conclusion-FOL": "Fight(sadollah, musoke, uFCFightNight)", "llm_conclusion-FOL": "Fight(sadollah,musoke,uFCFightNight)"}
+{"story_id": 939, "label": "Uncertain", "conclusion-FOL": "Fight(nelson, story, uFCFightNight)", "llm_conclusion-FOL": "Fight(nelson, story, uFCFightNight)"}
+{"story_id": 941, "label": "True", "conclusion-FOL": "Edible(coke) ∧ Sweet(coke)", "llm_conclusion-FOL": "Edible(coke) & Sweet(coke)"}
+{"story_id": 942, "label": "False", "conclusion-FOL": "¬(Edible(coke) ∧ Sweet(coke))", "llm_conclusion-FOL": "-Edible(coke) & Sweet(coke)"}
+{"story_id": 943, "label": "Uncertain", "conclusion-FOL": "¬Killed(nationalists, daniel)", "llm_conclusion-FOL": "Killed(nationalists,daniel)"}
+{"story_id": 944, "label": "True", "conclusion-FOL": "Killed(nationalists, lorca)", "llm_conclusion-FOL": "Killed(nationalists,lorca)"}
+{"story_id": 948, "label": "False", "conclusion-FOL": "¬EligibleForThreeFreeMovies(james)", "llm_conclusion-FOL": "-all x (x = james -> EligibleForThreeFreeMovies(x))"}
+{"story_id": 949, "label": "Uncertain", "conclusion-FOL": "CinemaEveryWeek(james)", "llm_conclusion-FOL": "CinemaEveryWeek(james)"}
+{"story_id": 950, "label": "True", "conclusion-FOL": "¬WatchTVIn(peter, cinemas)", "llm_conclusion-FOL": "-WatchTVIn(peter,cinemas)"}
+{"story_id": 951, "label": "False", "conclusion-FOL": "¬Orchid(bulbophyllumAttenuatum)", "llm_conclusion-FOL": "-Orchid(bulbophyllumAttenuatum)"}
+{"story_id": 952, "label": "True", "conclusion-FOL": "∃x (AdministrativeCenterOf(vladivostok, x) ∧ LargestArea(x))", "llm_conclusion-FOL": "exists(x) (LargestArea(x) & AdministrativeCenterOf(vladivostok,x))"}
+{"story_id": 954, "label": "Uncertain", "conclusion-FOL": "EstablishedIn(northwestern, 2000)", "llm_conclusion-FOL": "exists x (x = northwestern & EstablishedIn(x, 2000))"}
+{"story_id": 955, "label": "Uncertain", "conclusion-FOL": "CanBeTreatedAtHome(arthritis)", "llm_conclusion-FOL": "CanBeTreatedAtHome(arthritis)"}
+{"story_id": 956, "label": "False", "conclusion-FOL": "ColorectalCancer(arthritis)", "llm_conclusion-FOL": "ColorectalCancer(arthritis)"}
+{"story_id": 957, "label": "True", "conclusion-FOL": "¬ColorectalCancer(arthritis)", "llm_conclusion-FOL": "-all x (ColorectalCancer(x) & x = arthritis)"}
+{"story_id": 958, "label": "False", "conclusion-FOL": "ColorectalCancer(arthritis) ∨ Have(arthritis, mutation)", "llm_conclusion-FOL": "ColorectalCancer(arthritis) | Have(arthritis,mutation)"}
+{"story_id": 959, "label": "False", "conclusion-FOL": "ColorectalCancer(arthritisr) ∧ Cancer(arthritis)", "llm_conclusion-FOL": "ColorectalCancer(arthritis) & Cancer(arthritis)"}
+{"story_id": 960, "label": "False", "conclusion-FOL": "¬ColorectalCancer(arthritis) → Have(arthritis, mutation)", "llm_conclusion-FOL": "all x (x = arthritis & -ColorectalCancer(x) -> Have(x,mutation))"}
+{"story_id": 962, "label": "True", "conclusion-FOL": "∃x (ItalianName(x) ∧ Surname(x) ∧ UseAsSurname(albaRoversi, x))", "llm_conclusion-FOL": "∃s (UseAsSurname(albaRoversi,s) & ItalianName(s))"}
+{"story_id": 963, "label": "False", "conclusion-FOL": "¬(∃x ∃y (Photographer(x) ∧ ItalianName(y) ∧ Surname(y) ∧ UseAsSurname(x, y)))", "llm_conclusion-FOL": "all x all y ((Photographer(x) & UseAsSurname(x,y) & ItalianName(y)) -> false)"}
+{"story_id": 964, "label": "Uncertain", "conclusion-FOL": "Amateur(paoloRoversi) ∧ Photographer(paoloRoversi)", "llm_conclusion-FOL": "Amateur(paoloRoversi) & Photographer(paoloRoversi)"}
+{"story_id": 966, "label": "Uncertain", "conclusion-FOL": "DidWorkIn(zahaHadid, interiorDesign)", "llm_conclusion-FOL": "exists x WorkIn(zahaHadid,x) & InteriorDesign(x)"}
+{"story_id": 968, "label": "Uncertain", "conclusion-FOL": "Admires(max, zahaHadid)", "llm_conclusion-FOL": "Admires(max,zahaHadid)"}
+{"story_id": 969, "label": "Uncertain", "conclusion-FOL": "Provides(fMRI, spatialResolutionOfBrains)", "llm_conclusion-FOL": "Provides(fMRI,spatialResolutionOfBrains)"}
+{"story_id": 970, "label": "True", "conclusion-FOL": "Invasive(fMRI) ∧ UsedBy(fMRI, neuroscienceResearchers)", "llm_conclusion-FOL": "Invasive(fMRI) & UsedBy(fMRI,neuroscienceResearchers)"}
+{"story_id": 971, "label": "False", "conclusion-FOL": "Invasive(fMRI) ⊕ UsedBy(fMRI, neuroscienceResearchers)", "llm_conclusion-FOL": "(Invasive(fMRI) & NeuroimagingTechnique(fMRI)) | UsedBy(fMRI,neuroscienceResearchers)"}
+{"story_id": 972, "label": "True", "conclusion-FOL": "¬(Invasive(fMRI) ∧ UsedBy(fMRI, neuroscienceResearchers)) → ¬(Noninvasive(fMRI) ∨ Provides(fMRI, spatialResolutionOfBrains))", "llm_conclusion-FOL": "all x (x = fMRI -> ( - (Invasive(x) & UsedBy(x,neuroscienceResearchers)) -> ( -Noninvasive(x) & -Provides(x,spatialResolutionOfBrains))))"}
+{"story_id": 973, "label": "Uncertain", "conclusion-FOL": "ProvidedWith(james, souvenir)", "llm_conclusion-FOL": "ProvidedWith(james,souvenir)"}
+{"story_id": 974, "label": "Uncertain", "conclusion-FOL": "¬ProvidedWith(x, souvenir)", "llm_conclusion-FOL": "-all x (ProvidedWith(x,souvenir) & x = james)"}
+{"story_id": 978, "label": "True", "conclusion-FOL": "OpenToPublic(usssalem)", "llm_conclusion-FOL": "OpenToPublic(usssalem)"}
+{"story_id": 979, "label": "True", "conclusion-FOL": "∃x (MuseumShip(x) ∧ OpenToPublic(x) ∧ ServedIn(x, mediterranean))", "llm_conclusion-FOL": "exists x (MuseumShip(x) & OpenToPublic(x) & ServedIn(x, mediterranean))"}
+{"story_id": 980, "label": "False", "conclusion-FOL": "¬LastHeavyCruiserToEnterService(usssalem)", "llm_conclusion-FOL": "-LastHeavyCruiserToEnterService(usssalem)"}
+{"story_id": 981, "label": "True", "conclusion-FOL": "∀x (TSLeda(x) → Quiet(x) ∧ GoodAt(x, sea))", "llm_conclusion-FOL": "∃x (TSLeda(x) & Quiet(x) & GoodAt(x,sea))"}
+{"story_id": 982, "label": "True", "conclusion-FOL": "∀x (TSLeda(x) → PowerfulSteamTurbine(x))", "llm_conclusion-FOL": "∃x (TSLeda(x) & PowerfulSteamTurbine(x))"}
+{"story_id": 984, "label": "True", "conclusion-FOL": "∃x (BornIn(rosa, x) ∧ LargestCityOf(x, chile))", "llm_conclusion-FOL": "∃c (LargestCityOf(c,chile) & BornIn(rosa,c))"}
+{"story_id": 987, "label": "True", "conclusion-FOL": "IsRapAlbum(wellDone3)", "llm_conclusion-FOL": "IsRapAlbum(wellDone3)"}
+{"story_id": 988, "label": "False", "conclusion-FOL": "IsOperaSinger(tyga)", "llm_conclusion-FOL": "IsOperaSinger(tyga)"}
+{"story_id": 989, "label": "Uncertain", "conclusion-FOL": "IsWorthListening(wellDone3)", "llm_conclusion-FOL": "WorthListening(wellDone3)"}
+{"story_id": 992, "label": "Uncertain", "conclusion-FOL": "Play(gasland)", "llm_conclusion-FOL": "Play(gasland)"}
+{"story_id": 993, "label": "Uncertain", "conclusion-FOL": "Bear(larry)", "llm_conclusion-FOL": "Bear(larry)"}
+{"story_id": 995, "label": "True", "conclusion-FOL": "TravelFar(larry) ⊕ Need(larry, largeTerritory) → Bear(larry)", "llm_conclusion-FOL": "all x ((x = larry & (TravelFar(x) | Need(x,largeTerritory))) -> Bear(x))"}
+{"story_id": 998, "label": "True", "conclusion-FOL": "¬(Innocent(garry) ∧ ¬CommitCrime(garry))", "llm_conclusion-FOL": "-(Innocent(garry) & -CommitCrime(garry))"}
+{"story_id": 999, "label": "False", "conclusion-FOL": "PopRock(phoenix)", "llm_conclusion-FOL": "PopRock(phoenix)"}
+{"story_id": 1004, "label": "Uncertain", "conclusion-FOL": "HasLunch(james, company)", "llm_conclusion-FOL": "HasLunch(james,company)"}
+{"story_id": 1005, "label": "Uncertain", "conclusion-FOL": "¬HasLunch(james, company)", "llm_conclusion-FOL": "-all x (x = james -> HasLunch(x, company))"}
+{"story_id": 1006, "label": "True", "conclusion-FOL": "Manager(james) → ¬Work(james, home)", "llm_conclusion-FOL": "(all x (x = james -> ((Manager(x) | -In(x, homecountry)) -> -(HasLunch(x, home) | Work(x, home)) & ((HasLunch(x, home) | Work(x, home)) -> (-Manager(x) & In(x, homecountry))))))"}
+{"story_id": 1007, "label": "True", "conclusion-FOL": "∃x (Animal(x))", "llm_conclusion-FOL": "exists x Animal(x)"}
+{"story_id": 1008, "label": "Uncertain", "conclusion-FOL": "∀x (Human(x) → ¬Get(x, flu))", "llm_conclusion-FOL": "all x -Get(x,flu)"}
+{"story_id": 1009, "label": "Uncertain", "conclusion-FOL": "∃x (SymptonOf(x, monkeypoxVirus) ∧ Coughing(x))", "llm_conclusion-FOL": "exists x (SymptonOf(x,monkeypoxVirus) & Coughing(x))"}
+{"story_id": 1010, "label": "True", "conclusion-FOL": "OcellatedWildTurkey(tom)", "llm_conclusion-FOL": "OcellatedWildTurkey(tom)"}
+{"story_id": 1011, "label": "False", "conclusion-FOL": "EasternWildTurkey(tom)", "llm_conclusion-FOL": "EasternWildTurkey(tom)"}
+{"story_id": 1012, "label": "Uncertain", "conclusion-FOL": "WildTurkey(joey)", "llm_conclusion-FOL": "WildTurkey(joey)"}
+{"story_id": 1016, "label": "True", "conclusion-FOL": "∀x (Square(x) → Shape(x))", "llm_conclusion-FOL": "all x (Square(x) -> Shape(x))"}
+{"story_id": 1017, "label": "Uncertain", "conclusion-FOL": "Turtle(rockie)", "llm_conclusion-FOL": "Turtle(rockie)"}
+{"story_id": 1018, "label": "Uncertain", "conclusion-FOL": "¬Turtle(rockie)", "llm_conclusion-FOL": "-Turtle(rockie)"}
+{"story_id": 1019, "label": "True", "conclusion-FOL": "Turtle(rockie) ∨ Cute(rockie)", "llm_conclusion-FOL": "Turtle(rockie) | Cute(rockie)"}
+{"story_id": 1020, "label": "True", "conclusion-FOL": "¬(Turtle(rockie) ∧ Squirrel(rockie)) → Cute(rockie) ⊕ Skittish(rockie)", "llm_conclusion-FOL": "all x (x = rockie -> (-(Turtle(rockie) & Squirrel(rockie)) -> (Cute(rockie) | Skittish(rockie))))"}
+{"story_id": 1021, "label": "False", "conclusion-FOL": "Cute(rockie) ∧ Calm(rockie) → Turtle(rockie) ∧ Skittish(rockie)", "llm_conclusion-FOL": "all x ( (x = rockie & Cute(rockie) & Calm(rockie)) -> (Skittish(rockie) & Turtle(rockie)) )"}
+{"story_id": 1022, "label": "True", "conclusion-FOL": "ShareWith(karen, strangerThings, lisa)", "llm_conclusion-FOL": "ShareWith(karen,strangerThings,lisa)"}
+{"story_id": 1023, "label": "False", "conclusion-FOL": "Popular(blackMirror)", "llm_conclusion-FOL": "Popular(blackMirror)"}
+{"story_id": 1024, "label": "Uncertain", "conclusion-FOL": "ShareWith(karen, blackMirror, lisa)", "llm_conclusion-FOL": "ShareWith(karen,blackMirror,lisa)"}
+{"story_id": 1025, "label": "True", "conclusion-FOL": "Hosted(beijing, summerOlympics) ∧ Hosted(beijing, winterOlympics)", "llm_conclusion-FOL": "Hosted(beijing,2008SummerOlympics) & Hosted(beijing,winterOlympics)"}
+{"story_id": 1026, "label": "Uncertain", "conclusion-FOL": "LocatedIn(beijing, southernChina)", "llm_conclusion-FOL": "LocatedIn(beijing,southernChina)"}
+{"story_id": 1027, "label": "Uncertain", "conclusion-FOL": "SecondLargestChineseCity(beijing)", "llm_conclusion-FOL": "SecondLargestChineseCity(beijing)"}
+{"story_id": 1028, "label": "Uncertain", "conclusion-FOL": "Alien(marvin)", "llm_conclusion-FOL": "Alien(marvin)"}
+{"story_id": 1029, "label": "True", "conclusion-FOL": "¬Human(marvin) ∧ ¬From(marvin, mars)", "llm_conclusion-FOL": "-all x ( (x = marvin) -> (Human(x) | From(x,mars)) )"}
+{"story_id": 1030, "label": "False", "conclusion-FOL": "¬From(marvin, mars) → Human(marvin)", "llm_conclusion-FOL": "all x ((x = marvin & -From(x,mars)) -> Human(x))"}
+{"story_id": 1031, "label": "Uncertain", "conclusion-FOL": "GrandSlam(djokovic) ∧ Champion(djokovic)", "llm_conclusion-FOL": "GrandSlam(djokovic) & Champion(djokovic)"}
+{"story_id": 1032, "label": "True", "conclusion-FOL": "LiveIn(djokovic, taxHaven)", "llm_conclusion-FOL": "LiveIn(djokovic,taxHaven)"}
+{"story_id": 1033, "label": "False", "conclusion-FOL": "¬LiveIn(djokovic, taxHaven)", "llm_conclusion-FOL": "-all LiveIn(djokovic,taxHaven)"}
+{"story_id": 1035, "label": "Uncertain", "conclusion-FOL": "Leads(roderickstrong, creedbrothers)", "llm_conclusion-FOL": "Leads(roderickStrong, creedBrothers)"}
+{"story_id": 1040, "label": "Uncertain", "conclusion-FOL": "∃x (Design(x) ∧ ByMax(x) ∧ BrutalistBuilding(x))", "llm_conclusion-FOL": "all x (Design(x) & ByMax(x) -> BrutalistBuilding(x))"}
+{"story_id": 1046, "label": "Uncertain", "conclusion-FOL": "∀x (Pet(x) → ¬Cat(x))", "llm_conclusion-FOL": "all x (Pet(x) -> -Cat(x))"}
+{"story_id": 1048, "label": "Uncertain", "conclusion-FOL": "Favorite(mia, spring)", "llm_conclusion-FOL": "exists s (Season(s) & Favorite(mia,s) & s = spring)"}
+{"story_id": 1049, "label": "Uncertain", "conclusion-FOL": "PrintedText(y1984)", "llm_conclusion-FOL": "PrintedText(1984)"}
+{"story_id": 1053, "label": "Uncertain", "conclusion-FOL": "RomanceLanguage(german)", "llm_conclusion-FOL": "RomanceLanguage(german)"}
+{"story_id": 1054, "label": "True", "conclusion-FOL": "IndoEuropeanLanguage(french)", "llm_conclusion-FOL": "IndoEuropeanLanguage(french)"}
+{"story_id": 1055, "label": "True", "conclusion-FOL": "SoccerPlayer(robertLewandowski)", "llm_conclusion-FOL": "SoccerPlayer(robertLewandowski)"}
+{"story_id": 1056, "label": "False", "conclusion-FOL": "PlaysFor(robertLewandowski, bayernMunchen)", "llm_conclusion-FOL": "PlaysFor(robertLewandowski,bayernMunchen)"}
+{"story_id": 1057, "label": "Uncertain", "conclusion-FOL": "SoccerStar(robertLewandowski)", "llm_conclusion-FOL": "Star(robertLewandowski)"}
+{"story_id": 1059, "label": "Uncertain", "conclusion-FOL": "∃x (City(pierre) ∧ In(pierre, x) ∧ City(bismarck) ∧ In(bismarck, x))", "llm_conclusion-FOL": "exists s (In(pierre,s) & In(bismarck,s))"}
+{"story_id": 1060, "label": "True", "conclusion-FOL": "City(missoula) ∧ In(missoula, montana)", "llm_conclusion-FOL": "In(missoula,montana)"}
+{"story_id": 1061, "label": "Uncertain", "conclusion-FOL": "F1Visa(mike)", "llm_conclusion-FOL": "F1Visa(mike)"}
+{"story_id": 1062, "label": "Uncertain", "conclusion-FOL": "J1Visa(mike)", "llm_conclusion-FOL": "J1Visa(mike)"}
+{"story_id": 1063, "label": "Uncertain", "conclusion-FOL": "Pet(ted)", "llm_conclusion-FOL": "Pet(ted)"}
+{"story_id": 1064, "label": "False", "conclusion-FOL": "Pet(ted) ∧ BrownSwissCattle(ted)", "llm_conclusion-FOL": "Pet(ted) & BrownSwissCattle(ted)"}
+{"story_id": 1065, "label": "True", "conclusion-FOL": "BrownSwissCattle(ted) → ¬Pet(ted)", "llm_conclusion-FOL": "all x ( (x = ted & BrownSwissCattle(x)) -> -Pet(x) )"}
+{"story_id": 1066, "label": "True", "conclusion-FOL": "∃x (PrivateIvyLeagueResearchUniversity(x) ∧ MovedTo(x, newHaven))", "llm_conclusion-FOL": "exists x (PrivateIvyLeagueResearchUniversity(x) & MovedTo(x,newHaven))"}
+{"story_id": 1067, "label": "Uncertain", "conclusion-FOL": "LargestUniversityEndowmentOf(yale, anyEducationalInstitution)", "llm_conclusion-FOL": "LargestUniversityEndowmentOfAnyEducationalInstitution(yaleUniversitysEndowment)"}
+{"story_id": 1069, "label": "True", "conclusion-FOL": "∃x (ScriptEditorFor(andrewCollins, x) ∧ Series(x) ∧ WorkingTitle(theSecretDudeSociety, x))", "llm_conclusion-FOL": "∃x (Series(x) & WorkingTitle(theSecretDudeSociety, x) & ScriptEditorFor(andrewCollins, x))"}
+{"story_id": 1070, "label": "False", "conclusion-FOL": "∀x ∀y (MemberOf(x, pappys) ∧ Starring(y, x) → ¬(PilotedOn(y, bBCTwo) ∨ PilotedOn(y, bBCThree)))", "llm_conclusion-FOL": "all x all y ((MemberOf(x,pappys) & Starring(y,x) & PilotedOn(y,bBCTwo)) -> -PilotedOn(y,bBCThree))"}
+{"story_id": 1074, "label": "True", "conclusion-FOL": "∃x (Owns(joe, x) ∧ BeginWith(x, num34))", "llm_conclusion-FOL": "BeginWith(joe,num34)"}
+{"story_id": 1079, "label": "False", "conclusion-FOL": "Product(driedThaiChili) ∧ From(driedThaiChili, bakedByMelissa)", "llm_conclusion-FOL": "Product(driedThaiChili) & From(driedThaiChili,bakedByMelissa)"}
+{"story_id": 1080, "label": "True", "conclusion-FOL": "¬(Product(driedThaiChili) ∧ From(driedThaiChili, bakedByMelissa))", "llm_conclusion-FOL": "-all x ( (x = driedThaiChili & Product(x) & From(x,bakedByMelissa)) )"}
+{"story_id": 1081, "label": "Uncertain", "conclusion-FOL": "MalaHotpot(driedThaiChili)", "llm_conclusion-FOL": "MalaHotpot(driedThaiChili)"}
+{"story_id": 1082, "label": "True", "conclusion-FOL": "¬(Product(driedThaiChili) ∧ From(driedThaiChili, bakedByMelissa)) ∧ ¬BakedSweet(driedThaiChili)", "llm_conclusion-FOL": "-Product(driedThaiChili) & -BakedSweet(driedThaiChili)"}
+{"story_id": 1083, "label": "False", "conclusion-FOL": "Cupcake(driedThaiChili) ∧ Product(driedThaiChili) ∧ From(driedThaiChili, bakedByMelissa)", "llm_conclusion-FOL": "Cupcake(driedThaiChili) & Product(driedThaiChili) & From(driedThaiChili,bakedByMelissa)"}
+{"story_id": 1085, "label": "True", "conclusion-FOL": "∃x (Provide(hamdenPlazaSubway, takeOutService) ∨ (NegativeReview(x) ∧ ¬Receive(hamdenPlazaSubway, x)))", "llm_conclusion-FOL": "exists y (Provide(hamdenPlazaSubway,takeOutService) | - (NegativeReview(y) & Receive(hamdenPlazaSubway,y)))"}
+{"story_id": 1086, "label": "Uncertain", "conclusion-FOL": "¬Provide(hamdenPlazaSubway, takeOutService)", "llm_conclusion-FOL": "-all x Provide(hamdenPlazaSubway,x)"}
+{"story_id": 1088, "label": "True", "conclusion-FOL": "Gains(harry, knowledge)", "llm_conclusion-FOL": "Contains(walden,knowledge)"}
+{"story_id": 1089, "label": "True", "conclusion-FOL": "Smarter(harry)", "llm_conclusion-FOL": "Smarter(harry)"}
+{"story_id": 1090, "label": "Uncertain", "conclusion-FOL": "∀x (Smarter(x) → GainKnowledge(x))", "llm_conclusion-FOL": "all x (Smarter(x) -> Gains(x,knowledge))"}
+{"story_id": 1094, "label": "Uncertain", "conclusion-FOL": "AllowedToMoveInWith(tom, oliveGarden, fluffy)", "llm_conclusion-FOL": "AllowedToMoveInWith(tom,oliveGarden,fluffy)"}
+{"story_id": 1096, "label": "Uncertain", "conclusion-FOL": "LegalObligation(harvardWeeklyBookClub)", "llm_conclusion-FOL": "LegalObligation(harvardWeeklyBookClub)"}
+{"story_id": 1097, "label": "False", "conclusion-FOL": "LegalObligation(harvardWeeklyBookClub) ∧ PrivateCompany(harvardWeeklyBookClub)", "llm_conclusion-FOL": "LegalObligation(harvardWeeklyBookClub) & PrivateCompany(harvardWeeklyBookClub)"}
+{"story_id": 1098, "label": "True", "conclusion-FOL": "PrivateCompany(harvardWeeklyBookClub) → LegalObligation(harvardWeeklyBookClub) ⊕ CreatedUnderLaw(harvardWeeklyBookClub)", "llm_conclusion-FOL": "all x (x = harvardWeeklyBookClub -> (PrivateCompany(x) -> (LegalObligation(x) | CreatedUnderLaw(x))))"}
+{"story_id": 1099, "label": "Uncertain", "conclusion-FOL": "QueenBee(harry)", "llm_conclusion-FOL": "QueenBee(harry)"}
+{"story_id": 1102, "label": "Uncertain", "conclusion-FOL": "SpendTime(luke, playingWith, siblings)", "llm_conclusion-FOL": "SpendTimePlayingWith(luke,sibling)"}
+{"story_id": 1108, "label": "Uncertain", "conclusion-FOL": "NotablyTidy(peter)", "llm_conclusion-FOL": "NotablyTidy(peter)"}
+{"story_id": 1111, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Evergreen(x) ∧ Evergreen(y) ∧ ¬ObjectOfWorship(x) ∧ ¬ObjectOfWorship(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Evergreen(x) & -ObjectOfWorship(x))"}
+{"story_id": 1112, "label": "True", "conclusion-FOL": "∃x (Visited(juanDeOnate, x) ∧ MountainRange(x) ∧ In(x, newMexico))", "llm_conclusion-FOL": "exists(x) (MountainRange(x) & In(x,newMexico) & Visited(juanDeOnate,x))"}
+{"story_id": 1113, "label": "Uncertain", "conclusion-FOL": "∃x (Visited(juanDeOnate, x) ∧ MountainRange(x) ∧ In(x, texas))", "llm_conclusion-FOL": "exists x (MountainRange(x) & In(x, texas) & Visited(juanDeOnate, x))"}
+{"story_id": 1114, "label": "False", "conclusion-FOL": "∀x (In(hardingPegmatiteMine, x) → ¬(MountainRange(x) ∧ In(x, newMexico)))", "llm_conclusion-FOL": "-all y (MountainRange(y) & In(hardingPegmatiteMine,y) -> In(y,newMexico))"}
+{"story_id": 1115, "label": "False", "conclusion-FOL": "∃x (Man(x) ∧ SameClass(x, michael) ∧ ¬Taller(peter, x))", "llm_conclusion-FOL": "exists x (Man(x) & SameClass(x,michael) & -(x=peter) & Taller(x,peter))"}
+{"story_id": 1116, "label": "True", "conclusion-FOL": "GreatShooter(windy)", "llm_conclusion-FOL": "GreatShooter(windy)"}
+{"story_id": 1117, "label": "Uncertain", "conclusion-FOL": "CanBlock(peter, windy)", "llm_conclusion-FOL": "CanBlock(peter,windy)"}
+{"story_id": 1118, "label": "Uncertain", "conclusion-FOL": "∀x (LocatedIn(x, antarctica) → NamedAfter(barutinCove, x))", "llm_conclusion-FOL": "all x (Island(x) & LocatedIn(x, antarctica) -> NamedAfter(barutinCove, x))"}
+{"story_id": 1120, "label": "False", "conclusion-FOL": "¬LocatedIn(barutinCove, antarctica)", "llm_conclusion-FOL": "-LocatedIn(barutinCove, antarctica)"}
+{"story_id": 1121, "label": "Uncertain", "conclusion-FOL": "∃x (Affection(x) ∧ Positive(x))", "llm_conclusion-FOL": "exists x (Affection(x) & Positive(x))"}
+{"story_id": 1122, "label": "Uncertain", "conclusion-FOL": "TeslaModel3(johnsCar)", "llm_conclusion-FOL": "TeslaModel3(johnsCar)"}
+{"story_id": 1123, "label": "False", "conclusion-FOL": "SoloEV(johnsCar) ∧ Car(johnsCar)", "llm_conclusion-FOL": "exists x (x = johnsCar & SoloEV(x))"}
+{"story_id": 1124, "label": "True", "conclusion-FOL": "¬(SoloEV(johnsCar) ∧ Car(johnsCar))", "llm_conclusion-FOL": "-SoloEV(johnsCar)"}
+{"story_id": 1125, "label": "Uncertain", "conclusion-FOL": "Monkey(rock)", "llm_conclusion-FOL": "Monkey(rock)"}
+{"story_id": 1130, "label": "Uncertain", "conclusion-FOL": "Engaged(john)", "llm_conclusion-FOL": "Engaged(john)"}
+{"story_id": 1132, "label": "True", "conclusion-FOL": "Mammal(platypus) ∧ (¬Have(platypus, teeth))", "llm_conclusion-FOL": "Mammal(platypus) & -Have(platypus,teeth)"}
+{"story_id": 1133, "label": "Uncertain", "conclusion-FOL": "Reptile(platypus)", "llm_conclusion-FOL": "Reptile(platypus)"}
+{"story_id": 1134, "label": "Uncertain", "conclusion-FOL": "Mammal(humans)", "llm_conclusion-FOL": "all x (x = humans -> Mammal(x))"}
+{"story_id": 1135, "label": "True", "conclusion-FOL": "Suck(space)", "llm_conclusion-FOL": "Suck(space)"}
+{"story_id": 1136, "label": "Uncertain", "conclusion-FOL": "Vampire(space)", "llm_conclusion-FOL": "Vampire(space)"}
+{"story_id": 1139, "label": "False", "conclusion-FOL": "∃x (UnsupervisedLearningAlgorithm(x) ∧ TrainedWith(stateOfTheArtTextSummarizationModel, x))", "llm_conclusion-FOL": "exists x (UnsupervisedLearningAlgorithm(x) & TrainedWith(stateOfTheArtTextSummarizationModel,x))"}
+{"story_id": 1140, "label": "Uncertain", "conclusion-FOL": "Rated(x, generalAudience)", "llm_conclusion-FOL": "Rated(hachiAdogsTale,generalAudience)"}
+{"story_id": 1143, "label": "True", "conclusion-FOL": "∃x ∃y(HeckCattle(x) ∧ ArtificialSelection(x) ∧ (¬(x=y)) ∧ HeckCattle(y) ∧ ArtificialSelection(y))", "llm_conclusion-FOL": "exists x (HeckCattle(x) & ArtificialSelection(x))"}
+{"story_id": 1147, "label": "True", "conclusion-FOL": "CanParticipateIn(ekaterina, 2024UnitedStatesElection) ∨ ManagerAt(ekaterina, gazprom)", "llm_conclusion-FOL": "CanParticipateIn(ekaterina,2024UnitedStatesElection) | ManagerAt(ekaterina,gazprom)"}
+{"story_id": 1148, "label": "True", "conclusion-FOL": "CanParticipateIn(ekaterina, 2024UnitedStatesElection) ⊕ ManagerAt(vladimir, gazprom)", "llm_conclusion-FOL": "CanParticipateIn(ekaterina,2024UnitedStatesElection) | ManagerAt(vladimir,gazprom)"}
+{"story_id": 1150, "label": "True", "conclusion-FOL": "Book(neapolitanChronicles) ∧ In(neapolitanChronicles, english)", "llm_conclusion-FOL": "In(neapolitanChronicles, english) & Book(neapolitanChronicles)"}
+{"story_id": 1151, "label": "Uncertain", "conclusion-FOL": "PublishedBy(harryPotter, newVesselPress)", "llm_conclusion-FOL": "PublishedBy(harryPotter,newVesselPress)"}
+{"story_id": 1152, "label": "Uncertain", "conclusion-FOL": "TranslatedFrom(palaceOfFlies, italian)", "llm_conclusion-FOL": "TranslatedFrom(palaceOfFlies, italian)"}
+{"story_id": 1153, "label": "Uncertain", "conclusion-FOL": "Contain(mixture, carbon)", "llm_conclusion-FOL": "Contain(mixture,carbon)"}
+{"story_id": 1154, "label": "False", "conclusion-FOL": "Alkane(mixture) ∧ Contain(mixture, carbon)", "llm_conclusion-FOL": "Alkane(mixture) & Contain(mixture,carbon)"}
+{"story_id": 1156, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Greek(x) ∧ Greek(y) ∧ Mortal(x) ∧ Mortal(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Greek(x) & Mortal(x))"}
+{"story_id": 1158, "label": "True", "conclusion-FOL": "¬∃y(PartTimeJob(y) ∧ Have(james, y) ∧ OfferedBy(y, university))", "llm_conclusion-FOL": "-∃x (PartTimeJob(x) & Have(james,x) & OfferedBy(x,university))"}
+{"story_id": 1159, "label": "True", "conclusion-FOL": "Take(james, databaseCourse) ⊕ (∃y (PartTimeJob(y) ∧ Have(james, y) ∧ OfferedBy(y, university))", "llm_conclusion-FOL": "(exists j (j = james) & (-(Take(j,databaseCourse) <-> exists x (PartTimeJob(x) & Have(j,x) & OfferedBy(x,university)))))"}
+{"story_id": 1161, "label": "True", "conclusion-FOL": "(LikeMusic(george) ∧ AccesstoProgram(george)) → WillCompose(george)", "llm_conclusion-FOL": "all x (((LikeMusic(x) & AccesstoProgram(x)) -> WillCompose(x)))"}
+{"story_id": 1162, "label": "Uncertain", "conclusion-FOL": "¬WantToCompose(george) → ¬WillCompose(george)", "llm_conclusion-FOL": "all x (x=george -> (-WillCompose(x) -> -CanCompose(x)))"}
+{"story_id": 1163, "label": "False", "conclusion-FOL": "∀x (Bird(x) → Swim(x))", "llm_conclusion-FOL": "all x (Bird(x) -> Swim(x))"}
+{"story_id": 1164, "label": "Uncertain", "conclusion-FOL": "∀x (MondayAt8PM(x) ∧ On(breakingBad, x))", "llm_conclusion-FOL": "AiringAtOn(breakingBad,8PMMonday)"}
+{"story_id": 1167, "label": "True", "conclusion-FOL": "German(heinrichSchmidt) ∨ Russian(heinrichSchmidt)", "llm_conclusion-FOL": "German(heinrichSchmidt) | Russian(heinrichSchmidt)"}
+{"story_id": 1168, "label": "True", "conclusion-FOL": "∃x (German(x) ∧ Politician(x) ∧ Member(x, prussianStateParliament) ∧ Member(x, naziReichstag))", "llm_conclusion-FOL": "exists x (German(x) & Politician(x) & Member(x,prussianStateParliament) & Member(x,naziReichstag))"}
+{"story_id": 1169, "label": "False", "conclusion-FOL": "∀x (Politician(x) → ¬Member(x, naziReichstag))", "llm_conclusion-FOL": "all x -(Politician(x) & Member(x,naziReichstag))"}
+{"story_id": 1170, "label": "Uncertain", "conclusion-FOL": "SevereCancer(colorectalCancer)", "llm_conclusion-FOL": "SevereCancer(colorectalCancer)"}
+{"story_id": 1171, "label": "True", "conclusion-FOL": "¬(BileDuctCancer(colorectalCancer) ∨ Cholangiocarcinoma(colorectalCancer)) ∨ (BileDuctCancer(colorectalCancer) ∧ MildFlu(colorectalCancer))", "llm_conclusion-FOL": "all x ( ( (x = colorectalCancer & (BileDuctCancer(x) | Cholangiocarcinoma(x))) ) -> (BileDuctCancer(x) & MildFlu(x)) )"}
+{"story_id": 1172, "label": "False", "conclusion-FOL": "Cholangiocarcinoma(colorectalCancer) ∧ (MildFlu(colorectalCancer) ∨ BileDuctCancer(colorectalCancer))", "llm_conclusion-FOL": "(Cholangiocarcinoma(colorectalCancer) & (MildFlu(colorectalCancer) | BileDuctCancer(colorectalCancer)))"}
+{"story_id": 1173, "label": "Uncertain", "conclusion-FOL": "RegularlyEat(taylor, salad)", "llm_conclusion-FOL": "RegularlyEat(taylor,salad)"}
+{"story_id": 1176, "label": "Uncertain", "conclusion-FOL": "SportingEvent(champs)", "llm_conclusion-FOL": "SportingEvent(worldChampionships)"}
+{"story_id": 1177, "label": "False", "conclusion-FOL": "¬LastSummerOlympics(tokyo)", "llm_conclusion-FOL": "-LastSummerOlympics(tokyo)"}
+{"story_id": 1178, "label": "True", "conclusion-FOL": "∃x (LastSummerOlympics(x) ∧ MostMedals(unitedStates, x))", "llm_conclusion-FOL": "MostMedals(unitedStates, tokyo)"}
+{"story_id": 1179, "label": "False", "conclusion-FOL": "∃x (Human(x) ∧ Human(y) ∧ Horse(x) ∧ Horse(y) ∧ ¬(x=y))", "llm_conclusion-FOL": "exists x (Human(x) & Horse(x))"}
+{"story_id": 1180, "label": "False", "conclusion-FOL": "FlyFrom(susan, lgaAirport)", "llm_conclusion-FOL": "FlyFrom(susan,lgaAirport)"}
+{"story_id": 1181, "label": "False", "conclusion-FOL": "FlyTo(john, lgaAirport)", "llm_conclusion-FOL": "FlyTo(john,lgaAirport)"}
+{"story_id": 1182, "label": "Uncertain", "conclusion-FOL": "Grumpy(tom)", "llm_conclusion-FOL": "Grumpy(tom)"}
+{"story_id": 1183, "label": "True", "conclusion-FOL": "¬(Grumpy(tom) ∧ MeanTo(tom, animal))", "llm_conclusion-FOL": "- (Grumpy(tom) & MeanTo(tom, animal))"}
+{"story_id": 1187, "label": "Uncertain", "conclusion-FOL": "BornIn(dani_Shapiro, boston)", "llm_conclusion-FOL": "∃x (BornIn(daniShapiro,x) & City(x) & x = boston)"}
+{"story_id": 1189, "label": "True", "conclusion-FOL": "¬(AmericanNational(yuri) ∧ Professional(yuri) ∧ BasketballPlayer(yuri))", "llm_conclusion-FOL": "-all x((Professional(x) & BasketballPlayer(x) & AmericanNational(x) & x = yuri))"}
+{"story_id": 1193, "label": "False", "conclusion-FOL": "∀x (Event(x) → Sad(x))", "llm_conclusion-FOL": "all x (Event(x) -> Sad(x))"}
+{"story_id": 1196, "label": "Uncertain", "conclusion-FOL": "Terricolous(kiki)", "llm_conclusion-FOL": "Terricolous(kiki)"}
+{"story_id": 1197, "label": "False", "conclusion-FOL": "Bark(kiki) ∧ Dog(kiki)", "llm_conclusion-FOL": "Dog(kiki) & Bark(kiki)"}
+{"story_id": 1198, "label": "True", "conclusion-FOL": "¬Bark(kiki) ∧ ¬Dog(kiki)", "llm_conclusion-FOL": "-Animal(kiki) | (-Bark(kiki) & -Dog(kiki))"}
+{"story_id": 1199, "label": "False", "conclusion-FOL": "∀x (PlayFor(x, nautico) → ¬Brazilian(x))", "llm_conclusion-FOL": "all x ( PlayFor(x, nautico) -> -Brazilian(x) )"}
+{"story_id": 1200, "label": "False", "conclusion-FOL": "∀x (FootballClub(x) → ¬PlayFor(ailtonSilva, x))", "llm_conclusion-FOL": "-all C (FootballClub(C) -> PlayFor(ailtonSilva,C))"}
+{"story_id": 1201, "label": "False", "conclusion-FOL": "∀x (FootballClub(x) → ¬LoanedTo(ailton, x))", "llm_conclusion-FOL": "-LoanedTo(ailton, X) & FootballClub(X)"}
+{"story_id": 1202, "label": "Uncertain", "conclusion-FOL": "PlayFor(ailtonSilva, fluminense)", "llm_conclusion-FOL": "PlayFor(ailtonSilva, fluminense)"}

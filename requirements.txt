@@ -3,3 +3,4 @@ nltk
 openai
 python-dotenv
 pandas
+google-genai

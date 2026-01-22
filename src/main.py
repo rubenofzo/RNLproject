@@ -80,24 +80,29 @@ if __name__ == '__main__':
     runExperimentGPT = False
     if runExperimentGPT:
         pipeline = Pipeline(runid)
-        pipeline.runPipeline(10)
+        pipeline.runPipeline(llm="openai")
 
-    evaluateGPT = True
-    if evaluateGPT:
+    runExperimentGemini = True
+    if runExperimentGemini:
+        pipeline = Pipeline(runid)
+        pipeline.runPipeline(llm="gemini", experimentsize=50)
+
+    evaluateLLM = False
+    if evaluateLLM:
         # Convert the latest experiment results to dataframe
         folder = Path("output/experiment1/alldata")
         latest_file = max(folder.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
         df = pd.read_json(latest_file, lines=True)
 
         # Uncomment if specific file is needed
-        df = pd.read_json(Path("output/experiment1/alldata/20260121_175824_all_cases.jsonl"), lines=True)
+        # df = pd.read_json(Path("output/experiment1/alldata/20260121_175824_gemini.jsonl"), lines=True)
 
         # make Prover9 test the LLM conclusion instead of the gold one
         df["conclusion-FOL"] = df["llm_conclusion-FOL"]
 
         datacount = len(df)  # if setMaxBaseline uses this global
         setMaxBaseline(df, _prover9)
-    # output:
+    # ChatGPT results:
     """
         formattedIncorrectly: 14
         ProcentageWellFormated:  % 0.9795021961932651
@@ -106,6 +111,16 @@ if __name__ == '__main__':
         correctDatasize:   669
         provenCorrectly out of all:  % 0.9048316251830161
         new golden dataset:   618
+    """
+    # Gemini results:
+    """
+        formattedIncorrectly: 1
+        ProcentageWellFormated:  % 0.98
+        Maximum baseline
+        provenCorrectly out of well formated:  % 0.9183673469387755
+        correctDatasize:   49
+        provenCorrectly out of all:  % 0.9
+        new golden dataset:   45
     """
 
 

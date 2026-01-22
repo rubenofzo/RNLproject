@@ -1,4 +1,5 @@
 from openai import OpenAI
+from google import genai
 from pathlib import Path
 import os
 import json
@@ -8,31 +9,37 @@ import pandas as pd
 class Pipeline:
     def __init__(self,runid):
         # Set your OpenAI API key here
-        api_key = ("sk-proj-EkdySd_E0Oz6J_MrZFZ-d6-j3Wo0rxBq5UA" 
-                   "O-ha9A0__zqKWSPO8yVkN9HPLPrLOimdODEGB7yc"
-                            "BSNfwhQDGiK9dU5Oqbq1EA")
 
-        self.client = OpenAI(api_key=api_key)
+        self.openai_client = OpenAI(api_key=openai_api_key)
+        self.gemini_client = genai.Client(api_key=gemini_api_key)
+
         self.runid = runid
 
-    def promptLLM(self,prompt, model="gpt-5.1-2025-11-13"):
+    def promptLLM(self,prompt, llm, openai_model="gpt-5.1-2025-11-13", gemini_model="gemini-3-flash-preview"):
         try:
-            response = self.client.responses.create(
-                model=model,
-                input=prompt
-            )
-            answer = response.output_text
-            return answer
+            if llm == "openai":
+                response = self.openai_client.responses.create(
+                    model=openai_model,
+                    input=prompt
+                )
+                return response.output_text
+
+            elif llm == "gemini":
+                response = self.gemini_client.models.generate_content(
+                    model=gemini_model,
+                    contents=prompt
+                )
+                return response.text
 
         except Exception as e:
             print(f"Error: {e}")
             return None
 
-    def runPipeline(self, experimentsize=0, outputDir="experiment1"):
+    def runPipeline(self, llm, experimentsize=0, outputDir="experiment1"):
         df = self.importPromptdata()
 
-        output_path_all_data = Path(f"output/{outputDir}/alldata/{self.runid}.jsonl")
-        output_path_clean = Path(f"output/{outputDir}/results/{self.runid}.jsonl")
+        output_path_all_data = Path(f"output/{outputDir}/alldata/{self.runid}_{llm}.jsonl")
+        output_path_clean = Path(f"output/{outputDir}/results/{self.runid}_{llm}.jsonl")
         output_path_all_data.parent.mkdir(parents=True, exist_ok=True)
         output_path_clean.parent.mkdir(parents=True, exist_ok=True)
 
@@ -58,14 +65,13 @@ class Pipeline:
                 - Do not introduce new named entities/constants in the conclusion.
                 - Be very careful with negation. If the natural language contains ‘not’ or ‘unaware’, that must appear as -Predicate(...)
                 - Double-check the final formula by restating it in English.
-                - When translating to Prover9, represent exclusive "either/or" statements using the negated equivalence syntax -(A <-> B). instead of the inclusive disjunction |.
                 
                 premises: "{premises}"
                 premises_FOL: "{premises_fol}"
                 conclusion: "{conclusion}"
             """
 
-            response = self.promptLLM(prompt)
+            response = self.promptLLM(prompt, llm=llm)
             print("gold:  " + conclusion_fol)
             print("ai:    " + response)
             print("-----")
