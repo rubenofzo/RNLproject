@@ -6,46 +6,40 @@ import pandas as pd
 from datetime import datetime
 from pipeline import Pipeline
 
-datacount = 1204
+def evaluate_df(df,_prover9):
+    badFormatCounter = 0
+    wrongCounter = 0
+    # test if all theorems get proves:
+    datacount = len(df.index)
+    for i in range(datacount):
+        wrongCounter,badFormatCounter = _prover9.proveSingleProblem(i,df,wrongCounter,badFormatCounter)
+        wrongCounter,badFormatCounter = _prover9.compareConclusion(i,df,wrongCounter,badFormatCounter)
 
-# def filterCorrectProblems(df, _prover9, limit=20):
-#     correct_problems = []
-
-#     for i in range(len(df)):
-#         try:
-#             # Try to prove the problem
-#             is_wrong = _prover9.idToProve(i, df)
-
-#             # If is_wrong == 0, then the label matches the prover9 result (proven correct)
-#             if is_wrong == 0:
-#                 correct_problems.append(i)
-#                 if len(correct_problems) >= limit:
-#                     break
-#         except Exception as e:
-#             # Skip problems that are not well-formatted
-#             continue
-
-#     # Return a dataframe with the filtered problems
-#     filtered_df = df.iloc[correct_problems].reset_index(drop=True)
-#     return filtered_df
+    maxBaselineScore(badFormatCounter,wrongCounter,datacount)
 
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
     wrongCounter = 0
     # test if all theorems get proves:
-
+    datacount = len(df.index)
     for i in range(datacount):
         wrongCounter,badFormatCounter = _prover9.proveSingleProblem(i,df,wrongCounter,badFormatCounter)
 
-    maxBaselineScore(badFormatCounter,wrongCounter)
+    maxBaselineScore(badFormatCounter,wrongCounter,datacount)
 
-def maxBaselineScore(badFormatCounter,wrongCounter):
-    #datacount = 1204
+def maxBaselineScore(badFormatCounter,wrongCounter,datacount):
     amountBadFormat = (datacount-badFormatCounter)
     print("formattedIncorrectly:",badFormatCounter)
-    print("ProcentageWellFormated:"," %",amountBadFormat/datacount)
+    if datacount != 0:
+        print("ProcentageWellFormated:"," %",amountBadFormat/datacount)
+    else:
+        print("no data?")
+        return
     print("Maximum baseline")
-    print("provenCorrectly out of well formated:  %",(amountBadFormat-wrongCounter)/amountBadFormat)
+    if amountBadFormat != 0:
+        print("provenCorrectly out of well formated:  %",(amountBadFormat-wrongCounter)/amountBadFormat)
+    else:
+        print("all bad formats :(")
     print("correctDatasize:  ",datacount-badFormatCounter)
     print("provenCorrectly out of all:  %",(datacount-wrongCounter-badFormatCounter)/datacount)
     print("new golden dataset:  ",datacount-wrongCounter-badFormatCounter)
@@ -60,11 +54,23 @@ def maxBaselineScore(badFormatCounter,wrongCounter):
         new golden dataset:   684
     """
 
+#config
+
+setGoldCSV = False
+runExperimentGPT = False
+runExperimentGemini = False
+evaluateLLM = False
+LLMtest = False
+
+
 if __name__ == '__main__':
     runid = datetime.now().strftime("%Y%m%d_%H%M%S")
     _prover9 = Prover9(runid)
+    #folder = Path("output/experiment1/alldata")
+    #latest_file = max(folder.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
+    df = pd.read_json("output/experiment1/alldata/20260121_175824_all_cases.jsonl", lines=True)
+    evaluate_df(df,_prover9)
 
-    setGoldCSV = False
     if setGoldCSV:
         # load data
         data = dataHandler()
@@ -77,17 +83,14 @@ if __name__ == '__main__':
         full_df = data.cleanData(full_df)
         setMaxBaseline(full_df,_prover9)
 
-    runExperimentGPT = False
     if runExperimentGPT:
         pipeline = Pipeline(runid)
         pipeline.runPipeline(llm="openai")
 
-    runExperimentGemini = True
     if runExperimentGemini:
         pipeline = Pipeline(runid)
         pipeline.runPipeline(llm="gemini", experimentsize=50)
 
-    evaluateLLM = False
     if evaluateLLM:
         # Convert the latest experiment results to dataframe
         folder = Path("output/experiment1/alldata")
@@ -126,7 +129,6 @@ if __name__ == '__main__':
 
 
     # Tests the LLM generated FOL directly from a JSON file, used for testing during development
-    LLMtest = False
     if LLMtest:
         with open("../llm_fol.json", "r", encoding="utf-8") as f:
             llm_data = json.load(f)
