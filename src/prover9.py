@@ -4,7 +4,7 @@ import subprocess
 import nltk
 import re
 str2exp = nltk.sem.Expression.fromstring
-verbose = True
+verbose = False
 verbose2 = False
 import csv
 import os
@@ -24,9 +24,11 @@ class Prover9:
                 f.write("id,premise,conclusion,premises-FOL,conclusion-FOL,label\n")
 
     # call to prove case i from df, so df[i]
-    def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter):
+    def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter,againstLLM=False):
         try:
-            _premise, _conclusion, _label, _NLpremise, _NLconclusion = datasetTriple(i, df)
+            _premise, _conclusion, _label, _NLpremise, _NLconclusion = fetchFolioRow(i, df)
+            if againstLLM:
+                _conclusion = df['llm_conclusion-FOL'][i]
             prover9Answer = self.theoremProve(_premise, _conclusion)
 
             if _label != prover9Answer:
@@ -53,7 +55,7 @@ class Prover9:
                     csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise, _conclusion, _label])
 
         except Exception as e:
-            _premise, _conclusion, _label, _, _ = datasetTriple(i, df)
+            _premise, _conclusion, _label, _, _ = fetchFolioRow(i, df)
             if verbose:
                 print("wrong format: ", i)
                 print(repr(e))
@@ -113,7 +115,7 @@ class Prover9:
     
     def compareConclusion(self,i,df,wrongCounter,badFormatCounter):
         try:
-            _premise,_conclusion,_label,_NLpremise,_NLconclusion = datasetTriple(i,df)
+            _premise,_conclusion,_label,_NLpremise,_NLconclusion = fetchFolioRow(i,df)
             _llmconclusion= df['llm_conclusion-FOL'][i]
             prover9Answer = self.proveBothWays(_conclusion,_llmconclusion)
             if not prover9Answer:
@@ -132,7 +134,7 @@ class Prover9:
                     csv.writer(f).writerow([i, _NLpremise,_NLconclusion,_premise, _conclusion,_llmconclusion, _label])
         except Exception as e: 
             if verbose:
-                _premise,_conclusion,_label,_,_ = datasetTriple(i,df)
+                _premise,_conclusion,_label,_,_ = fetchFolioRow(i,df)
                 print("wrong format: ",i)
                 print(repr(e))
                 print(_premise)
@@ -248,11 +250,14 @@ def negate(expr: str) -> str:
         return expr[1:].strip()
     return f"-({expr})"
 
-def datasetTriple(id,_df):
+def fetchFolioRow(id,_df):
         return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id],_df['premises'][id],_df['conclusion'][id]
 
-def fetchConclusions(id,_df):
-    return _df['conclusion-FOL'],_df['llm_conclusion-FOL']
+#def fetchConclusions(id,_df):
+#    return _df['conclusion-FOL'][id],_df['llm_conclusion-FOL'][id]
+
+def fetchLLManswers(id,_df):
+    return _df['llm_premise-FOL'][id],_df['llm_conclusion-FOL'][id]
 
 # def labelToBool(label):
 #     if label == "Uncertain" or label == "False":

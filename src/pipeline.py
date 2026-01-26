@@ -4,6 +4,10 @@ from pathlib import Path
 import os
 import json
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+
+
 
 
 class Pipeline:
@@ -14,6 +18,8 @@ class Pipeline:
         self.gemini_client = genai.Client(api_key=gemini_api_key)
 
         self.runid = runid
+        self.write_lock = threading.Lock()
+
 
     def promptLLM(self,prompt, llm, openai_model="gpt-5.1-2025-11-13", gemini_model="gemini-2.5-flash"):
         try:
@@ -35,20 +41,30 @@ class Pipeline:
             print(f"Error: {e}")
             return None
 
-    def runPipeline(self, llm, experimentsize=0, outputDir="experiment1"):
+    def runPipeline(self, llm, experimentsize=10, outputDir="experiment1"):
         df = self.importPromptdata()
 
-        output_path_all_data = Path(f"output/{outputDir}/alldata/{self.runid}_{llm}.jsonl")
-        output_path_clean = Path(f"output/{outputDir}/results/{self.runid}_{llm}.jsonl")
-        output_path_all_data.parent.mkdir(parents=True, exist_ok=True)
-        output_path_clean.parent.mkdir(parents=True, exist_ok=True)
+        self.output_path_all_data = Path(f"output/{outputDir}/alldata/{self.runid}_{llm}.jsonl")
+        self.output_path_clean = Path(f"output/{outputDir}/results/{self.runid}_{llm}.jsonl")
+        self.output_path_all_data.parent.mkdir(parents=True, exist_ok=True)
+        self.output_path_clean.parent.mkdir(parents=True, exist_ok=True)
 
         # run the first N rows (cap at df length), or loop over full df if experimentsize=0
-        n = min(experimentsize, len(df)) or len(df)
+        n = min(experimentsize, len(df))# or len(df)
 
-        for i in range(n):
-            row = df.iloc[i]
+        with ThreadPoolExecutor(max_workers=16) as executor: #run in seperate threads to make parralel, max_workers is for rate limit
+             futures = [
+                 executor.submit(self.processRow, df.iloc[i], llm)
+                 for i in range(n)
+             ]
 
+             for fut in as_completed(futures):
+                 fut.result()
+
+        print(f"Wrote {n} records to: {self.output_path_all_data.resolve()}")
+
+    def processRow(self,row,llm):
+        try:
             premises = str(row["premise"]).strip()
             premises_fol = str(row["premises-FOL"]).strip()
             conclusion = str(row["conclusion"]).strip()
@@ -56,7 +72,7 @@ class Pipeline:
 
             prompt = f"""
                 Convert the following conclusion into first-order logic (FOL) for Prover9.
-    
+
                 Rules:
                 - Use only: all, exists, ->, &, |, -, =
                 - Keep predicate and constant names consistent across ALL statements.
@@ -72,9 +88,9 @@ class Pipeline:
             """
 
             response = self.promptLLM(prompt, llm=llm)
-            print("gold:  " + conclusion_fol)
-            print("ai:    " + response)
-            print("-----")
+            #print("gold:  " + conclusion_fol)
+            #print("ai:    " + response)
+            #print("-----")
 
             record = {
                 "story_id": int(row["id"]),
@@ -93,15 +109,14 @@ class Pipeline:
                 "llm_conclusion-FOL": response,
             }
 
-            with open(output_path_all_data, "a", encoding="utf8") as f:
-                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+            with self.write_lock:
+                with open(self.output_path_all_data, "a", encoding="utf8") as f:
+                    f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-            with open(output_path_clean, "a", encoding="utf8") as f:
-                f.write(json.dumps(record_clean, ensure_ascii=False) + "\n")
-
-        print(f"Wrote {n} records to: {output_path_all_data.resolve()}")
-
-
+                with open(self.output_path_clean, "a", encoding="utf8") as f:
+                    f.write(json.dumps(record_clean, ensure_ascii=False) + "\n")
+        except Exception as e:
+            print(f"Error on row {row['id']}: {e}")
 
     @staticmethod
     def importPromptdata():
