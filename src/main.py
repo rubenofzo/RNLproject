@@ -76,9 +76,10 @@ def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
 #config
 
 setGoldCSV = False
-runExperimentGPT = False
+runExperimentGPT = True
 runExperimentGemini = False
 evaluateLLM = True
+evaluateAllLLms = False
 LLMtest = False
 
 
@@ -102,13 +103,24 @@ if __name__ == '__main__':
 
     if runExperimentGPT:
         pipeline = Pipeline(runid)
-        pipeline.runPipeline(llm="openai")
+        pipeline.runPipeline(llm="openai",experimentsize=5)
 
     if runExperimentGemini:
         pipeline = Pipeline(runid)
         pipeline.runPipeline(llm="gemini", experimentsize=50)
 
     if evaluateLLM:
+        # Convert the latest experiment results to dataframe
+        folder = Path("output/experiment1/alldata")
+        latest_file = max(folder.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
+        df = pd.read_json(latest_file, lines=True)
+
+        # Uncomment if specific file is needed
+        # df = pd.read_json(Path("output/experiment1/alldata/20260121_175824_gemini.jsonl"), lines=True)
+        # make Prover9 test the LLM conclusion instead of the gold one
+        evaluate_df(df,_prover9)
+
+    if evaluateAllLLms:
         print("Gemini")
         df = pd.read_json("output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl", lines=True)
         evaluate_df(df,_prover9)
@@ -116,58 +128,7 @@ if __name__ == '__main__':
         print("ChatGPT")
         df2 = pd.read_json("output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl", lines=True)
         evaluate_df(df2,_prover9)
-        # # Convert the latest experiment results to dataframe
-        # folder = Path("output/experiment1/alldata")
-        # latest_file = max(folder.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
-        # df = pd.read_json(latest_file, lines=True)
-
-        # # Uncomment if specific file is needed
-        # # df = pd.read_json(Path("output/experiment1/alldata/20260121_175824_gemini.jsonl"), lines=True)
-
-        # # make Prover9 test the LLM conclusion instead of the gold one
-        # df["conclusion-FOL"] = df["llm_conclusion-FOL"]
-
-        # datacount = len(df)  # if setMaxBaseline uses this global
-        # setMaxBaseline(df, _prover9)
     #results
-    """
-    EXPERIMENT 1: guess FOL concl from FOL prem, NL prem and FOL concl
-    Chatgpt
-    ---
-    - Data information:
-    datasize: 683
-    formattedIncorrectly: 15
-    ProcentageWellFormated:  % 0.9780380673499268
-    WellFormatedDatasize:   668
-    ---
-    - Does dfLabel == llmLabel?
-    provenCorrectly out of well formated:  % 0.9236526946107785
-    correctly proven data out of all:  % 0.9033674963396779
-    correctly proven data count:   617
-    ---
-    - Does dfConcl <-> llmConcl?
-    provenCorrectly out of well formated:  % 0.6826347305389222
-    correctly proven data out of all:  % 0.6676427525622255
-    correctly proven data count:   456
-    
-    Gemini
-    ---
-    - Data information:
-    datasize: 683
-    formattedIncorrectly: 66
-    ProcentageWellFormated:  % 0.9033674963396779
-    WellFormatedDatasize:   617
-    ---
-    - Does dfLabel == llmLabel?
-    provenCorrectly out of well formated:  % 0.9724473257698542
-    correctly proven data out of all:  % 0.8784773060029283
-    correctly proven data count:   600
-    ---
-    - Does dfConcl <-> llmConcl?
-    provenCorrectly out of well formated:  % 0.7811993517017828
-    correctly proven data out of all:  % 0.705710102489019
-    correctly proven data count:   482
-    """
 
     # Tests the LLM generated FOL directly from a JSON file, used for testing during development
     if LLMtest:

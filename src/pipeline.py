@@ -41,7 +41,7 @@ class Pipeline:
             print(f"Error: {e}")
             return None
 
-    def runPipeline(self, llm, experimentsize=10, outputDir="experiment1"):
+    def runPipeline(self, llm, experimentsize=0, outputDir="experiment1"):
         df = self.importPromptdata()
 
         self.output_path_all_data = Path(f"output/{outputDir}/alldata/{self.runid}_{llm}.jsonl")
@@ -49,8 +49,8 @@ class Pipeline:
         self.output_path_all_data.parent.mkdir(parents=True, exist_ok=True)
         self.output_path_clean.parent.mkdir(parents=True, exist_ok=True)
 
-        # run the first N rows (cap at df length), or loop over full df if experimentsize=0
-        n = min(experimentsize, len(df))# or len(df)
+        # if experimentsize=0 loop over full df else run experimentsize amount of instances
+        n = min(experimentsize, len(df)) or len(df)
 
         with ThreadPoolExecutor(max_workers=16) as executor: #run in seperate threads to make parralel, max_workers is for rate limit
              futures = [
@@ -70,7 +70,7 @@ class Pipeline:
             conclusion = str(row["conclusion"]).strip()
             conclusion_fol = str(row["conclusion-FOL"]).strip()
 
-            prompt = f"""
+            prompt1 = f"""
                 Convert the following conclusion into first-order logic (FOL) for Prover9.
 
                 Rules:
@@ -87,7 +87,33 @@ class Pipeline:
                 conclusion: "{conclusion}"
             """
 
+            prompt = f"""
+                Convert all following premises and conclusion into first-order logic (FOL) for Prover9.
+
+                Rules:
+                - Use only: all, exists, ->, &, |, -, =
+                - seperate all generated sentences with a single new line.
+                - Keep predicate and constant names consistent across ALL statements.
+                - Output ONLY one valid string.
+                - Do not introduce new named entities/constants in the sentences.
+                - Be very careful with negation. If the natural language contains ‘not’, that must appear as -Predicate(...)
+                - Double-check the final formula by restating it in English.
+                - Ouput both FOL premises and an FOL conclusion
+                
+                example reasoning:  
+                input: "No train conductor specialized in high speed trains"
+                output: "all x (TrainConductor(x) -> -SpecializeIn(x, highSpeedTrains))"
+
+                premises: "{premises}"
+                conclusion: "{conclusion}"
+            """
+
             response = self.promptLLM(prompt, llm=llm)
+            splitResponse = response.splitlines()
+            llm_premises = splitResponse[:-1]
+            llm_conclusion = splitResponse[-1]
+            llm_premises = "\n".join(llm_premises)
+
             #print("gold:  " + conclusion_fol)
             #print("ai:    " + response)
             #print("-----")
@@ -99,14 +125,17 @@ class Pipeline:
                 "premises-FOL": premises_fol,
                 "conclusion": conclusion,
                 "conclusion-FOL": conclusion_fol,
-                "llm_conclusion-FOL": response,
+                "llm_conclusion-FOL": llm_conclusion,
+                "llm_premises-FOL":llm_premises,
             }
 
             record_clean = {
                 "story_id": int(row["id"]),
                 "label": str(row["label"]),
+                "premises-FOL": premises_fol,
                 "conclusion-FOL": conclusion_fol,
-                "llm_conclusion-FOL": response,
+                "llm_conclusion-FOL": llm_conclusion,
+                "llm_premises-FOL":llm_premises,
             }
 
             with self.write_lock:
