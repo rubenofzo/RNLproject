@@ -15,7 +15,7 @@ class Pipeline:
 
         self.runid = runid
 
-    def promptLLM(self,prompt, llm, openai_model="gpt-5.1-2025-11-13", gemini_model="gemini-3-flash-preview"):
+    def promptLLM(self,prompt, llm, openai_model="gpt-5.1-2025-11-13", gemini_model="gemini-2.5-flash"):
         try:
             if llm == "openai":
                 response = self.openai_client.responses.create(

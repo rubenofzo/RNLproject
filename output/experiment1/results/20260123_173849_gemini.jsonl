@@ -1,0 +1,50 @@
+{"story_id": 0, "label": "True", "conclusion-FOL": "¬WantToBeAddictedTo(rina, caffeine) ∨ (¬AwareThatDrug(rina, caffeine))", "llm_conclusion-FOL": "¬WantToBeAddictedTo(rina, caffeine) | ¬AwareThatDrug(rina, caffeine)"}
+{"story_id": 4, "label": "Uncertain", "conclusion-FOL": "Love(miroslav, music)", "llm_conclusion-FOL": "Love(miroslav, music)"}
+{"story_id": 5, "label": "True", "conclusion-FOL": "∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))", "llm_conclusion-FOL": "exists x exists y (Czech(x) & PublishedBook(x, y, yr1946))"}
+{"story_id": 6, "label": "False", "conclusion-FOL": "∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))", "llm_conclusion-FOL": "`all x (ChoralConductor(x) -> -SpecializeInPerformanceOf(x, renaissanceMusic))`"}
+{"story_id": 7, "label": "Uncertain", "conclusion-FOL": "Eel(seaEel)", "llm_conclusion-FOL": "Eel(seaEel)"}
+{"story_id": 8, "label": "False", "conclusion-FOL": "Bacteria(seaEel)", "llm_conclusion-FOL": "Bacteria(seaEel)"}
+{"story_id": 9, "label": "True", "conclusion-FOL": "Multicellular(seaEel) ∨ Bacteria(seaEel)", "llm_conclusion-FOL": "Multicellular(seaEel) | Bacteria(seaEel)"}
+{"story_id": 15, "label": "True", "conclusion-FOL": "∃x (Attended(williamDickinson, x) ∧ University(x) ∧ LocatedIn(x, unitedKingdom))", "llm_conclusion-FOL": "exists U (Attended(williamDickinson, U) & University(U) & LocatedIn(U, unitedKingdom))"}
+{"story_id": 16, "label": "True", "conclusion-FOL": "SatIn(williamDickinson, houseOfCommons)", "llm_conclusion-FOL": "SatIn(williamDickinson, houseOfCommons)"}
+{"story_id": 18, "label": "Uncertain", "conclusion-FOL": "GoToEveryWeek(lily, cinema)", "llm_conclusion-FOL": "GoToEveryWeek(lily, cinema)"}
+{"story_id": 19, "label": "Uncertain", "conclusion-FOL": "¬GoToEveryWeek(lily, cinema)", "llm_conclusion-FOL": "-GoToEveryWeek(lily, cinema)"}
+{"story_id": 21, "label": "True", "conclusion-FOL": "(GoToEveryWeek(lily, cinema) ∧ SubscribedTo(lily, hBO)) → (EligibleForThreeFreeMoviesEveryWeek(lily) ⊕ Prefer(lily, tVSeries))", "llm_conclusion-FOL": "```\n(-(GoToEveryWeek(lily, cinema) & SubscribedTo(lily, hBO))) -> (EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) | Prefer(lily, tVSeries))\n```"}
+{"story_id": 22, "label": "False", "conclusion-FOL": "(EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) ∧ WatchIn(lily, tV, cinema)) → (GoToEveryWeek(lily, cinema) ∧ Prefer(lily, tVSeries))", "llm_conclusion-FOL": "(EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) & WatchIn(lily, tV, cinema)) -> (GoToEveryWeek(lily, cinema) & Prefer(lily, tVSeries))"}
+{"story_id": 23, "label": "True", "conclusion-FOL": "RankHigherThan(realMadrid, barcelona)", "llm_conclusion-FOL": "RankHigherThan(realMadrid, barcelona)"}
+{"story_id": 27, "label": "Uncertain", "conclusion-FOL": "ResidentOf(tom, washington)", "llm_conclusion-FOL": "Residentof(tom, washington)"}
+{"story_id": 28, "label": "Uncertain", "conclusion-FOL": "ResidentOf(daniel, lawtonPark)", "llm_conclusion-FOL": "Residentof(daniel, lawtonPark)"}
+{"story_id": 29, "label": "True", "conclusion-FOL": "Suspended(tiffanyTAlston)", "llm_conclusion-FOL": "Suspended(tiffanyTAlston)"}
+{"story_id": 30, "label": "False", "conclusion-FOL": "¬Suspended(tiffanyTAlston)", "llm_conclusion-FOL": "-Suspended(tiffanyTAlston)"}
+{"story_id": 31, "label": "Uncertain", "conclusion-FOL": "Prison(tiffanyTAlston)", "llm_conclusion-FOL": "WentToPrison(tiffanyTAlston) & StealsFunds(tiffanyTAlston)"}
+{"story_id": 32, "label": "Uncertain", "conclusion-FOL": "∀x (Sting(stonefish, x) ∧ ¬UseAntivenomOn(x) → CauseDeathTo(stonefish, x))", "llm_conclusion-FOL": "```\nall x ( (Sting(stonefish, x) & -UseAntivenomOn(x)) -> CauseDeathTo(stonefish, x) )\n```"}
+{"story_id": 33, "label": "True", "conclusion-FOL": "∃x ∃y (Fish(x) ∧ Sting(x, y) ∧ ¬Treated(y) → CauseDeathTo(x, y))", "llm_conclusion-FOL": "exists x exists y (Fish(x) & Sting(x,y) & (-Treated(y) -> CauseDeathTo(x,y)))"}
+{"story_id": 34, "label": "Uncertain", "conclusion-FOL": "∀x (SteppedOnBy(stonefish, x) ∧ ApplyHeatTo(x)  → CauseDeathTo(stonefish, x))", "llm_conclusion-FOL": "∀x (SteppedOnBy(stonefish, x) & ApplyHeatTo(x) → CauseDeathTo(stonefish, x))"}
+{"story_id": 37, "label": "True", "conclusion-FOL": "Have(l2021, typeCPort) ⊕ ProducedBy(l2021, lG)", "llm_conclusion-FOL": "Have(l2021, typeCPort) | ProducedBy(l2021, lG)"}
+{"story_id": 40, "label": "Uncertain", "conclusion-FOL": "Planet(pSOJ3185_22) ∧ Orphan(pSOJ3185_22)", "llm_conclusion-FOL": "Planet(pSOJ318522) & Orphan(pSOJ318522)"}
+{"story_id": 44, "label": "Uncertain", "conclusion-FOL": "∀x (Song(x) ∧ Play(sam, x) ∧ Titled(x, perfect))", "llm_conclusion-FOL": "exists x (Song(x) & Play(sam, x) & Titled(x, perfect))"}
+{"story_id": 45, "label": "Uncertain", "conclusion-FOL": "∀x (Titled(x, perfect) → Play(sam, x))", "llm_conclusion-FOL": "∀x (Song(x) & Titled(x, perfect) -> Play(sam, x))"}
+{"story_id": 46, "label": "Uncertain", "conclusion-FOL": "∃x ∃y (Pet(x) ∧ Pet(y) ∧ ¬Have(x, fur) ∧ ¬Have(y, fur))", "llm_conclusion-FOL": "exists x (Pet(x) & -Have(x, fur))"}
+{"story_id": 47, "label": "True", "conclusion-FOL": "ComputerProgram(tikTok)", "llm_conclusion-FOL": "ComputerProgram(tikTok)"}
+{"story_id": 48, "label": "True", "conclusion-FOL": "IdealFor(tikTok, preteen) ⊕ ComputerProgram(tikTok)", "llm_conclusion-FOL": "IdealFor(tikTok, preteen) | ComputerProgram(tikTok)"}
+{"story_id": 49, "label": "False", "conclusion-FOL": "¬Contain(tikTok, chatFeature) ∨ ¬ComputerProgram(tikTok)", "llm_conclusion-FOL": "-Contain(tikTok, chatFeature) | -ComputerProgram(tikTok)"}
+{"story_id": 50, "label": "False", "conclusion-FOL": "Contain(tikTok, chatFeature) ⊕ ComputerProgram(tikTok)", "llm_conclusion-FOL": "Contain(tikTok, chatFeature) | ComputerProgram(tikTok)"}
+{"story_id": 51, "label": "False", "conclusion-FOL": "∀x (On(x, kentuckyRoute32) → ¬UnincorporatedCommunity(x))", "llm_conclusion-FOL": "-exists x (UnincorporatedCommunity(x) & On(x, kentuckyRoute32))"}
+{"story_id": 52, "label": "True", "conclusion-FOL": "∃x (UnincorporatedCommunity(x) ∧ LocatedIn(x, elliotCounty))", "llm_conclusion-FOL": "exists x (UnincorporatedCommunity(x) & LocatedIn(x, elliotCounty))"}
+{"story_id": 53, "label": "Uncertain", "conclusion-FOL": "CollegeStudent(susan)", "llm_conclusion-FOL": "CollegeStudent(susan)"}
+{"story_id": 54, "label": "True", "conclusion-FOL": "Like(susan, independence) ∧ Diligent(susan)", "llm_conclusion-FOL": "Like(susan, independence) & Diligent(susan)"}
+{"story_id": 55, "label": "False", "conclusion-FOL": "¬(Like(susan, independence) ∧ Diligent(susan))", "llm_conclusion-FOL": "-(Diligent(susan) & Like(susan, independence))"}
+{"story_id": 58, "label": "Uncertain", "conclusion-FOL": "ProfessionalAthlete(amy)", "llm_conclusion-FOL": "ProfessionalAthlete(amy)"}
+{"story_id": 59, "label": "True", "conclusion-FOL": "¬(FullTimeScientist(amy) ∨ OlympicGoldMedalWinner(amy))", "llm_conclusion-FOL": "-FullTimeScientist(amy) & -OlympicGoldMedalWinner(amy)"}
+{"story_id": 60, "label": "False", "conclusion-FOL": "¬OlympicGoldMedalWinner(amy) → NobelPhysicsLaureate(amy)", "llm_conclusion-FOL": "¬OlympicGoldMedalWinner(amy) -> NobelPhysicsLaureate(amy)"}
+{"story_id": 66, "label": "Uncertain", "conclusion-FOL": "HighIncome(james)", "llm_conclusion-FOL": "HighIncome(james)"}
+{"story_id": 67, "label": "Uncertain", "conclusion-FOL": "¬HighIncome(james)", "llm_conclusion-FOL": "-HighIncome(james)"}
+{"story_id": 68, "label": "False", "conclusion-FOL": "Student(james)", "llm_conclusion-FOL": "Student(james)"}
+{"story_id": 72, "label": "Uncertain", "conclusion-FOL": "¬ArdentCommunist(ho)", "llm_conclusion-FOL": "-ArdentCommunist(ho)"}
+{"story_id": 74, "label": "Uncertain", "conclusion-FOL": "∀x (TelevisionStar(x) → Have(x, goodBusinessSense))", "llm_conclusion-FOL": "all x (TelevisionStar(x) -> Have(x, goodBusinessSense))"}
+{"story_id": 75, "label": "Uncertain", "conclusion-FOL": "GoodAt(james, planning)", "llm_conclusion-FOL": "GoodAt(james, planning)"}
+{"story_id": 76, "label": "False", "conclusion-FOL": "GoodAt(james, chemistry) ∧ GoodAt(james, math)", "llm_conclusion-FOL": "GoodAt(james, math) & GoodAt(james, chemistry)"}
+{"story_id": 78, "label": "True", "conclusion-FOL": "(GoodAt(james, chemistry) ∨ Failed(james, theClass)) → (GoodAt(james, planning) ⊕ GoodAt(james, math))", "llm_conclusion-FOL": "(GoodAt(james, chemistry) | Failed(james, theClass)) -> (GoodAt(james, planning) | GoodAt(james, math))"}
+{"story_id": 82, "label": "True", "conclusion-FOL": "Spend(sarah, money)", "llm_conclusion-FOL": "Spend(sarah, money)"}
+{"story_id": 84, "label": "Uncertain", "conclusion-FOL": "PreTeen(carol) ∨ YoungChild(carol)", "llm_conclusion-FOL": "PreTeen(carol) | YoungChild(carol)"}
+{"story_id": 89, "label": "True", "conclusion-FOL": "¬((Lipstick(rougeDiorColoredLipBalm999) ∧ In(rougeDiorColoredLipBalm999, rougeDiorSet) ∧ In(rougeDiorColoredLipBalm999, lunarNewYearLimitedEdition) ∧ VelvetFinish(rougeDiorColoredLipBalm999) ∧ Refillable(rougeDiorColoredLipBalm999)) → (¬Refillable(rougeDiorColoredLipBalm999) ∧ ¬RosewoodInDescription(rougeDiorColoredLipBalm999)))", "llm_conclusion-FOL": "```\n(-(VelvetFinish(rougeDiorColoredLipBalm999) & Refillable(rougeDiorColoredLipBalm999))) -> (-Refillable(rougeDiorColoredLipBalm999) & -RosewoodInDescription(rougeDiorColoredLipBalm999))\n```"}

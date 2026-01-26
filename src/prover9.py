@@ -24,10 +24,11 @@ class Prover9:
                 f.write("id,premise,conclusion,premises-FOL,conclusion-FOL,label\n")
 
     # call to prove case i from df, so df[i]
-    def proveSingleProblem(self,i,df,wrongCounter,badFormatCounter):
+    def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter):
         try:
-            _premise,_conclusion,_label,_NLpremise,_NLconclusion = datasetTriple(i,df)
+            _premise, _conclusion, _label, _NLpremise, _NLconclusion = datasetTriple(i, df)
             prover9Answer = self.theoremProve(_premise, _conclusion)
+
             if _label != prover9Answer:
                 if verbose2:
                     print(id)
@@ -35,24 +36,53 @@ class Prover9:
                     print(_premise[0])
                     print(_conclusion)
                     self.theoremProve(_premise, _conclusion)
-                    print(":(",_label," is not ", prover9Answer)
+                    print(":(", _label, " is not ", prover9Answer)
                     print()
+
+                wrong_path = f"data/incorrect_label/{self.runid}.csv"
+                self.init_csv(wrong_path)
+                with open(wrong_path, "a", encoding="utf8", newline="") as f:
+                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise, _conclusion, _label, prover9Answer])
+
                 wrongCounter += 1
+
             else:
                 path = f"data/gold/{self.runid}.csv"
                 self.init_csv(path)
                 with open(path, "a", encoding="utf8", newline="") as f:
-                    csv.writer(f).writerow([i, _NLpremise,_NLconclusion,_premise, _conclusion, _label])
-        except Exception as e: 
+                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise, _conclusion, _label])
+
+        except Exception as e:
+            _premise, _conclusion, _label, _, _ = datasetTriple(i, df)
             if verbose:
-                _premise,_conclusion,_label,_,_ = datasetTriple(i,df)
-                print("wrong format: ",i)
+                print("wrong format: ", i)
                 print(repr(e))
                 print(_premise)
                 print(_conclusion)
                 print()
             badFormatCounter += 1
-        return wrongCounter,badFormatCounter
+            wrong_path = f"data/wrong_format/{self.runid}.csv"
+            self.init_csv(wrong_path)
+            with open(wrong_path, "a", encoding="utf8", newline="") as f:
+                csv.writer(f).writerow([i, _premise, _conclusion, _label])
+
+        return wrongCounter, badFormatCounter
+
+    # return 1 if lable was correct
+    # def idToProve(self,id,_df):
+    #     _premise,_conclusion,_label = datasetTriple(id,_df)
+    #     prover9Answer = self.theoremProve(_premise, _conclusion)
+    #     if _label != prover9Answer:
+    #         if verbose:
+    #             print(id)
+    #             print("old premise & conc")
+    #             print(_premise[0])
+    #             print(_conclusion)
+    #             self.theoremProve(_premise, _conclusion,help=True)
+    #             print(":(",_label," is not ", prover9Answer)
+    #             print()
+    #         return 1
+    #     return 0
     
     def theoremProve(self,premises, conclusion):
         if type(premises) == str: 
