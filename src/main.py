@@ -19,7 +19,13 @@ def evaluate_df(df,_prover9):
         print("Bad format counts not the same??")
         print(badFormatCounterLabel,badFormatCounterConc)
     badFormatCounter = max(badFormatCounterLabel,badFormatCounterConc)
-    printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount)
+
+    print("=== Label check ===")
+    printScore(badFormatCounterLabel, amountWrongLabel, amountWrongLabel, datacount)
+
+    print("=== Conclusion check ===")
+    printScore(badFormatCounterConc, amountWrongConcl, amountWrongConcl, datacount)
+
 
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
@@ -42,7 +48,7 @@ def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
     else:
         print("no data?")
         return
-    
+
     print("---")
     print("- Does dfLabel == llmLabel?")
     if amountBadFormat != 0:
@@ -76,9 +82,9 @@ def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
 #config
 
 setGoldCSV = False
-runExperimentGPT = True
-runExperimentGemini = False
-evaluateLLM = True
+runExperimentGPT = False
+runExperimentGemini = True
+evaluateLLM = False
 evaluateAllLLms = False
 LLMtest = False
 
@@ -103,11 +109,11 @@ if __name__ == '__main__':
 
     if runExperimentGPT:
         pipeline = Pipeline(runid)
-        pipeline.runPipeline(llm="openai",experimentsize=5)
+        pipeline.runPipeline(llm="openai")
 
     if runExperimentGemini:
         pipeline = Pipeline(runid)
-        pipeline.runPipeline(llm="gemini", experimentsize=50)
+        pipeline.runPipeline(llm="gemini")
 
     if evaluateLLM:
         # Convert the latest experiment results to dataframe

@@ -91,16 +91,22 @@ class Pipeline:
                 Convert all following premises and conclusion into first-order logic (FOL) for Prover9.
 
                 Rules:
+                - Return ONLY valid JSON (no markdown, no extra keys, no commentary).
+                - Premises must be newline-separated in the JSON string.
+                - conclusion_FOL must be exactly ONE formula (single line).
                 - Use only: all, exists, ->, &, |, -, =
-                - seperate all generated sentences with a single new line.
                 - Keep predicate and constant names consistent across ALL statements.
-                - Output ONLY one valid string.
                 - Do not introduce new named entities/constants in the sentences.
                 - Be very careful with negation. If the natural language contains ‘not’, that must appear as -Predicate(...)
-                - Double-check the final formula by restating it in English.
-                - Ouput both FOL premises and an FOL conclusion
+                - Every formula line must end with a period "."
+
+                Return exactly this JSON shape (replace the placeholder strings with real FOL):
+                {{
+                  "premises_FOL": "<newline-separated formulas, each must end with a period>",
+                  "conclusion_FOL": "<single formula, must end with a period>"
+                }}  
                 
-                example reasoning:  
+                Example reasoning:  
                 input: "No train conductor specialized in high speed trains"
                 output: "all x (TrainConductor(x) -> -SpecializeIn(x, highSpeedTrains))"
 
@@ -109,10 +115,10 @@ class Pipeline:
             """
 
             response = self.promptLLM(prompt, llm=llm)
-            splitResponse = response.splitlines()
-            llm_premises = splitResponse[:-1]
-            llm_conclusion = splitResponse[-1]
-            llm_premises = "\n".join(llm_premises)
+
+            from fol_clean import parse_llm_fol_response  # adjust import if you paste into same file
+            prem_lines, llm_conclusion = parse_llm_fol_response(response)
+            llm_premises = "\n".join(prem_lines)
 
             #print("gold:  " + conclusion_fol)
             #print("ai:    " + response)

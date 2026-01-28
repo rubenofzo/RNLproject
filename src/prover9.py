@@ -21,12 +21,13 @@ class Prover9:
     def init_csv(self,path):
         if not os.path.exists(path):
             with open(path, "w", encoding="utf8") as f:
-                f.write("id,premise,conclusion,premises-FOL,conclusion-FOL,label\n")
+                f.write("id,NLpremise,NLconclusion,premise-FOL,conclusion-FOL,LLM-conclusion-FOL,label,prover9_answer\n")
 
     # call to prove case i from df, so df[i]
     def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter,againstLLM=False):
         try:
             _premise, _conclusion, _label, _NLpremise, _NLconclusion = fetchFolioRow(i, df)
+            orginal_conclusion = _conclusion
             if againstLLM:
                 _conclusion = df['llm_conclusion-FOL'][i]
             prover9Answer = self.theoremProve(_premise, _conclusion)
@@ -44,7 +45,7 @@ class Prover9:
                 wrong_path = f"data/incorrect_label/{self.runid}.csv"
                 self.init_csv(wrong_path)
                 with open(wrong_path, "a", encoding="utf8", newline="") as f:
-                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise, _conclusion, _label, prover9Answer])
+                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise,orginal_conclusion, _conclusion, _label, prover9Answer])
 
                 wrongCounter += 1
 
@@ -52,7 +53,7 @@ class Prover9:
                 path = f"data/gold/{self.runid}.csv"
                 self.init_csv(path)
                 with open(path, "a", encoding="utf8", newline="") as f:
-                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise, _conclusion, _label])
+                    csv.writer(f).writerow([i, _NLpremise, _NLconclusion, _premise,orginal_conclusion, _conclusion, _label, prover9Answer])
 
         except Exception as e:
             _premise, _conclusion, _label, _, _ = fetchFolioRow(i, df)
@@ -85,39 +86,56 @@ class Prover9:
     #             print()
     #         return 1
     #     return 0
-    
-    def theoremProve(self,premises, conclusion):
-        if type(premises) == str: 
-            premises = premises.split('\n')
-        _premises = [ folioToProver9(s) for s in premises ]
+
+    def theoremProve(self, premises, conclusion):
+
+        if isinstance(premises, str):
+            premises = premises.split("\n")
+
+        premises = [clean_line(p) for p in premises if clean_line(p)]
+        conclusion = clean_line(conclusion)
+
+        _premises = [folioToProver9(s) for s in premises]
         _conclusion = folioToProver9(conclusion)
-        if verbose2:
-            print("premise",_premises[0])
-            print("conclusion: ",_conclusion)
-        prover9true = str(self.prover9.prove(str2exp(_conclusion), [ str2exp(p) for p in _premises ]))
+
+        prover9true = str(self.prover9.prove(str2exp(_conclusion), [str2exp(p) for p in _premises]))
         if prover9true == "True":
             return "True"
-        prover9false = str(self.prover9.prove(str2exp(negate(_conclusion)), [ str2exp(p) for p in _premises ]))
+
+        prover9false = str(self.prover9.prove(str2exp(negate(_conclusion)), [str2exp(p) for p in _premises]))
         if prover9false == "True":
             return "False"
-        return "Uncertain"
-    
-    def proveBothWays(self,conclusion1,conclusion2):
-        _conclusion1 = folioToProver9(conclusion1)
-        _conclusion2 = folioToProver9(conclusion2)
-        prover9true1 = str(self.prover9.prove(str2exp(_conclusion1), [str2exp(_conclusion2)]))
-        prover9true2 = str(self.prover9.prove(str2exp(_conclusion2), [str2exp(_conclusion1)]))
-        if prover9true1 == prover9true2 == "True":
-            return True
-        else:
-            return False
 
-    
+        return "Uncertain"
+
+    def proveBothWaysUnderPremises(self, premises, gold_concl, llm_concl):
+        # Old proveBothWays(gold, llm) checked equivalence in empty context (no premises),
+        # which is too strict and often false even if they mean the same thing in the story.
+        # New: check equivalence GIVEN the premises:
+        #   (premises + gold ⊨ llm) AND (premises + llm ⊨ gold)
+
+        if isinstance(premises, str):
+            premises = premises.split("\n")
+        premises = [clean_line(p) for p in premises if clean_line(p)]
+        gold_concl = clean_line(gold_concl)
+        llm_concl = clean_line(llm_concl)
+
+        P = [folioToProver9(p) for p in premises]
+        G = folioToProver9(gold_concl)
+        L = folioToProver9(llm_concl)
+
+        def entails(assumptions, goal):
+            return str(self.prover9.prove(str2exp(goal), [str2exp(a) for a in assumptions])) == "True"
+
+        return entails(P + [G], L) and entails(P + [L], G)
+
     def compareConclusion(self,i,df,wrongCounter,badFormatCounter):
         try:
             _premise,_conclusion,_label,_NLpremise,_NLconclusion = fetchFolioRow(i,df)
             _llmconclusion= df['llm_conclusion-FOL'][i]
-            prover9Answer = self.proveBothWays(_conclusion,_llmconclusion)
+
+            prover9Answer = self.proveBothWaysUnderPremises(_premise, _conclusion, _llmconclusion)
+
             if not prover9Answer:
                 if verbose2:
                     print(id)
@@ -152,7 +170,7 @@ def folioToProver9(s):
         balance = s.count('(') - s.count(')')
         if balance < 0:
             # if the balance is below 0, there are more ) than ( so a ( should be added (in the front)
-            return ('('*balance) + s
+            return ('(' * (-balance)) + s
         if balance > 0:
             return s + (')'*balance)
         return s
@@ -243,6 +261,14 @@ def expand_xor(expr):
     return expr
 
 # helper functions
+def _strip_period(x: str) -> str:
+    return re.sub(r"\.\s*$", "", x.strip())
+
+
+def clean_line(s: str) -> str:
+    s = str(s).strip()
+    s = re.sub(r"\.\s*$", "", s)  # drop trailing period
+    return s
 
 def negate(expr: str) -> str:
     expr = expr.strip()
