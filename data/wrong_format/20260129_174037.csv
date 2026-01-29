@@ -1,0 +1,147 @@
+id,NLpremise,NLconclusion,premise-FOL,conclusion-FOL,LLM-conclusion-FOL,label,prover9_answer
+75,"Finding(cancerBiology, geneticAlteration) ∧ Confer(geneticAlteration, selectiveAdvantage, toCancerCell)
+∃x ∃y (CancerResearcher(x) ∧ Ranked(x, importanceOfSubstitutionsToCancerGrowth) ∧ PValue(y) ∧ RankedBy(importanceOfSubstitutionsToCancerGrowth, y))
+∀x (PValue(x) → ThresholdForBelief(x) ∧ ¬MetricOfEffect(x))","Preferred(cancerResearchers, cancerEffectSize)",Uncertain
+112,"∀x (ThisBrand(x) ∧ Product(x) → (ProducedIn(x, china) ⊕ ProducedIn(x, uS)))
+∀x ((ThisBrand(x) ∧ Product(x) ∧ ProducedIn(x, china)) → Labeled(x))
+∀x ((ThisBrand(x) ∧ Product(x) ∧ ProducedIn(x, us)) → SoldIn(x, us))
+∀x ((ThisBrand(x) ∧ Product(x) ∧ Labeled(x)) → Cheaper(x))
+∀x ((ThisBrand(x) ∧ Product(x) ∧ SoldIn(x, us)) → SoldIn(x, walmart))
+∀x (ThisBrand(x) ∧ Product(x) ∧ DisplayedIn(x, homepage) → SoldIn(x, walmart))
+∀x (ThisBrand(x) ∧ Product(x) ∧ ReturnedBy(x, customer) → ¬SoldIn(x, walmart))
+Product(g910) ∧ ThisBrand(g910) ∧ (¬(DisplayedIn(g910, homepage) ⊕ Cheaper(g910)))","ReturnedBy(g910, customer) ⊕ SoldIn(g910, walmart)",True
+160,"∃x ∃y (Develop(eTS, x) ∧ Develop(eTS, y) ∧ StandardizedTest(x) ∧ StandardizedTest(y) ∧ In(x, unitedState) ∧ In(y, unitedState) ∧ For(x, k12AndHigherEducation) ∧ For(y, k12AndHigherEducation))
+∃x (Administer(eTS, x) ∧ InternationalTest(x) ∧ (TOEFL(x) ∨ TOEIC(x) ∨ GRE(x) ∨ SubjectTest(x)))
+∃x (Develop(eTS, x) ∧ AssociatedWith(x, entryToUSEducationInstitution))
+∃x (Develop(eTS, x) ∧ StateWideAssesment(x) ∧ UsedFor(x, accountabilityTesting))","∃x (Administer(eTS, x) ∧ InChina(x) ∧ (TOEFL(x) ∨ TOEIC(x) ∨ GRE(x) ∨ SubjectTest(x)))",Uncertain
+193,"British(michael) ∧ Physician(michael) ∧ Journalist(michael) ∧ Author(michael) ∧ Broadcaster(michael)
+WordSetter(michael)
+Magazine(worldMedicine) ∧ EditedBy(worldMedicine, michael)
+BornIn(michael, yorkshire) ∧ ∃x(SonOf(michael, x) ∧ GeneralPractitioner(x))","∃x ∃y (Son(x, y) ∧ GeneralPractitioner(y) ∧ ¬Author(x))",Uncertain
+223,"∀x ∀y (HandbrakeOf(x, y) ∧ Car(y) → Up(x) ⊕ Down(x))
+∀x ∀y (HandbrakeOf(x, y) ∧ Parked(y) ∧ Car(y) → Down(x))","∃x ∃y (HandbrakeOf(x, y) ∧ Parked(y) ∧ Car(y) ∧ Up(x))",False
+308,"∃x ∃y(Monitor(x) ∧ ProducedBy(x, aOC) ∧ In(x, library) ∧ (¬(x=y)) ∧ Monitor(y) ∧ ProducedBy(y, aOC) ∧ In(y, library))
+∀x ((Monitor(x) ∧ In(x, library)) → CheaperThan(x, dollars800))
+∀x ((Monitor(x) ∧ CheaperThan(x, dollars800)) → ResolutionLessThan(x, p1080))
+∀x ((Monitor(x) ∧ ResolutionLessThan(x, p1080)) → ¬Supports(x, typeCPort))
+Supports(a2017, typeCPort)","ProducedBy(x, aOC)",Uncertain
+338,"∀x ((Element(x) ∧ ∃y(Between(y, num61, num63) ∧ AtomicNumber(x, y))) → ScarceIn(x, china))
+∀x (¬RareEarthElement(x) → ¬ScarceIn(x, china)) 
+∀x (¬RareEarthElement(x) ⊕ RareEarthElement(x)) 
+∀x (RareEarthElement(x) → UsedIn(x, industry)) 
+∀x (RareEarthElement(x) → EssentialFor(x, electronics))
+¬(¬RareEarthElement(lithium) ⊕ EssentialFor(lithium, electronics))","¬(EssentialFor(lithium, electronics) ⊕ (∃y(Between(y, num61, num63) ∧ AtomicNumber(lithium, y)))) → ¬(¬RareEarthMetals(lithium) ∨ UsedIn(lithium, industry))",True
+470,"∀x (Elephantopus(x) → (Genus(x, perennialplants) ∧ BelongTo(x, daisyfamily)))
+∃x ∃y ∃z(Elephantopus(x) ∧ In(x,africa) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ In(y, southernasia) ∧ (¬(x=z)) ∧ (¬(y=z)) ∧ Elephantopus(z) ∧ In(z, australia))
+∃x ∃y (Elephantopus(x) ∧ NativeTo(x, southeasternunitedstates) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ NativeTo(y, southeasternunitedstates))
+∀x (ElephantopusScaber(x) → TraditionalMedicine(x))","∀x (Elephantopus(x) → ¬NativeTo(x, southeasternunitedstates))",False
+499,"RailwayStation(boves) ∧ In(boves, france)
+Precede(longueau, boves)
+Precede(boves, dommartin)
+In(france, europe)
+SituatedOn(dommartin, pairsLille)
+∀x ∀y ∀z ((SituatedOn(x, z) ∧ (Precede(x, y) ∨ Precede(y, x)) → SituatedOn(y, z))
+Serve(boves, hautsDeFrance)
+∀x ∀y ∀z ((In(x, y) ∧ In(y, z)) → In(x, z))
+∀x ∀y ∀z ((Precede(x, y) ∧ Precede(y, z)) → Precede(x, z))","SituatedOn(longueau, pairsLille)",True
+605,"PrivateIvyLeagueResearchUniversity(yaleUniversity)
+MovedTo(yaleUniversity, newHaven) ∧ MovedIn(yaleUniversity, year1716)
+ValuedAt(yaleUniversitysEndowment, 42point3billion)
+∀x (ResidentialCollege(x) → At(x, yale) ∧ (BenjaminFranklinCollege(x) ⊕ BerkleyCollege(x) ⊕ BranfordCollege(x) ⊕ DavenportCollege(x) ⊕ EzraStilesCollege(x) ⊕ GraceHopperCollege(x) ⊕ JonathanEdwardsCollege(x) ⊕ MorseCollege(x) ⊕ PauliMurrayCollege(x) ⊕ PiersonCollege(x) ⊕ SaybrookCollege(x) ⊕ SillimanCollege(x) ⊕ TimothyDwightCollege(x) ⊕ TrumbullCollege(x)))","∃x (PrivateIvyLeagueResearchUniversity(x) ∧ MovedTo(x, newHaven))",True
+619,"PrivateIvyLeagueResearchUniversity(yaleUniversity)
+MovedTo(yaleUniversity, newHaven) ∧ MovedIn(yaleUniversity, year1716)
+ValuedAt(yaleUniversitysEndowment, 42point3billion)
+∀x (ResidentialCollege(x) → At(x, yale) ∧ (BenjaminFranklinCollege(x) ⊕ BerkleyCollege(x) ⊕ BranfordCollege(x) ⊕ DavenportCollege(x) ⊕ EzraStilesCollege(x) ⊕ GraceHopperCollege(x) ⊕ JonathanEdwardsCollege(x) ⊕ MorseCollege(x) ⊕ PauliMurrayCollege(x) ⊕ PiersonCollege(x) ⊕ SaybrookCollege(x) ⊕ SillimanCollege(x) ⊕ TimothyDwightCollege(x) ⊕ TrumbullCollege(x)))","LargestUniversityEndowmentOf(yale, anyEducationalInstitution)",Uncertain
+631,"MountainRange(thePicurisMountains) ∧ (In(thePicurisMountains, newMexico) ⊕ In(thePicurisMountains, texas))
+Visited(juanDeOnate, thePicurisMountains)
+In(hardingPegmatiteMine, thePicurisMountains) ∧ Mine(hardingPegmatiteMine) ∧ Donated(hardingPegmatiteMine)
+∀x ∀y (Mine(x) ∧ Donated(x) ∧ In(x, y) ∧ MountainRange(y) → ¬In(y, texas))","∀x (In(hardingPegmatiteMine, x) → ¬(MountainRange(x) ∧ In(x, newMexico)))",False
+652,"Cove(barutinCove) ∧ NamedAfter(barutinCove, barutinSettlement) ∧ LocatedIn(barutinSettlement, bulgaria)
+LocatedIn(barutinCove, snowIsland)
+LocatedIn(snowIsland, southShetlandIslands) ∧ LocatedIn(greenwichIsland, southShetlandIslands) ∧ LocatedIn(deceptionIsland, southShetlandIslands)
+LocatedIn(southShetlandIslands, antarctica)
+∀x ∀y ∀z ((LocatedIn(x, y) ∧ LocatedIn(y, z)) → LocatedIn(x, z))","¬LocatedIn(barutinCove, antarctica)",False
+4,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))",True
+99,"∃x (Wildfeed(x) ∧ Unannounced(x) ∧ Program(x))
+∀x (Wildfeed(x) → SportingEvent(x) ∨ News(x) ∨ SyndicatedShow(x))
+∀x (Prerecorded(x) → CopyrightViolation(x))
+∀x (Program(x) → Prerecorded(x))",∃x (Wildfeed(x) ∧ Prerecorded(x)),True
+234,"Painter(bernardaBrysonShahn) ∧ Lithographer(bernardaBrysonShahn) 
+BornIn(bernardaBrysonShahn, athensOhio)
+MarriedTo(bernardaBrysonShahn, benShahn)
+∀x (BornIn(x, athensOhio) → American(x))",Divorced(bernardaBrysonShahn),Uncertain
+248,"Horse(detroitcity)
+∃x (Horse(x) ∧ Racehorse(x))
+∀x (Horse(x) ∧ InRace(x) ∧ Falls(x) → PoseRiskTo(x, rider))
+InRace(detroitcity) ∧ Fall(detroitcity)
+∀x (Horse(x) ∧ InRace(x) → Racehorse(x))",MultipleRace(detroitcity),Uncertain
+258,"AmericanPolitician(walterBrown) ∧ Lawyer(walterBrown) ∧ ServedAs(walterBrown, postMasterGeneral)
+Graduated(walterBrown, harvard) ∧ GraduatedWith(walterBrown, bachelorsOfArt)
+∃t(In(walterBrown, toledo, t) ∧ In(walterBrownFather, toledo, t) ∧ PracticedLawTogether(walterBrown, walterBrownFather, t))
+Married(katherinHafer, walterBrown)","∃t(In(walterBrownFather, toledo, t))",True
+315,"∀x (∃y (LiveIn(x, y) ∧ Place(y) ∧ Named(y, galicia)) → LiveIn(x, spain) ⊕ LiveIn(x, poland))
+∀x (LiveIn(x, spain) → LiveIn(x, europe))
+∀x (LiveIn(x, poland) → LiveIn(x, europe))
+LiveIn(rochelle, europe)
+¬LiveIn(dominique, europe)
+∃y (LiveIn(alfonso, y) ∧ Place(y) ∧ Named(y, galicia))","∃y (LiveIn(rochelle, y) ∧ Place(y) ∧ Named(y, galicia))",Uncertain
+341,"Superhero(peterParker) ⊕ Civilian(peterParker)
+Destroyer(theHulk)
+Angry(theHulk) → WakesUp(theHulk)
+WakesUp(theHulk) → Breaks(theHulk, bridge)
+God(thor)
+Happy(thor) → Breaks(thor, bridge)
+∀x (God(x) → ¬Destroyer(x))
+Superhero(peter) → Wears(peter, uniform)
+∀x ((Destroyer(x) ∧ Breaks(x,bridge)) → ¬Civilian(peter))
+Happy(thor) → Angry(theHulk)","¬Happy(thor) → ¬Breaks(thor, bridge)",Uncertain
+367,"WonCup(aberdeen, year2013Final)
+WonCup(rangers, year2014Final)
+¬(aberdeen=rangers)
+∀x ∀y ∀z ∀w (¬(x=y) ∧ WonCup(x, z) ∧ WonCup(y, w) → ¬(z=w))","∃x (WonCup(aberdeen, x))",True
+436,"Proposed(justinKruger, naiveCynicism) ∧ ∃y (colleagueOfJustinKruger(y) ∧ Proposed(y, naiveCynicism))
+Colleagues(thomasGilovich, justinKruger)
+PhilosophyOfMind(naiveCynicism)","∃x (Proposed(justinKruger, x) ∧ PhilosophyOfMind(x))",True
+460,"∀x (Elephantopus(x) → (Genus(x, perennialplants) ∧ BelongTo(x, daisyfamily)))
+∃x ∃y ∃z(Elephantopus(x) ∧ In(x,africa) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ In(y, southernasia) ∧ (¬(x=z)) ∧ (¬(y=z)) ∧ Elephantopus(z) ∧ In(z, australia))
+∃x ∃y (Elephantopus(x) ∧ NativeTo(x, southeasternunitedstates) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ NativeTo(y, southeasternunitedstates))
+∀x (ElephantopusScaber(x) → TraditionalMedicine(x))","∀x (Elephantopus(x) → ¬NativeTo(x, southeasternunitedstates))",False
+462,"∀x (Elephantopus(x) → (Genus(x, perennialplants) ∧ BelongTo(x, daisyfamily)))
+∃x ∃y ∃z(Elephantopus(x) ∧ In(x,africa) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ In(y, southernasia) ∧ (¬(x=z)) ∧ (¬(y=z)) ∧ Elephantopus(z) ∧ In(z, australia))
+∃x ∃y (Elephantopus(x) ∧ NativeTo(x, southeasternunitedstates) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ NativeTo(y, southeasternunitedstates))
+∀x (ElephantopusScaber(x) → TraditionalMedicine(x))",∀x (Elephantopus(x) → TraditionalMedicine(x)),Uncertain
+505,"Event(uFCFightNight) ∧ MixedMartial(uFCFightNight) ∧ HeldIn(uFCFightNight, sweden)
+ScheduledToFight(sadollah, musoke,uFCFightNight)
+Fight(sadollah, akiyama, uFCFightNight)
+Fight(musoke, yakovlev, uFCFightNight)
+InjuredAt(jung, uFCFightNight)
+∀x (InjuredAt(x, uFCFightNight) → ¬FightIn(x, uFCFightNight))","Event(uFCFightNight) ∧ ¬FightIn(jung, uFCFightNight)",True
+512,"RailwayStation(boves) ∧ In(boves, france)
+Precede(longueau, boves)
+Precede(boves, dommartin)
+In(france, europe)
+SituatedOn(dommartin, pairsLille)
+∀x ∀y ∀z ((SituatedOn(x, z) ∧ (Precede(x, y) ∨ Precede(y, x)) → SituatedOn(y, z))
+Serve(boves, hautsDeFrance)
+∀x ∀y ∀z ((In(x, y) ∧ In(y, z)) → In(x, z))
+∀x ∀y ∀z ((Precede(x, y) ∧ Precede(y, z)) → Precede(x, z))","SituatedOn(longueau, pairsLille)",True
+530,"ItalianName(roversi) ∧ Surname(roversi)
+UseAsSurname(albaRoversi, roversi)
+UseAsSurname(paoloRoversi, roversi)
+UseAsSurname(robertoRoversi, roversi)
+Photographer(paoloRoversi)
+∀x (Photographer(x) → Professional(x) ⊕ Amateur(x))","¬(∃x ∃y (Photographer(x) ∧ ItalianName(y) ∧ Surname(y) ∧ UseAsSurname(x, y)))",False
+555,"∃x (OccurIn(monkeypoxVirus, x) ∧ Get(x, monkeypoxVirus))
+∃x (Animal(x) ∧ OccurIn(monkeypoxVirus, x))
+∀x (Human(x) → Mammal(x))
+∀x (Mammal(x) → Animal(x))
+∃x (SymptonOf(x, monkeypoxVirus) ∧ (Fever(x) ∨ Headache(x) ∨ MusclePain(x) ∨ Tired(x)))
+∀x (Human(x) ∧ Get(x, flu) → Feel(x, tired))",∃x (Animal(x)),True
+631,"Cove(barutinCove) ∧ NamedAfter(barutinCove, barutinSettlement) ∧ LocatedIn(barutinSettlement, bulgaria)
+LocatedIn(barutinCove, snowIsland)
+LocatedIn(snowIsland, southShetlandIslands) ∧ LocatedIn(greenwichIsland, southShetlandIslands) ∧ LocatedIn(deceptionIsland, southShetlandIslands)
+LocatedIn(southShetlandIslands, antarctica)
+∀x ∀y ∀z ((LocatedIn(x, y) ∧ LocatedIn(y, z)) → LocatedIn(x, z))","¬LocatedIn(barutinCove, antarctica)",False

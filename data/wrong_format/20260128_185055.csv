@@ -1,0 +1,9 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+0,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","ResidentOf(daniel, lawtonPark)",Uncertain
+5,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))",False

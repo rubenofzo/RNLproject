@@ -1,0 +1,18 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+0,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","ResidentOf(daniel, lawtonPark)",Uncertain
+5,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))",False
+14,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))",True
+23,"∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","∃x ∃y (Fish(x) ∧ Sting(x, y) ∧ ¬Treated(y) → CauseDeathTo(x, y))",True

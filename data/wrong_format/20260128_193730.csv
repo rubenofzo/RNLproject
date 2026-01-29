@@ -1,0 +1,5 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+7,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))",True

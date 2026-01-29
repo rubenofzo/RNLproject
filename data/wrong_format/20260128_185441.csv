@@ -1,0 +1,127 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+0,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Eel(seaEel),Uncertain
+1,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∃x ∃y (Czech(x) ∧ PublishedBook(x, y, year1946))",True
+2,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","ResidentOf(tom, washington)",Uncertain
+3,"NeighbourhoodIn(lawtonPark, seattle)
+∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))
+ResidentOf(tom, lawtonPark)
+UseZipCode(daniel, num98199)","ResidentOf(daniel, lawtonPark)",Uncertain
+4,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Bacteria(seaEel),False
+5,"∀x (Eel(x) → Fish(x))
+∀x (Fish(x) → ¬Plant(x))
+∀x (DisplayedIn(x, collection) → Plant(x) ⊕ Animal(x))
+∀x (Multicellular(x) → ¬Bacteria(x))
+∀x (DisplayedIn(x, collection) ∧ Animal(x) → Multicellular(x))
+DisplayedIn(seaEel, collection)
+Eel(seaEel) ∨ Animal(seaEel) ∨ ¬Plant(seaEel)",Multicellular(seaEel) ∨ Bacteria(seaEel),True
+6,"∀x (DrinkRegularly(x, coffee) → IsDependentOn(x, caffeine))
+∀x (DrinkRegularly(x, coffee)  ∨ (¬WantToBeAddictedTo(x, caffeine)))
+∀x (¬WantToBeAddictedTo(x, caffeine) → ¬AwareThatDrug(x, caffeine))
+¬(Student(rina) ⊕  ¬AwareThatDrug(rina, caffeine))
+¬(IsDependentOn(rina, caffeine) ⊕ Student(rina))","¬WantToBeAddictedTo(rina, caffeine) ∨ (¬AwareThatDrug(rina, caffeine))",True
+7,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","∃x (Attended(williamDickinson, x) ∧ University(x) ∧ LocatedIn(x, unitedKingdom))",True
+8,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","SatIn(williamDickinson, houseOfCommons)",True
+9,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","GoToEveryWeek(lily, cinema)",Uncertain
+10,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","¬GoToEveryWeek(lily, cinema)",Uncertain
+11,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","(EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(lily) ∧ WatchIn(lily, tV, cinema)) → (GoToEveryWeek(lily, cinema) ∧ Prefer(lily, tVSeries))",False
+12,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)","(GoToEveryWeek(lily, cinema) ∧ SubscribedTo(lily, hBO)) → (EligibleForThreeFreeMoviesEveryWeek(lily) ⊕ Prefer(lily, tVSeries))",True
+13,"∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ MorePoints(x, y) → RankHigherThan(x, y))
+∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ ¬MorePoints(x, y) ∧ ¬MorePoints(y, x) ∧ MorePointsInGameBetween(x, y) →  RankHigherThan(x, y))
+LaLigaSoccerTeam(realMadrid) ∧ LaLigaSoccerTeam(barcelona)
+MorePoints(realMadrid, barcelona)
+¬MorePointsInGameBetween(realMadrid, barcelona) ∧ ¬MorePointsInGameBetween(barcelona, realMadrid)","RankHigherThan(realMadrid, barcelona)",True
+14,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","Love(miroslav, music)",Uncertain
+15,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",Prison(tiffanyTAlston),Uncertain
+16,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)
+∀x (ChoralConductor(x) → Musician(x))
+∃x ∃y ((Musician(x) → Love(x, music)) ∧ (¬(x=y) ∧ Musician(y) → Love(y, music)))
+PublishedBook(miroslav, methodOfStudyingGregorianChant, yr1946)","∀x (ChoralConductor(x) → ¬SpecializeInPerformanceOf(x, renaissanceMusic))",False
+17,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",¬Suspended(tiffanyTAlston),False
+18,"∃x (Project(x) ∧ Do(sam, x))
+∀x (Project(x) → (WrittenIn(x, cplusplus) ⊕ WrittenIn(x, python)))
+∀x (Project(x) ∧ WrittenIn(x, python) ∧ Do(sam, x) → ¬Use(sam, mac))
+Use(sam, mac)
+∃x (Use(sam, mac) ∧ Song(x) → Play(sam, x))
+∀x (Song(x) ∧ Play(sam, x) → Titled(x, perfect))","∀x (Song(x) ∧ Play(sam, x) ∧ Titled(x, perfect))",Uncertain
+19,"∀x (Outside(x, solarSystem) ⊕ In(x, solarSystem))
+∀x (Outside(x, solarSystem) → ¬SunAs(x, star))
+∀x (In(x, solarSystem) → BoundBy(x, sun, gravitationally))
+∀x (Planet(x) ∧ BoundBy(x, sun, gravitationally) → ¬(Planet(x) ∧ Rogue(x)))
+∀x (Planet(x) ∧ Orphan(x) → Planet(x) ∧ Rogue(x))
+¬(Planet(pSOJ318522) ∧ Rogue(pSOJ318522) ∧ BoundBy(pSOJ318522, sun, gravitationally)) → (Planet(pSOJ318522) ∧ Rogue(pSOJ318522))",Planet(pSOJ3185_22) ∧ Orphan(pSOJ3185_22),Uncertain
+20,"∃x (Monitor(x) ∧ ProducedBy(x, lG) ∧ Have(x, typeCPort) ∧ (¬(x=y)) ∧ Monitor(y) ∧ ProducedBy(y, lG) ∧ Have(y, typeCPort))
+∀x (Have(x, typeCPort) → ¬ProducedBefore(x, yr2010))
+∀x ((Monitor(x) ∧ In(x, library)) → ProducedBefore(x, yr2010))
+Monitor(l2021) ∧ (In(l2021, library) ⊕ Have(l2021, typeCPort))
+¬(ProducedBefore(l2021, yr2010) ⊕ ProducedBy(l2021, lG))","Have(l2021, typeCPort) ⊕ ProducedBy(l2021, lG)",True
+21,"∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","∀x (SteppedOnBy(stonefish, x) ∧ ApplyHeatTo(x)  → CauseDeathTo(stonefish, x))",Uncertain
+22,"∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","∀x (Sting(stonefish, x) ∧ ¬UseAntivenomOn(x) → CauseDeathTo(stonefish, x))",Uncertain
+23,"∃x ∃y (Fish(x) → Sting(x,y))
+Fish(stonefish)
+∀x (SteppedOnBy(stonefish, x) → Sting(stonefish, x))
+∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))
+∀x (Sting(stonefish, x) ∧ (ApplyHeatTo(x) ∨ UseAntivenomOn(x)) → Treated(x))","∃x ∃y (Fish(x) ∧ Sting(x, y) ∧ ¬Treated(y) → CauseDeathTo(x, y))",True
+24,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",Suspended(tiffanyTAlston),True

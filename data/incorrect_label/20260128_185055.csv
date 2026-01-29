@@ -1,0 +1,10 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+2,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson attended university in the United Kingdom.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","exists u (UniversityAttended(williamDickinson, u) & LocatedIn(u, unitedKingdom))",True,Uncertain

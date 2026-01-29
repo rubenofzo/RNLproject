@@ -1,0 +1,69 @@
+id,premise,conclusion,premises-FOL,conclusion-FOL,label
+2,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson attended university in the United Kingdom.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))","exists u (UniversityAttended(williamDickinson, u) & LocatedIn(u, unitedKingdom))",True,Uncertain
+6,"William Dickinson was a British politician who sat in the House of Commons
+William Dickinson attended Westminster school for high school and then the University of Edinburgh.
+The University of Edinburgh is a university located in the United Kingdom.
+William Dickinson supported the Portland Whigs.
+People who supported the Portland Whigs did not get a seat in the Parliament.",William Dickinson sat in the House of Commons.,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)
+Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)
+University(universityOfEdinburgh) ∧ LocatedIn(universityOfEdinburgh, unitedKingdom)
+Supported(williamDickinson, portlandWhigs)
+∀x (Supported(x, portlandWhigs) → ¬SatIn(x, parliament))",all x (WilliamDickinson(x) -> SatInHouseOfCommons(x)),True,Uncertain
+10,"All people who regularly drink coffee are dependent on caffeine.
+People regularly drink coffee, or they don't want to be addicted to caffeine, or both.
+No one who doesn't want to be addicted to caffeine is unaware that caffeine is a drug.
+Rina is either a student who is unaware that caffeine is a drug, or she is not a student and is she aware that caffeine is a drug.
+Rina  is either a student who is dependent on caffeine, or she is not a student and not dependent on caffeine.",Rina doesn't want to be addicted to caffeine or is unaware that caffeine is a drug.,"∀x (DrinkRegularly(x, coffee) → IsDependentOn(x, caffeine))
+∀x (DrinkRegularly(x, coffee)  ∨ (¬WantToBeAddictedTo(x, caffeine)))
+∀x (¬WantToBeAddictedTo(x, caffeine) → ¬AwareThatDrug(x, caffeine))
+¬(Student(rina) ⊕  ¬AwareThatDrug(rina, caffeine))
+¬(IsDependentOn(rina, caffeine) ⊕ Student(rina))",(WantNotAddictedCaffeine(rina) | UnawareCaffeineDrug(rina)),True,Uncertain
+11,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.","If Lily does not both go to cinemas every week and subscribe to HBO service, then Lily is either available to watch 3 movies every week without any additional fees or she prefers TV more.","∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)",all x ((x = Lily & - (GoCinemaWeekly(Lily) & SubscribeHBO(Lily))) -> (EligibleThreeMoviesWeekly(Lily) | PreferTVSeries(Lily))),True,Uncertain
+12,"All customers in James' family who subscribe to AMC A-List are eligible to watch three movies every week without any additional fees. 
+Some of the customers in James' family go to the cinema every week.
+Customers in James' family subscribe to AMC A-List or HBO service. 
+Customers in James' family who prefer TV series will not watch TV series in cinemas.
+All customers in James' family who subscribe to HBO services prefer TV series to movies. 
+Lily is in James' family; she watches TV series in cinemas.","If Lily is available to watch 3 movies every week without any additional fees and she watches TV series in cinemas, then she goes to cinemas every week and prefers TV series more.","∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))
+∃x ∃y (Customer(x) ∧ In(x, jameSFamily) ∧ GoToEveryWeek(x, cinema) ∧ (¬(x=y)) ∧ Customer(y) ∧ In(y, jameSFamily) ∧ GoToEveryWeek(y, cinema))
+∀x (Customer(x) ∧ In(x, jameSFamily) ∧ (SubscribedTo(x, aMCAList) ∨ SubscribedTo(x, hBO)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))
+∀x ((Customer(x) ∧ In(x, jameSFamily) ∧  SubscribedTo(x, hBO)) → Prefer(x, tVSeries))
+Customer(lily) ∧ In(lily, jameSFamily) ∧ WatchIn(lily, tV, cinema)",all x (((x = Lily) & Eligible3Movies(x) & WatchTVSeriesCinema(x)) -> (GoCinemaWeekly(x) & PreferTVSeries(x))),False,Uncertain
+13,"If a legislator is found guilty of stealing government funds, they will be suspended from office.
+Tiffany T. Alston was a legislator in Maryland's House of Delegates from 2011 to 2013.
+Tiffany T. Alston was found guilty of stealing government funds in 2012.",Tiffany T. Alston was not suspended from the Maryland House of Delegates.,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",-SuspendedFromOffice(tiffanyTAlston),False,Uncertain
+15,"If a legislator is found guilty of stealing government funds, they will be suspended from office.
+Tiffany T. Alston was a legislator in Maryland's House of Delegates from 2011 to 2013.
+Tiffany T. Alston was found guilty of stealing government funds in 2012.",Tiffany T. Alston was suspended from the Maryland House of Delegates.,"∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x))
+Legislator(tiffanyTAlston)
+StealsFunds(tiffanyTAlston) ∧ StealsFundsInYr(tiffanyTAlston, yr2012)",SuspendedFromOffice(tiffanyTAlston),True,Uncertain
+17,"A La Liga soccer team ranks higher than another La Liga soccer team if it receives more points.
+If there are two La Liga soccer teams and neither has more points than the other, then the team which receives more points from the games between the two teams ranks higher.
+Real Madrid and Barcelona are both La Liga soccer teams.
+Real Madrid received more points than Barcelona.
+Neither Real Madrid nor Barcelona received more points from the games between them.",Real Madrid ranks higher than Barcelona.,"∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ MorePoints(x, y) → RankHigherThan(x, y))
+∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ ¬MorePoints(x, y) ∧ ¬MorePoints(y, x) ∧ MorePointsInGameBetween(x, y) →  RankHigherThan(x, y))
+LaLigaSoccerTeam(realMadrid) ∧ LaLigaSoccerTeam(barcelona)
+MorePoints(realMadrid, barcelona)
+¬MorePointsInGameBetween(realMadrid, barcelona) ∧ ¬MorePointsInGameBetween(barcelona, realMadrid)","RanksHigher(realMadrid,barcelona)",True,Uncertain
