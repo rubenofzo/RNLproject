@@ -48,7 +48,7 @@ All major actions are controlled from `src/main.py` using boolean flags.
 
 ## Requirements
 
-### 1) Python
+### Python
 
 * **Recommended:** Python 3.10+
 * **Install dependencies:**
@@ -57,21 +57,6 @@ pip install -r requirements.txt
 
 ```
 
-
-
-### 2) Prover9
-
-You must install Prover9 and ensure NLTK can locate the binaries. Update the following line in `src/prover9.py` to point to your local Prover9 `bin` folder:
-
-```python
-self.prover9.config_prover9("PATH_TO_PROVER9_BIN_FOLDER")
-
-```
-
-* **Windows Example:** `C:\\Program Files (x86)\\Prover9-Mace4\\bin-win32`
-* **Linux/macOS Example:** `/usr/local/bin`
-
----
 
 ## API Keys (OpenAI + Gemini)
 
@@ -122,5 +107,5 @@ The system categorizes results into several buckets:
 * **Prover9 not found:** Ensure `config_prover9` points to the folder containing the actual `prover9` executable (not just the parent folder).
 * **Invalid JSON:** If the LLM returns malformed JSON, the parser will attempt a line-based fallback. If this fails, the case is marked as `wrong_format`.
 * **Rate Limits:** If you hit API limits, reduce the `max_workers` value in `src/pipeline.py`.
-
+---
 Made by: Ruben de Boer, Sewal Korkmaz and Selcuk Canak
