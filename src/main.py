@@ -6,26 +6,24 @@ import pandas as pd
 from datetime import datetime
 from pipeline import Pipeline
 
-def evaluate_df(df,_prover9):
-    badFormatCounterLabel = badFormatCounterConc = 0
-    amountWrongLabel = amountWrongConcl = 0
+def evaluate_df(df,_prover9,PC=False):
+    badFormatCounterLabel = badFormatCounterConc = badFormatCounterPrem = 0
+    amountWrongLabel = amountWrongConcl = amountWrongPC =0
+    metric3bad = metric4bad = metric5bad = 0
     # test if all theorems get proves:
     datacount = len(df.index)
     for i in range(datacount):
-        amountWrongLabel,badFormatCounterLabel = _prover9.proveSingleProblem(i,df,amountWrongLabel,badFormatCounterLabel,againstLLM=True)
-        amountWrongConcl,badFormatCounterConc = _prover9.compareConclusion(i,df,amountWrongConcl,badFormatCounterConc)
+        amountWrongLabel,badFormatCounterLabel = _prover9.proveSingleProblem(i,df,amountWrongLabel,badFormatCounterLabel,LLMConclusion=True)
+        amountWrongConcl,badFormatCounterConc = _prover9.evaluateConclusion(i,df,amountWrongConcl,badFormatCounterConc)
+        if PC:
+            metric3bad,metric4bad,metric5bad,badFormatCounterPrem = _prover9.evaluatePremises(i,df,metric3bad,metric4bad,metric5bad,badFormatCounterPrem)
 
-    if badFormatCounterLabel != badFormatCounterConc:
+    if badFormatCounterLabel != badFormatCounterConc != badFormatCounterPrem:
         print("Bad format counts not the same??")
-        print(badFormatCounterLabel,badFormatCounterConc)
-    badFormatCounter = max(badFormatCounterLabel,badFormatCounterConc)
+        print(badFormatCounterLabel,badFormatCounterConc,badFormatCounterPrem)
+    badFormatCounter = max(badFormatCounterLabel,badFormatCounterConc,badFormatCounterPrem)
 
-    print("=== Label check ===")
-    printScore(badFormatCounterLabel, amountWrongLabel, amountWrongLabel, datacount)
-
-    print("=== Conclusion check ===")
-    printScore(badFormatCounterConc, amountWrongConcl, amountWrongConcl, datacount)
-
+    printScore(badFormatCounter, amountWrongLabel, amountWrongConcl,metric3bad,metric4bad,metric5bad, datacount, PC=PC)
 
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
@@ -36,7 +34,7 @@ def setMaxBaseline(df,_prover9):
         wrongCounter,badFormatCounter = _prover9.proveSingleProblem(i,df,wrongCounter,badFormatCounter)
     printScore(badFormatCounter,wrongCounter,0,datacount)
 
-def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
+def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,metric3bad,metric4bad,metric5bad,datacount,PC=False):
     print("---")
     print("- Data information:")
     print("datasize:",datacount)
@@ -48,26 +46,38 @@ def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
     else:
         print("no data?")
         return
-
+    
     print("---")
     print("- Does dfLabel == llmLabel?")
-    if amountBadFormat != 0:
-        print("provenCorrectly out of well formated:  %",(amountBadFormat-amountWrongLabel)/amountBadFormat)
-    else:
-        print("all bad formats :(")
-    correctlyProvenLabel = datacount-amountWrongLabel-badFormatCounter
-    print("correctly proven data out of all:  %",correctlyProvenLabel/datacount)
-    print("correctly proven data count:  ",correctlyProvenLabel)
+    printProvenStats(amountWrongLabel,badFormatCounter,datacount)
 
     print("---")
     print("- Does dfConcl <-> llmConcl?")
-    if amountBadFormat != 0:
-        print("provenCorrectly out of well formated:  %",(amountBadFormat-amountWrongConcl)/amountBadFormat)
+    printProvenStats(amountWrongConcl,badFormatCounter,datacount)
+
+    if not PC:
+        return
+    print("---")
+    print("- Does P => LLMP?")
+    printProvenStats(metric3bad,badFormatCounter,datacount)
+
+    print("---")
+    print("- Does dfPrem+Concl <-> llmPrem+Concl?")
+    printProvenStats(metric4bad,badFormatCounter,datacount)
+    
+    print("---")
+    print("- Does dfPrem+dfConcl <-> llmPrem+llmConcl?")
+    printProvenStats(metric5bad,badFormatCounter,datacount)
+
+def printProvenStats(_amountWrong,_badFormatCounter,_datacount):
+    _amountBadFormat = (_datacount-_badFormatCounter)
+    if _amountBadFormat != 0:
+        print("provenCorrectly out of well formated:  %",(_amountBadFormat-_amountWrong)/_amountBadFormat)
     else:
         print("all bad formats :(")
-    correctlyProvenConcl = datacount-amountWrongConcl-badFormatCounter
-    print("correctly proven data out of all:  %",correctlyProvenConcl/datacount)
-    print("correctly proven data count:  ",correctlyProvenConcl)
+    _correctlyProven = _datacount-_amountWrong-_badFormatCounter
+    print("correctly proven data out of all:  %",_correctlyProven/_datacount)
+    print("correctly proven data count:  ",_correctlyProven)
     #best output for gold data:
     """
         formattedIncorrectly: 185
@@ -83,9 +93,9 @@ def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,datacount):
 
 setGoldCSV = False
 runExperimentGPT = False
-runExperimentGemini = True
+runExperimentGemini = False
 evaluateLLM = False
-evaluateAllLLms = False
+evaluateAllLLms = True
 LLMtest = False
 
 
@@ -127,13 +137,24 @@ if __name__ == '__main__':
         evaluate_df(df,_prover9)
 
     if evaluateAllLLms:
+        # print("Experiment 1: FOL conclusion generation")
+        # print("Gemini")
+        # df = pd.read_json("output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl", lines=True)
+        # evaluate_df(df,_prover9)
+        # print()
+        # print("ChatGPT")
+        # df2 = pd.read_json("output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl", lines=True)
+        # evaluate_df(df2,_prover9)
+        
+        print("Experiment 2: FOL premises + conclusion generation")
         print("Gemini")
-        df = pd.read_json("output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl", lines=True)
-        evaluate_df(df,_prover9)
+        df3 = pd.read_json("output/experiment1/alldata/20260128_203053_gemini_all_cases.jsonl", lines=True) 
+        evaluate_df(df3,_prover9,PC=True)
         print()
         print("ChatGPT")
-        df2 = pd.read_json("output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl", lines=True)
-        evaluate_df(df2,_prover9)
+        df4 = pd.read_json("output/experiment1/alldata/20260128_202827_openai_all_cases.jsonl", lines=True)
+        evaluate_df(df4,_prover9,PC=True)
+
     #results
 
     # Tests the LLM generated FOL directly from a JSON file, used for testing during development

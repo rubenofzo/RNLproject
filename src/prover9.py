@@ -9,6 +9,7 @@ verbose2 = False
 import csv
 import os
 from pathlib import Path
+import traceback
 class Prover9:
     def __init__(self,runid):
         subprocess.run("wget -nv -O prover9.zip https://naturallogic.pro/_files_/download/RNL/prover9_64/prover9_2009_11A_64bit.zip", shell=True)
@@ -24,12 +25,14 @@ class Prover9:
                 f.write("id,NLpremise,NLconclusion,premise-FOL,conclusion-FOL,LLM-conclusion-FOL,label,prover9_answer\n")
 
     # call to prove case i from df, so df[i]
-    def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter,againstLLM=False):
+    def proveSingleProblem(self, i, df, wrongCounter, badFormatCounter,LLMConclusion=False,LLMPremise=False):
         try:
             _premise, _conclusion, _label, _NLpremise, _NLconclusion = fetchFolioRow(i, df)
             orginal_conclusion = _conclusion
-            if againstLLM:
+            if LLMConclusion:
                 _conclusion = df['llm_conclusion-FOL'][i]
+            if LLMPremise:
+                _premise = df['llm_premises-FOL'][i] 
             prover9Answer = self.theoremProve(_premise, _conclusion)
 
             if _label != prover9Answer:
@@ -71,22 +74,6 @@ class Prover9:
 
         return wrongCounter, badFormatCounter
 
-    # return 1 if lable was correct
-    # def idToProve(self,id,_df):
-    #     _premise,_conclusion,_label = datasetTriple(id,_df)
-    #     prover9Answer = self.theoremProve(_premise, _conclusion)
-    #     if _label != prover9Answer:
-    #         if verbose:
-    #             print(id)
-    #             print("old premise & conc")
-    #             print(_premise[0])
-    #             print(_conclusion)
-    #             self.theoremProve(_premise, _conclusion,help=True)
-    #             print(":(",_label," is not ", prover9Answer)
-    #             print()
-    #         return 1
-    #     return 0
-
     def theoremProve(self, premises, conclusion):
 
         if isinstance(premises, str):
@@ -112,7 +99,7 @@ class Prover9:
         # Old proveBothWays(gold, llm) checked equivalence in empty context (no premises),
         # which is too strict and often false even if they mean the same thing in the story.
         # New: check equivalence GIVEN the premises:
-        #   (premises + gold ⊨ llm) AND (premises + llm ⊨ gold)
+        #   (premises + gold => llm) AND (premises + llm => gold)
 
         if isinstance(premises, str):
             premises = premises.split("\n")
@@ -127,39 +114,66 @@ class Prover9:
         def entails(assumptions, goal):
             return str(self.prover9.prove(str2exp(goal), [str2exp(a) for a in assumptions])) == "True"
 
+        # test if Premises + gold entail the same as 
         return entails(P + [G], L) and entails(P + [L], G)
+    
+    def comparePremises(self, llm_premises, gold_premises):
+        # Can the premises be derived from the original set of premises? Is no new (false) info deduced? 
+        if isinstance(llm_premises, str):
+            llm_premises = llm_premises.split("\n")
+        if isinstance(gold_premises, str):
+            gold_premises = gold_premises.split("\n")
+        llm_premises = [clean_line(p) for p in llm_premises if clean_line(p)]
+        gold_premises = [clean_line(p) for p in gold_premises if clean_line(p)]
 
-    def compareConclusion(self,i,df,wrongCounter,badFormatCounter):
+        #print(gold_premises)
+
+        G_P = [folioToProver9(p) for p in gold_premises]
+        L_P = [folioToProver9(p) for p in llm_premises]
+
+
+        def entails(assumptions, goal):
+            return str(self.prover9.prove(str2exp(goal), [str2exp(a) for a in assumptions])) == "True"
+
+        result = True
+        for l_p in L_P:
+            result = result and entails(G_P, l_p)
+
+        # test if Premises + gold entail the same as 
+        return result
+
+    def evaluateConclusion(self,i,df,wrongCounter,badFormatCounter):
         try:
             _premise,_conclusion,_label,_NLpremise,_NLconclusion = fetchFolioRow(i,df)
             _llmconclusion= df['llm_conclusion-FOL'][i]
-
             prover9Answer = self.proveBothWaysUnderPremises(_premise, _conclusion, _llmconclusion)
-
             if not prover9Answer:
-                if verbose2:
-                    print(id)
-                    print("old premise & conc")
-                    print(_premise[0])
-                    print(_conclusion)
-                    print(":(")
-                    print()
                 wrongCounter += 1
-            else:
-                path = f"data/gold-llm/{self.runid}.csv"
-                self.init_csv(path)
-                with open(path, "a", encoding="utf8", newline="") as f:
-                    csv.writer(f).writerow([i, _NLpremise,_NLconclusion,_premise, _conclusion,_llmconclusion, _label])
         except Exception as e: 
-            if verbose:
-                _premise,_conclusion,_label,_,_ = fetchFolioRow(i,df)
-                print("wrong format: ",i)
-                print(repr(e))
-                print(_premise)
-                print(_conclusion)
-                print()
             badFormatCounter += 1
         return wrongCounter,badFormatCounter
+    
+    def evaluatePremises(self,i,df,metric3bad,metric4bad,metric5bad,badFormatCounter):
+        try:
+            _premises,_conclusion,_label,_NLpremise,_NLconclusion = fetchFolioRow(i,df)
+            _llmconclusion= df['llm_conclusion-FOL'][i]
+            _llmpremises= df['llm_premises-FOL'][i]
+            # metric 3
+            metric3Answer = self.comparePremises(_llmpremises, _premises) #verify if premises can logically be derived
+            if not metric3Answer:
+                metric3bad += 1
+            # metric 4
+            # check if label from LLMP + C is same as gold label
+            metric4bad,_ = self.proveSingleProblem(i, df, metric4bad, badFormatCounter,LLMPremise=True)
+            #metric 5 
+            #check if label from LLMP + LLMC is same as gold label
+            metric5bad,_ = self.proveSingleProblem(i, df, metric5bad, badFormatCounter,LLMConclusion=True,LLMPremise=True)
+        except Exception as e: 
+            badFormatCounter += 1
+            # print(repr(e))
+            # traceback.print_exc()
+            # print()
+        return metric3bad,metric4bad,metric5bad,badFormatCounter
         
         
 
