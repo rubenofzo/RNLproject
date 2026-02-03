@@ -45,6 +45,9 @@ All major actions are controlled from `src/main.py` using boolean flags.
 * **`data/gold/gold.csv`**: Contains the preprocessed gold FOLIO subset.
 * **`output/`**: Stores full (`alldata`) and minimal (`results`) JSONL run files.
 * **`Results.md`**: Contains our experiment results of running the LLMs over the FOLIO subset and scored by our Prover9 based metrics
+* **`output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl and output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl`**: Contain the LLM answers for the first experiment
+* **`output/experiment1/alldata/20260128_203053_gemini_all_cases.jsonl and output/experiment1/alldata/20260128_202827_openai_all_cases.jsonl`**: Contain the LLM answers for the second experiment
+
 
 ---
 
