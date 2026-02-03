@@ -6,7 +6,7 @@ This repository contains the full experimental pipeline used in our **Reasoning 
 
 ## What this code does
 
-* **Run NL → FOL translation experiments**: generate Prover9-style first-order logic (premises + conclusion) from natural-language problems using **OpenAI** and **Gemini**.
+* **Run NL → FOL translation experiments**: generate Prover9-style first-order logic (premises + conclusion) from natural-language problems using **OpenAI's GPT-5.1** and **Gemini 2.5 flash**.
 * **Create a “clean gold” subset**: filter the dataset to only instances where the **gold FOL parses** and **Prover9’s inferred label matches** the dataset label.
 * **Automatically verify logic with a theorem prover**: use **Prover9** to classify each problem as **entailed / contradicted / unknown**.
 * **Evaluate LLM outputs quantitatively**:
@@ -42,7 +42,9 @@ All major actions are controlled from `src/main.py` using boolean flags.
 * **`src/fol_clean.py`**: Parses and cleans model responses into FOL strings.
 * **`src/prover9.py`**: Prover9 wrapper, evaluation metrics, and symbol normalization.
 * **`data/`**: Contains raw, gold, and error-log CSV files.
+* **`data/gold/gold.csv`**: Contains the preprocessed gold FOLIO subset.
 * **`output/`**: Stores full (`alldata`) and minimal (`results`) JSONL run files.
+* **`Results.md`**: Contains our experiment results of running the LLMs over the FOLIO subset and scored by our Prover9 based metrics
 
 ---
 
