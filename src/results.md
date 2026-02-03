@@ -53,55 +53,8 @@ provenCorrectly out of well formated:  % 0.7877428998505231
 correctly proven data out of all:  % 0.77046783625731
 correctly proven data count:   527
 
-
 ## Experiment 2: FOL premises + conclusion generation
 Gemini
-Bad format counts not the same??
-13 14
-=== Label check ===
----
-- Data information:
-datasize: 682
-formattedIncorrectly: 14
-ProcentageWellFormated:  % 0.9794721407624634
-WellFormatedDatasize:   668
----
-- Does dfLabel == llmLabel?
-provenCorrectly out of well formated:  % 0.5688622754491018
-correctly proven data out of all:  % 0.5571847507331378
-correctly proven data count:   380
----
-- Does dfConcl <-> llmConcl?
-provenCorrectly out of well formated:  % 0.19161676646706588
-correctly proven data out of all:  % 0.187683284457478
-correctly proven data count:   128
-
-ChatGPT
-Bad format counts not the same??
-16 18
-=== Label check ===
----
-- Data information:
-datasize: 683
-formattedIncorrectly: 18
-ProcentageWellFormated:  % 0.9736456808199122
-WellFormatedDatasize:   665
----
-- Does dfLabel == llmLabel?
-provenCorrectly out of well formated:  % 0.6135338345864662
-correctly proven data out of all:  % 0.5973645680819912
-correctly proven data count:   408
----
-- Does dfConcl <-> llmConcl?
-provenCorrectly out of well formated:  % 0.26917293233082706
-correctly proven data out of all:  % 0.26207906295754024
-correctly proven data count:   179
-
-## exp 2
-Experiment 2: FOL premises + conclusion generation
-Gemini
-Bad format counts not the same??
-13 14 8
 ---
 - Data information:
 datasize: 682

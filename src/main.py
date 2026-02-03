@@ -5,12 +5,11 @@ from prover9 import Prover9
 import pandas as pd
 from datetime import datetime
 from pipeline import Pipeline
-
+#evaluate a complete dataframe, enable PC if premise & conclusion are generated, disable if only conclusions get generated
 def evaluate_df(df,_prover9,PC=False):
     badFormatCounterLabel = badFormatCounterConc = badFormatCounterPrem = 0
-    amountWrongLabel = amountWrongConcl = amountWrongPC =0
+    amountWrongLabel = amountWrongConcl  = 0
     metric3bad = metric4bad = metric5bad = 0
-    # test if all theorems get proves:
     datacount = len(df.index)
     for i in range(datacount):
         amountWrongLabel,badFormatCounterLabel = _prover9.proveSingleProblem(i,df,amountWrongLabel,badFormatCounterLabel,LLMConclusion=True)
@@ -25,15 +24,18 @@ def evaluate_df(df,_prover9,PC=False):
 
     printScore(badFormatCounter, amountWrongLabel, amountWrongConcl,metric3bad,metric4bad,metric5bad, datacount, PC=PC)
 
+# sets the golden dataset. 
+# note that this was used early in development, 
+#   and that this function might not run anymore due to some argument changes
 def setMaxBaseline(df,_prover9):
     badFormatCounter = 0
     wrongCounter = 0
-    # test if all theorems get proves:
     datacount = len(df.index)
     for i in range(datacount):
         wrongCounter,badFormatCounter = _prover9.proveSingleProblem(i,df,wrongCounter,badFormatCounter)
-    printScore(badFormatCounter,wrongCounter,0,datacount)
+    printScore(badFormatCounter,wrongCounter,0,0,0,0,datacount)
 
+# prints out the generated metrics in a nice format
 def printScore(badFormatCounter,amountWrongLabel,amountWrongConcl,metric3bad,metric4bad,metric5bad,datacount,PC=False):
     print("---")
     print("- Data information:")
@@ -78,19 +80,8 @@ def printProvenStats(_amountWrong,_badFormatCounter,_datacount):
     _correctlyProven = _datacount-_amountWrong-_badFormatCounter
     print("correctly proven data out of all:  %",_correctlyProven/_datacount)
     print("correctly proven data count:  ",_correctlyProven)
-    #best output for gold data:
-    """
-        formattedIncorrectly: 185
-        ProcentageWellFormated:  % 0.8463455149501661
-        Maximum baseline
-        provenCorrectly out of well formated:  % 0.6712463199214916
-        correctDatasize:   1019
-        provenCorrectly out of all:  % 0.5681063122923588
-        new golden dataset:   684
-    """
 
 #config
-
 setGoldCSV = False
 runExperimentGPT = False
 runExperimentGemini = False
@@ -131,20 +122,20 @@ if __name__ == '__main__':
         latest_file = max(folder.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
         df = pd.read_json(latest_file, lines=True)
 
-        # Uncomment if specific file is needed
+        # Uncomment for specific file
         # df = pd.read_json(Path("output/experiment1/alldata/20260121_175824_gemini.jsonl"), lines=True)
         # make Prover9 test the LLM conclusion instead of the gold one
         evaluate_df(df,_prover9)
 
     if evaluateAllLLms:
-        # print("Experiment 1: FOL conclusion generation")
-        # print("Gemini")
-        # df = pd.read_json("output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl", lines=True)
-        # evaluate_df(df,_prover9)
-        # print()
-        # print("ChatGPT")
-        # df2 = pd.read_json("output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl", lines=True)
-        # evaluate_df(df2,_prover9)
+        print("Experiment 1: FOL conclusion generation")
+        print("Gemini")
+        df = pd.read_json("output/experiment1/alldata/20260123_174547_gemini_all_cases.jsonl", lines=True)
+        evaluate_df(df,_prover9)
+        print()
+        print("ChatGPT")
+        df2 = pd.read_json("output/experiment1/alldata/20260121_175824_openai_all_cases.jsonl", lines=True)
+        evaluate_df(df2,_prover9)
         
         print("Experiment 2: FOL premises + conclusion generation")
         print("Gemini")
@@ -155,9 +146,7 @@ if __name__ == '__main__':
         df4 = pd.read_json("output/experiment1/alldata/20260128_202827_openai_all_cases.jsonl", lines=True)
         evaluate_df(df4,_prover9,PC=True)
 
-    #results
-
-    # Tests the LLM generated FOL directly from a JSON file, used for testing during development
+    # Tests the LLM generated FOL directly from a JSON file (used for testing during development)
     if LLMtest:
         with open("../llm_fol.json", "r", encoding="utf-8") as f:
             llm_data = json.load(f)
@@ -166,7 +155,6 @@ if __name__ == '__main__':
             premises = i["premises_FOL"] if "premises_FOL" in i else i["premises"]
             concl = i["conclusion_FOL"] if "conclusion_FOL" in i else i["conclusion"]
 
-            # premises is a big newline string in your JSON -> split into lines
             if isinstance(premises, str):
                 premises = [ln.strip() for ln in premises.splitlines() if ln.strip()]
 

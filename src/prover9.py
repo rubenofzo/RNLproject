@@ -275,10 +275,6 @@ def expand_xor(expr):
     return expr
 
 # helper functions
-def _strip_period(x: str) -> str:
-    return re.sub(r"\.\s*$", "", x.strip())
-
-
 def clean_line(s: str) -> str:
     s = str(s).strip()
     s = re.sub(r"\.\s*$", "", s)  # drop trailing period
@@ -293,18 +289,7 @@ def negate(expr: str) -> str:
 def fetchFolioRow(id,_df):
         return _df['premises-FOL'][id],_df['conclusion-FOL'][id],_df['label'][id],_df['premises'][id],_df['conclusion'][id]
 
-#def fetchConclusions(id,_df):
-#    return _df['conclusion-FOL'][id],_df['llm_conclusion-FOL'][id]
-
 def fetchLLManswers(id,_df):
     return _df['llm_premise-FOL'][id],_df['llm_conclusion-FOL'][id]
 
-# def labelToBool(label):
-#     if label == "Uncertain" or label == "False":
-#         return False
-#     elif label == "True":
-#         return True
-#     else:
-#         print("help :(")
-#         print(label)
 
